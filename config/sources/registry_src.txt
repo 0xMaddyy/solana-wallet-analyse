@@ -1,0 +1,1152 @@
+transaction_cost.rs - source
+
+transaction_cost.rs
+
+```
+1//! Opt-in transaction fee, compute-budget, and relay-tip parsing.
+2//!
+3//! These functions are intentionally separate from DEX event parsing. Callers
+4//! that do not request transaction costs incur no instruction scan.
+5
+6use serde::{Deserialize, Serialize};
+7use solana_sdk::{pubkey, pubkey::Pubkey, transaction::VersionedTransaction};
+8use solana_transaction_status::EncodedConfirmedTransactionWithStatusMeta;
+9use yellowstone_grpc_proto::prelude::{InnerInstruction, Transaction, TransactionStatusMeta};
+10
+11use crate::rpc_parser::{convert_rpc_to_grpc_for_parsing, ParseError};
+12
+13const COMPUTE_BUDGET_PROGRAM_ID: Pubkey = pubkey!("ComputeBudget111111111111111111111111111111");
+14const SYSTEM_PROGRAM_ID: Pubkey = pubkey!("11111111111111111111111111111111");
+15const MAX_COMPUTE_UNIT_LIMIT: u32 = 1_400_000;
+16const MICRO_LAMPORTS_PER_LAMPORT: u128 = 1_000_000;
+17const SET_COMPUTE_UNIT_LIMIT_TAG: u8 = 2;
+18const SET_COMPUTE_UNIT_PRICE_TAG: u8 = 3;
+19const REQUEST_HEAP_FRAME_TAG: u8 = 1;
+20const SET_LOADED_ACCOUNTS_DATA_SIZE_LIMIT_TAG: u8 = 4;
+21const SYSTEM_TRANSFER_TAG: [u8; 4] = 2u32.to_le_bytes();
+22
+23/// SWQoS providers supported by `sol-trade-sdk`.
+24#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+25pub enum SwqosProvider {
+26    Jito,
+27    NextBlock,
+28    ZeroSlot,
+29    Temporal,
+30    Bloxroute,
+31    Node1,
+32    FlashBlock,
+33    BlockRazor,
+34    Astralane,
+35    Stellium,
+36    Lightspeed,
+37    Soyas,
+38    Speedlanding,
+39    Helius,
+40    Solami,
+41    LunarLander,
+42    Glaive,
+43}
+44
+45/// A provider and all tip accounts accepted by that provider.
+46#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+47pub struct SwqosTipAccountGroup {
+48    pub provider: SwqosProvider,
+49    pub accounts: &'static [Pubkey],
+50}
+51
+52/// Official Jito block-engine tip accounts used by `sol-trade-sdk`.
+53pub const JITO_TIP_ACCOUNTS: &[Pubkey] = &[
+54    pubkey!("96gYZGLnJYVFmbjzopPSU6QiEV5fGqZNyN9nmNhvrZU5"),
+55    pubkey!("HFqU5x63VTqvQss8hp11i4wVV8bD44PvwucfZ2bU7gRe"),
+56    pubkey!("Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY"),
+57    pubkey!("ADaUMid9yfUytqMBgopwjb2DTLSokTSzL1zt6iGPaS49"),
+58    pubkey!("DfXygSm4jCyNCybVYYK6DwvWqjKee8pbDmJGcLWNDXjh"),
+59    pubkey!("ADuUkR4vqLUMWXxW9gh6D6L8pMSawimctcNZ5pGwDcEt"),
+60    pubkey!("DttWaMuVvTiduZRnguLF7jNxTgiMBZ1hyAumKUiL2KRL"),
+61    pubkey!("3AVi9Tg9Uo68tJfuvoKvqKNWKkC5wPdSSdeBnizKZ6jT"),
+62];
+63
+64pub const HELIUS_TIP_ACCOUNTS: &[Pubkey] = &[
+65    pubkey!("4ACfpUFoaSD9bfPdeu6DBt89gB6ENTeHBXCAi87NhDEE"),
+66    pubkey!("D2L6yPZ2FmmmTKPgzaMKdhu6EWZcTpLy1Vhx8uvZe7NZ"),
+67    pubkey!("9bnz4RShgq1hAnLnZbP8kbgBg1kEmcJBYQq3gQbmnSta"),
+68    pubkey!("5VY91ws6B2hMmBFRsXkoAAdsPHBJwRfBht4DXox3xkwn"),
+69    pubkey!("2nyhqdwKcJZR2vcqCyrYsaPVdAnFoJjiksCXJ7hfEYgD"),
+70    pubkey!("2q5pghRs6arqVjRvT5gfgWfWcHWmw1ZuCzphgd5KfWGJ"),
+71    pubkey!("wyvPkWjVZz1M8fHQnMMCDTQDbkManefNNhweYk5WkcF"),
+72    pubkey!("3KCKozbAaF75qEU33jtzozcJ29yJuaLJTy2jFdzUY8bT"),
+73    pubkey!("4vieeGHPYPG2MmyPRcYjdiDmmhN3ww7hsFNap8pVN3Ey"),
+74    pubkey!("4TQLFNWK8AovT1gFvda5jfw2oJeRMKEmw7aH6MGBJ3or"),
+75];
+76
+77pub const NEXTBLOCK_TIP_ACCOUNTS: &[Pubkey] = &[
+78    pubkey!("NextbLoCkVtMGcV47JzewQdvBpLqT9TxQFozQkN98pE"),
+79    pubkey!("NexTbLoCkWykbLuB1NkjXgFWkX9oAtcoagQegygXXA2"),
+80    pubkey!("NeXTBLoCKs9F1y5PJS9CKrFNNLU1keHW71rfh7KgA1X"),
+81    pubkey!("NexTBLockJYZ7QD7p2byrUa6df8ndV2WSd8GkbWqfbb"),
+82    pubkey!("neXtBLock1LeC67jYd1QdAa32kbVeubsfPNTJC1V5At"),
+83    pubkey!("nEXTBLockYgngeRmRrjDV31mGSekVPqZoMGhQEZtPVG"),
+84    pubkey!("NEXTbLoCkB51HpLBLojQfpyVAMorm3zzKg7w9NFdqid"),
+85    pubkey!("nextBLoCkPMgmG8ZgJtABeScP35qLa2AMCNKntAP7Xc"),
+86];
+87
+88pub const ZEROSLOT_TIP_ACCOUNTS: &[Pubkey] = &[
+89    pubkey!("Eb2KpSC8uMt9GmzyAEm5Eb1AAAgTjRaXWFjKyFXHZxF3"),
+90    pubkey!("FCjUJZ1qozm1e8romw216qyfQMaaWKxWsuySnumVCCNe"),
+91    pubkey!("ENxTEjSQ1YabmUpXAdCgevnHQ9MHdLv8tzFiuiYJqa13"),
+92    pubkey!("6rYLG55Q9RpsPGvqdPNJs4z5WTxJVatMB8zV3WJhs5EK"),
+93    pubkey!("Cix2bHfqPcKcM233mzxbLk14kSggUUiz2A87fJtGivXr"),
+94];
+95
+96pub const NOZOMI_TIP_ACCOUNTS: &[Pubkey] = &[
+97    pubkey!("TEMPaMeCRFAS9EKF53Jd6KpHxgL47uWLcpFArU1Fanq"),
+98    pubkey!("noz3jAjPiHuBPqiSPkkugaJDkJscPuRhYnSpbi8UvC4"),
+99    pubkey!("noz3str9KXfpKknefHji8L1mPgimezaiUyCHYMDv1GE"),
+100    pubkey!("noz6uoYCDijhu1V7cutCpwxNiSovEwLdRHPwmgCGDNo"),
+101    pubkey!("noz9EPNcT7WH6Sou3sr3GGjHQYVkN3DNirpbvDkv9YJ"),
+102    pubkey!("nozc5yT15LazbLTFVZzoNZCwjh3yUtW86LoUyqsBu4L"),
+103    pubkey!("nozFrhfnNGoyqwVuwPAW4aaGqempx4PU6g6D9CJMv7Z"),
+104    pubkey!("nozievPk7HyK1Rqy1MPJwVQ7qQg2QoJGyP71oeDwbsu"),
+105    pubkey!("noznbgwYnBLDHu8wcQVCEw6kDrXkPdKkydGJGNXGvL7"),
+106    pubkey!("nozNVWs5N8mgzuD3qigrCG2UoKxZttxzZ85pvAQVrbP"),
+107    pubkey!("nozpEGbwx4BcGp6pvEdAh1JoC2CQGZdU6HbNP1v2p6P"),
+108    pubkey!("nozrhjhkCr3zXT3BiT4WCodYCUFeQvcdUkM7MqhKqge"),
+109    pubkey!("nozrwQtWhEdrA6W8dkbt9gnUaMs52PdAv5byipnadq3"),
+110    pubkey!("nozUacTVWub3cL4mJmGCYjKZTnE9RbdY5AP46iQgbPJ"),
+111    pubkey!("nozWCyTPppJjRuw2fpzDhhWbW355fzosWSzrrMYB1Qk"),
+112    pubkey!("nozWNju6dY353eMkMqURqwQEoM3SFgEKC6psLCSfUne"),
+113    pubkey!("nozxNBgWohjR75vdspfxR5H9ceC7XXH99xpxhVGt3Bb"),
+114];
+115
+116pub const BLOX_TIP_ACCOUNTS: &[Pubkey] = &[
+117    pubkey!("HWEoBxYs7ssKuudEjzjmpfJVX7Dvi7wescFsVx2L5yoY"),
+118    pubkey!("95cfoy472fcQHaw4tPGBTKpn6ZQnfEPfBgDQx6gcRmRg"),
+119    pubkey!("3UQUKjhMKaY2S6bjcQD6yHB7utcZt5bfarRCmctpRtUd"),
+120    pubkey!("FogxVNs6Mm2w9rnGL1vkARSwJxvLE8mujTv3LK8RnUhF"),
+121];
+122
+123pub const NODE1_TIP_ACCOUNTS: &[Pubkey] = &[
+124    pubkey!("node1PqAa3BWWzUnTHVbw8NJHC874zn9ngAkXjgWEej"),
+125    pubkey!("node1UzzTxAAeBTpfZkQPJXBAqixsbdth11ba1NXLBG"),
+126    pubkey!("node1Qm1bV4fwYnCurP8otJ9s5yrkPq7SPZ5uhj3Tsv"),
+127    pubkey!("node1PUber6SFmSQgvf2ECmXsHP5o3boRSGhvJyPMX1"),
+128    pubkey!("node1AyMbeqiVN6eoQzEAwCA6Pk826hrdqdAHR7cdJ3"),
+129    pubkey!("node1YtWCoTwwVYTFLfS19zquRQzYX332hs1HEuRBjC"),
+130];
+131
+132pub const FLASHBLOCK_TIP_ACCOUNTS: &[Pubkey] = &[
+133    pubkey!("FLaShB3iXXTWE1vu9wQsChUKq3HFtpMAhb8kAh1pf1wi"),
+134    pubkey!("FLashhsorBmM9dLpuq6qATawcpqk1Y2aqaZfkd48iT3W"),
+135    pubkey!("FLaSHJNm5dWYzEgnHJWWJP5ccu128Mu61NJLxUf7mUXU"),
+136    pubkey!("FLaSHR4Vv7sttd6TyDF4yR1bJyAxRwWKbohDytEMu3wL"),
+137    pubkey!("FLASHRzANfcAKDuQ3RXv9hbkBy4WVEKDzoAgxJ56DiE4"),
+138    pubkey!("FLasHstqx11M8W56zrSEqkCyhMCCpr6ze6Mjdvqope5s"),
+139    pubkey!("FLAShWTjcweNT4NSotpjpxAkwxUr2we3eXQGhpTVzRwy"),
+140    pubkey!("FLasHXTqrbNvpWFB6grN47HGZfK6pze9HLNTgbukfPSk"),
+141    pubkey!("FLAshyAyBcKb39KPxSzXcepiS8iDYUhDGwJcJDPX4g2B"),
+142    pubkey!("FLAsHZTRcf3Dy1APaz6j74ebdMC6Xx4g6i9YxjyrDybR"),
+143];
+144
+145pub const BLOCKRAZOR_TIP_ACCOUNTS: &[Pubkey] = &[
+146    pubkey!("FjmZZrFvhnqqb9ThCuMVnENaM3JGVuGWNyCAxRJcFpg9"),
+147    pubkey!("6No2i3aawzHsjtThw81iq1EXPJN6rh8eSJCLaYZfKDTG"),
+148    pubkey!("A9cWowVAiHe9pJfKAj3TJiN9VpbzMUq6E4kEvf5mUT22"),
+149    pubkey!("Gywj98ophM7GmkDdaWs4isqZnDdFCW7B46TXmKfvyqSm"),
+150    pubkey!("68Pwb4jS7eZATjDfhmTXgRJjCiZmw1L7Huy4HNpnxJ3o"),
+151    pubkey!("4ABhJh5rZPjv63RBJBuyWzBK3g9gWMUQdTZP2kiW31V9"),
+152    pubkey!("B2M4NG5eyZp5SBQrSdtemzk5TqVuaWGQnowGaCBt8GyM"),
+153    pubkey!("5jA59cXMKQqZAVdtopv8q3yyw9SYfiE3vUCbt7p8MfVf"),
+154    pubkey!("5YktoWygr1Bp9wiS1xtMtUki1PeYuuzuCF98tqwYxf61"),
+155    pubkey!("295Avbam4qGShBYK7E9H5Ldew4B3WyJGmgmXfiWdeeyV"),
+156    pubkey!("EDi4rSy2LZgKJX74mbLTFk4mxoTgT6F7HxxzG2HBAFyK"),
+157    pubkey!("BnGKHAC386n4Qmv9xtpBVbRaUTKixjBe3oagkPFKtoy6"),
+158    pubkey!("Dd7K2Fp7AtoN8xCghKDRmyqr5U169t48Tw5fEd3wT9mq"),
+159    pubkey!("AP6qExwrbRgBAVaehg4b5xHENX815sMabtBzUzVB4v8S"),
+160];
+161
+162pub const ASTRALANE_TIP_ACCOUNTS: &[Pubkey] = &[
+163    pubkey!("astrazznxsGUhWShqgNtAdfrzP2G83DzcWVJDxwV9bF"),
+164    pubkey!("astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm"),
+165    pubkey!("astra9xWY93QyfG6yM8zwsKsRodscjQ2uU2HKNL5prk"),
+166    pubkey!("astraRVUuTHjpwEVvNBeQEgwYx9w9CFyfxjYoobCZhL"),
+167    pubkey!("astraEJ2fEj8Xmy6KLG7B3VfbKfsHXhHrNdCQx7iGJK"),
+168    pubkey!("astraubkDw81n4LuutzSQ8uzHCv4BhPVhfvTcYv8SKC"),
+169    pubkey!("astraZW5GLFefxNPAatceHhYjfA1ciq9gvfEg2S47xk"),
+170    pubkey!("astrawVNP4xDBKT7rAdxrLYiTSTdqtUr63fSMduivXK"),
+171    pubkey!("AstrA1ejL4UeXC2SBP4cpeEmtcFPZVLxx3XGKXyCW6to"),
+172    pubkey!("AsTra79FET4aCKWspPqeSFvjJNyp96SvAnrmyAxqg5b7"),
+173    pubkey!("AstrABAu8CBTyuPXpV4eSCJ5fePEPnxN8NqBaPKQ9fHR"),
+174    pubkey!("AsTRADtvb6tTmrsqULQ9Wji9PigDMjhfEMza6zkynEvV"),
+175    pubkey!("AsTRAEoyMofR3vUPpf9k68Gsfb6ymTZttEtsAbv8Bk4d"),
+176    pubkey!("AStrAJv2RN2hKCHxwUMtqmSxgdcNZbihCwc1mCSnG83W"),
+177    pubkey!("Astran35aiQUF57XZsmkWMtNCtXGLzs8upfiqXxth2bz"),
+178    pubkey!("AStRAnpi6kFrKypragExgeRoJ1QnKH7pbSjLAKQVWUum"),
+179    pubkey!("ASTRaoF93eYt73TYvwtsv6fMWHWbGmMUZfVZPo3CRU9C"),
+180];
+181
+182pub const STELLIUM_TIP_ACCOUNTS: &[Pubkey] = &[
+183    pubkey!("ste11JV3MLMM7x7EJUM2sXcJC1H7F4jBLnP9a9PG8PH"),
+184    pubkey!("ste11MWPjXCRfQryCshzi86SGhuXjF4Lv6xMXD2AoSt"),
+185    pubkey!("ste11p5x8tJ53H1NbNQsRBg1YNRd4GcVpxtDw8PBpmb"),
+186    pubkey!("ste11p7e2KLYou5bwtt35H7BM6uMdo4pvioGjJXKFcN"),
+187    pubkey!("ste11TMV68LMi1BguM4RQujtbNCZvf1sjsASpqgAvSX"),
+188];
+189
+190pub const LIGHTSPEED_TIP_ACCOUNTS: &[Pubkey] = &[
+191    pubkey!("53PhM3UTdMQWu5t81wcd35AHGc5xpmHoRjem7GQPvXjA"),
+192    pubkey!("9tYF5yPDC1NP8s6diiB3kAX6ZZnva9DM3iDwJkBRarBB"),
+193];
+194
+195pub const SOYAS_TIP_ACCOUNTS: &[Pubkey] = &[
+196    pubkey!("soyas4s6L8KWZ8rsSk1mF3d1mQScoTGGAgjk98bF8nP"),
+197    pubkey!("soyascXFW5wEEYiwfEmHy2pNwomqzvggJosGVD6TJdY"),
+198    pubkey!("soyasDBdKjADwPz3xk82U3TNPRDKEWJj7wWLajNHZ1L"),
+199    pubkey!("soyasE2abjBAynmHbGWgEwk4ctBy7JMTUCNrMbjcnyH"),
+200    pubkey!("soyasi59njacMUPvo3TM5paHjeK8pYSdovXgFi32gRt"),
+201    pubkey!("soyasQYhJxv8uZgWDxhg72td6piAf7XTkoyWHtSATEz"),
+202    pubkey!("soyastP66xyYC8XADXZjdMM5BAVGD2YRvz8dwtLsqb8"),
+203    pubkey!("soyasvdgUJWYcUCzDxpmjUnNjH7KamXLXTzLwFvdVPE"),
+204    pubkey!("soyasvxAunisNxaoRxkKGjNir7KmbwYnr37JmefkX9G"),
+205    pubkey!("soyas5doVFUwH8s5zK8gEvCL5KR5ogDmf52LsrJEZ9h"),
+206];
+207
+208pub const SPEEDLANDING_TIP_ACCOUNTS: &[Pubkey] = &[
+209    pubkey!("SpEEdz8S1KorkMZqjMUxfxrmWwofmp6ReNP2Nx6CUmq"),
+210    pubkey!("SpeeDy3GJM4wcrQmk1itRFWgidvxX4rwjTLMv78wwjE"),
+211    pubkey!("SPeEdva37vW8vRtqgYjprQs1g3965icfVN5Rt7SMAyh"),
+212    pubkey!("speEdrSEpox5GUfHWcBc7tQjRuSfUin2yvB7qoYvvJh"),
+213    pubkey!("SPeEDmkHkN3A2roSZf6aZyEMsmrGqTHKqwP51y2Y4rV"),
+214    pubkey!("SpeedLdTJXh2RKpXEaP8JCxkWoUVXhtdPQ1EnxBJMxc"),
+215    pubkey!("SpEediGKLbbXndSYTzwmz6Z3NDgHQLDcTDEvGFkSMH9"),
+216    pubkey!("speede8xCcUq2Tiv1efXeTuE3k9TDNq8TnGKaKSc6J4"),
+217];
+218
+219pub const SOLAMI_TIP_ACCOUNTS: &[Pubkey] = &[
+220    pubkey!("15qWd4huAkoxvhDsHMfpUn27TW1YBYMMJJ2jkAkbeam"),
+221    pubkey!("9XuGciSwr5wb7dLTQm91JhuBTvj3GG8WjuRDc3obeam"),
+222    pubkey!("kiQioJNyFG7pU36ELLsRKXkeT48kFbk3b6rSgrWbeam"),
+223    pubkey!("kjmVhW1UzJrW2sU5bY5NtZ79jpvjSStsj37Pzmabeam"),
+224    pubkey!("kREnjPWFpt4AHeY5pijPmyXaCrMnbatUQJo7d3Xbeam"),
+225    pubkey!("praRZG6N6MdbsT4EFpKgZJWReZGXQhAMFcH68oCbeam"),
+226    pubkey!("SqoKQKU5uwBxovq3R7yEBxFwptc4z7vwoghU3M9beam"),
+227    pubkey!("sV72TY66T1RfmDSeHPPbwX6wwJ3bBv5hd4ehJ8tbeam"),
+228    pubkey!("swf8MyEeLo7gtRUo27UuJj6naCASUrypU7dbteSbeam"),
+229    pubkey!("uiuaQsxA47JybQAVN4FTfYuoEDkMiXV1r591Aewbeam"),
+230];
+231
+232pub const LUNARLANDER_TIP_ACCOUNTS: &[Pubkey] = &[
+233    pubkey!("moon17L6BgxXRX5uHKudAmqVF96xia9h8ygcmG2sL3F"),
+234    pubkey!("moon26Sek222Md7ZydcAGxoKG832DK36CkLrS3PQY4c"),
+235    pubkey!("moon7fwyajcVstMoBnVy7UBcTx87SBtNoGGAaH2Cb8V"),
+236    pubkey!("moonBtH9HvLHjLqi9ivyrMVKgFUsSfrz9BwQ9khhn1u"),
+237    pubkey!("moonCJg8476LNFLptX1qrK8PdRsA1HD1R6XWyu9MB93"),
+238    pubkey!("moonF2sz7qwAtdETnrgxNbjonnhGGjd6r4W4UC9284s"),
+239    pubkey!("moonKfftMiGSak3cezvhEqvkPSzwrmQxQHXuspC96yj"),
+240    pubkey!("moonQBUKBpkifLcTd78bfxxt4PYLwmJ5admLW6cBBs8"),
+241    pubkey!("moonXwpKwoVkMegt5Bc776cSW793X1irL5hHV1vJ3JA"),
+242    pubkey!("moonZ6u9E2fgk6eWd82621eLPHt9zuJuYECXAYjMY1C"),
+243];
+244
+245pub const GLAIVE_TIP_ACCOUNTS: &[Pubkey] = &[
+246    pubkey!("GLaiv4GMRYQmthatDS98uQT4HoucgxWT8NeJz6oSwxeU"),
+247    pubkey!("GLaivL5uPrDpvd1wTtvat38KGqb5WLhEdqQfnmNd3oNr"),
+248    pubkey!("GLaivinAWh21NaJMhtExtD5G2gZs1xnvaYVZmwqobWZL"),
+249    pubkey!("GLaivJSUL71FcocYa8tks5vpVyYzvaDMHtyrzfQF2ABr"),
+250    pubkey!("GLaivRU6eDKrta3p3psFAWPEFLzCjeMHGpPUuQqTjtyv"),
+251    pubkey!("GLaivq5dU8qHayz9Qf13LjPfVy3SmUhbmickfGiZdmfh"),
+252];
+253
+254/// Complete provider-aware tip registry mirrored from `sol-trade-sdk`.
+255pub const SWQOS_TIP_ACCOUNT_GROUPS: &[SwqosTipAccountGroup] = &[
+256    SwqosTipAccountGroup { provider: SwqosProvider::Jito, accounts: JITO_TIP_ACCOUNTS },
+257    SwqosTipAccountGroup { provider: SwqosProvider::NextBlock, accounts: NEXTBLOCK_TIP_ACCOUNTS },
+258    SwqosTipAccountGroup { provider: SwqosProvider::ZeroSlot, accounts: ZEROSLOT_TIP_ACCOUNTS },
+259    SwqosTipAccountGroup { provider: SwqosProvider::Temporal, accounts: NOZOMI_TIP_ACCOUNTS },
+260    SwqosTipAccountGroup { provider: SwqosProvider::Bloxroute, accounts: BLOX_TIP_ACCOUNTS },
+261    SwqosTipAccountGroup { provider: SwqosProvider::Node1, accounts: NODE1_TIP_ACCOUNTS },
+262    SwqosTipAccountGroup { provider: SwqosProvider::FlashBlock, accounts: FLASHBLOCK_TIP_ACCOUNTS },
+263    SwqosTipAccountGroup { provider: SwqosProvider::BlockRazor, accounts: BLOCKRAZOR_TIP_ACCOUNTS },
+264    SwqosTipAccountGroup { provider: SwqosProvider::Astralane, accounts: ASTRALANE_TIP_ACCOUNTS },
+265    SwqosTipAccountGroup { provider: SwqosProvider::Stellium, accounts: STELLIUM_TIP_ACCOUNTS },
+266    SwqosTipAccountGroup { provider: SwqosProvider::Lightspeed, accounts: LIGHTSPEED_TIP_ACCOUNTS },
+267    SwqosTipAccountGroup { provider: SwqosProvider::Soyas, accounts: SOYAS_TIP_ACCOUNTS },
+268    SwqosTipAccountGroup {
+269        provider: SwqosProvider::Speedlanding,
+270        accounts: SPEEDLANDING_TIP_ACCOUNTS,
+271    },
+272    SwqosTipAccountGroup { provider: SwqosProvider::Helius, accounts: HELIUS_TIP_ACCOUNTS },
+273    SwqosTipAccountGroup { provider: SwqosProvider::Solami, accounts: SOLAMI_TIP_ACCOUNTS },
+274    SwqosTipAccountGroup {
+275        provider: SwqosProvider::LunarLander,
+276        accounts: LUNARLANDER_TIP_ACCOUNTS,
+277    },
+278    SwqosTipAccountGroup { provider: SwqosProvider::Glaive, accounts: GLAIVE_TIP_ACCOUNTS },
+279];
+280
+281#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+282pub struct TipPayment {
+283    pub provider: SwqosProvider,
+284    pub source: Pubkey,
+285    pub recipient: Pubkey,
+286    pub lamports: u64,
+287}
+288
+289#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+290pub struct TransactionCost {
+291    /// Authoritative transaction fee from status metadata, including priority fee.
+292    pub transaction_fee_lamports: Option<u64>,
+293    /// Sum of transaction fee and recognized relay tips.
+294    pub total_fee_and_tip_lamports: Option<u64>,
+295    pub compute_units_consumed: Option<u64>,
+296    pub compute_unit_limit: Option<u32>,
+297    pub compute_unit_price_micro_lamports: Option<u64>,
+298    /// Requested maximum loaded account data in bytes. `None` means no explicit request.
+299    #[serde(default)]
+300    pub loaded_accounts_data_size_limit: Option<u32>,
+301    /// Requested heap size in bytes. `None` means no explicit request (V1 uses 32 KiB).
+302    #[serde(default)]
+303    pub heap_size: Option<u32>,
+304    /// Requested priority fee, rounded up with Solana runtime semantics.
+305    pub priority_fee_lamports: Option<u64>,
+306    /// `true` when status metadata confirms the transaction succeeded.
+307    pub tip_payments_confirmed: bool,
+308    pub tip_lamports: u64,
+309    pub tip_payments: Vec<TipPayment>,
+310}
+311
+312impl TransactionCost {
+313    /// Returns the total tip paid to a specific provider.
+314    #[inline]
+315    pub fn tip_lamports_for(&self, provider: SwqosProvider) -> u64 {
+316        self.tip_payments
+317            .iter()
+318            .filter(|payment| payment.provider == provider)
+319            .fold(0u64, |total, payment| total.saturating_add(payment.lamports))
+320    }
+321}
+322
+323#[derive(Default)]
+324struct ScanState {
+325    compute_unit_limit: Option<u32>,
+326    compute_unit_price_micro_lamports: Option<u64>,
+327    loaded_accounts_data_size_limit: Option<u32>,
+328    heap_size: Option<u32>,
+329    direct_priority_fee_lamports: Option<u64>,
+330    is_v1: bool,
+331    seen_compute_budget_tags: u8,
+332    invalid_compute_budget: bool,
+333    tip_lamports: u64,
+334    tip_payments: Vec<TipPayment>,
+335}
+336
+337impl ScanState {
+338    #[inline]
+339    fn with_v1_fields(
+340        compute_unit_limit: Option<u32>,
+341        priority_fee: Option<u64>,
+342        loaded_accounts_data_size_limit: Option<u32>,
+343        heap_size: Option<u32>,
+344    ) -> Self {
+345        Self {
+346            compute_unit_limit,
+347            direct_priority_fee_lamports: priority_fee,
+348            loaded_accounts_data_size_limit,
+349            heap_size,
+350            is_v1: true,
+351            ..Self::default()
+352        }
+353    }
+354
+355    #[inline]
+356    fn finish(
+357        mut self,
+358        transaction_fee_lamports: Option<u64>,
+359        compute_units_consumed: Option<u64>,
+360        tip_payments_confirmed: bool,
+361    ) -> TransactionCost {
+362        if self.invalid_compute_budget {
+363            self.compute_unit_limit = None;
+364            self.compute_unit_price_micro_lamports = None;
+365            self.loaded_accounts_data_size_limit = None;
+366            self.heap_size = None;
+367        }
+368        let priority_fee_lamports = self.direct_priority_fee_lamports.or_else(|| {
+369            self.compute_unit_limit.zip(self.compute_unit_price_micro_lamports).map(
+370                |(limit, price)| priority_fee_lamports(limit.min(MAX_COMPUTE_UNIT_LIMIT), price),
+371            )
+372        });
+373        TransactionCost {
+374            transaction_fee_lamports,
+375            total_fee_and_tip_lamports: transaction_fee_lamports
+376                .map(|fee| fee.saturating_add(self.tip_lamports)),
+377            compute_units_consumed,
+378            compute_unit_limit: self.compute_unit_limit,
+379            compute_unit_price_micro_lamports: self.compute_unit_price_micro_lamports,
+380            loaded_accounts_data_size_limit: self.loaded_accounts_data_size_limit,
+381            heap_size: self.heap_size,
+382            priority_fee_lamports,
+383            tip_payments_confirmed,
+384            tip_lamports: self.tip_lamports,
+385            tip_payments: self.tip_payments,
+386        }
+387    }
+388}
+389
+390/// Parses costs from a binary-encoded RPC transaction response.
+391pub fn parse_rpc_transaction_cost(
+392    transaction: &EncodedConfirmedTransactionWithStatusMeta,
+393) -> Result<TransactionCost, ParseError> {
+394    let (meta, transaction) = convert_rpc_to_grpc_for_parsing(transaction)?;
+395    parse_yellowstone_transaction_cost(&transaction, &meta)
+396        .ok_or_else(|| ParseError::MissingField("transaction.message".to_string()))
+397}
+398
+399/// Parses costs from a Yellowstone transaction, including ALT-loaded accounts
+400/// and inner System Program transfers. Returns `None` when the transaction
+401/// message is absent.
+402pub fn parse_yellowstone_transaction_cost(
+403    transaction: &Transaction,
+404    meta: &TransactionStatusMeta,
+405) -> Option<TransactionCost> {
+406    let message = transaction.message.as_ref()?;
+407    let get_key = |index: usize| {
+408        let static_len = message.account_keys.len();
+409        if index < static_len {
+410            return pubkey_from_bytes(message.account_keys.get(index)?);
+411        }
+412        let writable_index = index - static_len;
+413        if writable_index < meta.loaded_writable_addresses.len() {
+414            return pubkey_from_bytes(meta.loaded_writable_addresses.get(writable_index)?);
+415        }
+416        let readonly_index = writable_index - meta.loaded_writable_addresses.len();
+417        pubkey_from_bytes(meta.loaded_readonly_addresses.get(readonly_index)?)
+418    };
+419
+420    let mut state = message
+421        .config
+422        .as_ref()
+423        .map(|config| {
+424            ScanState::with_v1_fields(
+425                config.compute_unit_limit,
+426                config.priority_fee,
+427                config.loaded_accounts_data_size_limit,
+428                config.heap_size,
+429            )
+430        })
+431        .unwrap_or_default();
+432    for instruction in &message.instructions {
+433        scan_instruction(
+434            instruction.program_id_index as usize,
+435            &instruction.accounts,
+436            &instruction.data,
+437            &get_key,
+438            meta.err.is_none(),
+439            &mut state,
+440        );
+441    }
+442    if meta.err.is_none() {
+443        for group in &meta.inner_instructions {
+444            for instruction in &group.instructions {
+445                scan_inner_tip(instruction, &get_key, &mut state);
+446            }
+447        }
+448    }
+449
+450    Some(state.finish(Some(meta.fee), meta.compute_units_consumed, meta.err.is_none()))
+451}
+452
+453/// Parses requested compute budget and outer relay tips from a ShredStream
+454/// transaction. Transaction status metadata and ALT-loaded addresses are not
+455/// present in shred entries, so fee and consumed-CU fields remain `None` and
+456/// tips whose recipient is ALT-loaded cannot be recognized.
+457pub fn parse_shred_transaction_cost(transaction: &VersionedTransaction) -> TransactionCost {
+458    let message = &transaction.message;
+459    let static_keys = message.static_account_keys();
+460    let get_key = |index: usize| static_keys.get(index).copied();
+461    let mut state = match message {
+462        solana_sdk::message::VersionedMessage::V1(message) => ScanState::with_v1_fields(
+463            message.config.compute_unit_limit,
+464            message.config.priority_fee,
+465            message.config.loaded_accounts_data_size_limit,
+466            message.config.heap_size,
+467        ),
+468        solana_sdk::message::VersionedMessage::Legacy(_)
+469        | solana_sdk::message::VersionedMessage::V0(_) => ScanState::default(),
+470    };
+471    for instruction in message.instructions() {
+472        scan_instruction(
+473            instruction.program_id_index as usize,
+474            &instruction.accounts,
+475            &instruction.data,
+476            &get_key,
+477            true,
+478            &mut state,
+479        );
+480    }
+481    state.finish(None, None, false)
+482}
+483
+484#[inline]
+485fn scan_inner_tip<F>(instruction: &InnerInstruction, get_key: &F, state: &mut ScanState)
+486where
+487    F: Fn(usize) -> Option<Pubkey>,
+488{
+489    let Some(program_id) = get_key(instruction.program_id_index as usize) else {
+490        return;
+491    };
+492    if program_id == SYSTEM_PROGRAM_ID {
+493        scan_system_transfer(&instruction.accounts, &instruction.data, get_key, state);
+494    }
+495}
+496
+497#[inline]
+498fn scan_instruction<F>(
+499    program_id_index: usize,
+500    accounts: &[u8],
+501    data: &[u8],
+502    get_key: &F,
+503    scan_tips: bool,
+504    state: &mut ScanState,
+505) where
+506    F: Fn(usize) -> Option<Pubkey>,
+507{
+508    let Some(program_id) = get_key(program_id_index) else {
+509        return;
+510    };
+511    if program_id == COMPUTE_BUDGET_PROGRAM_ID && !state.is_v1 {
+512        scan_compute_budget(data, state);
+513    } else if scan_tips && program_id == SYSTEM_PROGRAM_ID {
+514        scan_system_transfer(accounts, data, get_key, state);
+515    }
+516}
+517
+518#[inline]
+519fn scan_compute_budget(data: &[u8], state: &mut ScanState) {
+520    let Some(tag) = data.first().copied() else {
+521        state.invalid_compute_budget = true;
+522        return;
+523    };
+524    if tag > SET_LOADED_ACCOUNTS_DATA_SIZE_LIMIT_TAG {
+525        state.invalid_compute_budget = true;
+526        return;
+527    }
+528    let tag_mask = 1u8 << tag;
+529    if state.seen_compute_budget_tags & tag_mask != 0 {
+530        state.invalid_compute_budget = true;
+531        return;
+532    }
+533    state.seen_compute_budget_tags |= tag_mask;
+534
+535    match tag {
+536        SET_COMPUTE_UNIT_LIMIT_TAG => {
+537            let Some(value) = read_u32_exact(data) else {
+538                state.invalid_compute_budget = true;
+539                return;
+540            };
+541            state.compute_unit_limit = Some(value);
+542        }
+543        SET_COMPUTE_UNIT_PRICE_TAG => {
+544            let Some(value) = read_u64_exact(data) else {
+545                state.invalid_compute_budget = true;
+546                return;
+547            };
+548            state.compute_unit_price_micro_lamports = Some(value);
+549        }
+550        REQUEST_HEAP_FRAME_TAG => {
+551            let Some(value) = read_u32_exact(data) else {
+552                state.invalid_compute_budget = true;
+553                return;
+554            };
+555            state.heap_size = Some(value);
+556        }
+557        SET_LOADED_ACCOUNTS_DATA_SIZE_LIMIT_TAG => {
+558            let Some(value) = read_u32_exact(data) else {
+559                state.invalid_compute_budget = true;
+560                return;
+561            };
+562            state.loaded_accounts_data_size_limit = Some(value);
+563        }
+564        _ => state.invalid_compute_budget = true,
+565    }
+566}
+567
+568#[inline]
+569fn scan_system_transfer<F>(accounts: &[u8], data: &[u8], get_key: &F, state: &mut ScanState)
+570where
+571    F: Fn(usize) -> Option<Pubkey>,
+572{
+573    if data.len() != 12 || data.get(..4) != Some(SYSTEM_TRANSFER_TAG.as_slice()) {
+574        return;
+575    }
+576    let Some(source) = accounts.first().and_then(|index| get_key(*index as usize)) else {
+577        return;
+578    };
+579    let Some(recipient) = accounts.get(1).and_then(|index| get_key(*index as usize)) else {
+580        return;
+581    };
+582    let Some(provider) = find_tip_provider(&recipient) else {
+583        return;
+584    };
+585    let lamports = u64::from_le_bytes(data[4..12].try_into().expect("validated transfer length"));
+586    state.tip_lamports = state.tip_lamports.saturating_add(lamports);
+587    state.tip_payments.push(TipPayment { provider, source, recipient, lamports });
+588}
+589
+590#[inline]
+591fn find_tip_provider(recipient: &Pubkey) -> Option<SwqosProvider> {
+592    SWQOS_TIP_ACCOUNT_GROUPS
+593        .iter()
+594        .find(|group| group.accounts.contains(recipient))
+595        .map(|group| group.provider)
+596}
+597
+598#[inline]
+599fn priority_fee_lamports(compute_unit_limit: u32, micro_lamports: u64) -> u64 {
+600    let fee = (compute_unit_limit as u128).saturating_mul(micro_lamports as u128);
+601    fee.saturating_add(MICRO_LAMPORTS_PER_LAMPORT - 1)
+602        .checked_div(MICRO_LAMPORTS_PER_LAMPORT)
+603        .and_then(|value| u64::try_from(value).ok())
+604        .unwrap_or(u64::MAX)
+605}
+606
+607#[inline]
+608fn read_u32_exact(data: &[u8]) -> Option<u32> {
+609    (data.len() == 5).then(|| u32::from_le_bytes(data[1..5].try_into().unwrap()))
+610}
+611
+612#[inline]
+613fn read_u64_exact(data: &[u8]) -> Option<u64> {
+614    (data.len() == 9).then(|| u64::from_le_bytes(data[1..9].try_into().unwrap()))
+615}
+616
+617#[inline]
+618fn pubkey_from_bytes(bytes: &[u8]) -> Option<Pubkey> {
+619    Pubkey::try_from(bytes).ok()
+620}
+621
+622#[cfg(test)]
+623mod tests {
+624    use super::*;
+625    use base64::Engine as _;
+626    use solana_client::rpc_response::UiTransactionError;
+627    use solana_sdk::{
+628        hash::Hash,
+629        message::{
+630            compiled_instruction::CompiledInstruction as SdkInstruction, v0, v1, MessageHeader,
+631            VersionedMessage,
+632        },
+633        signature::Signature,
+634    };
+635    use solana_transaction_status::{
+636        option_serializer::OptionSerializer, EncodedConfirmedTransactionWithStatusMeta,
+637        EncodedTransaction, EncodedTransactionWithStatusMeta, TransactionBinaryEncoding,
+638        UiTransactionStatusMeta,
+639    };
+640    use yellowstone_grpc_proto::prelude::{
+641        CompiledInstruction, InnerInstructions, Message, TransactionError, TransactionStatusMeta,
+642    };
+643
+644    fn compute_limit(units: u32) -> Vec<u8> {
+645        let mut data = vec![SET_COMPUTE_UNIT_LIMIT_TAG];
+646        data.extend_from_slice(&units.to_le_bytes());
+647        data
+648    }
+649
+650    fn compute_price(micro_lamports: u64) -> Vec<u8> {
+651        let mut data = vec![SET_COMPUTE_UNIT_PRICE_TAG];
+652        data.extend_from_slice(&micro_lamports.to_le_bytes());
+653        data
+654    }
+655
+656    fn heap_size(bytes: u32) -> Vec<u8> {
+657        let mut data = vec![REQUEST_HEAP_FRAME_TAG];
+658        data.extend_from_slice(&bytes.to_le_bytes());
+659        data
+660    }
+661
+662    fn loaded_accounts_data_size_limit(bytes: u32) -> Vec<u8> {
+663        let mut data = vec![SET_LOADED_ACCOUNTS_DATA_SIZE_LIMIT_TAG];
+664        data.extend_from_slice(&bytes.to_le_bytes());
+665        data
+666    }
+667
+668    fn transfer(lamports: u64) -> Vec<u8> {
+669        let mut data = SYSTEM_TRANSFER_TAG.to_vec();
+670        data.extend_from_slice(&lamports.to_le_bytes());
+671        data
+672    }
+673
+674    fn grpc_instruction(
+675        program_id_index: u32,
+676        accounts: Vec<u8>,
+677        data: Vec<u8>,
+678    ) -> CompiledInstruction {
+679        CompiledInstruction { program_id_index, accounts, data }
+680    }
+681
+682    fn v1_transaction() -> VersionedTransaction {
+683        let source = Pubkey::new_unique();
+684        VersionedTransaction {
+685            signatures: vec![Signature::from([7; 64])],
+686            message: VersionedMessage::V1(v1::Message {
+687                header: MessageHeader {
+688                    num_required_signatures: 1,
+689                    num_readonly_signed_accounts: 0,
+690                    num_readonly_unsigned_accounts: 2,
+691                },
+692                config: v1::TransactionConfig::empty()
+693                    .with_compute_unit_limit(234_567)
+694                    .with_priority_fee(4_321)
+695                    .with_loaded_accounts_data_size_limit(1_048_576)
+696                    .with_heap_size(65_536),
+697                lifetime_specifier: Hash::new_unique(),
+698                account_keys: vec![
+699                    source,
+700                    JITO_TIP_ACCOUNTS[0],
+701                    SYSTEM_PROGRAM_ID,
+702                    COMPUTE_BUDGET_PROGRAM_ID,
+703                ],
+704                instructions: vec![
+705                    SdkInstruction::new_from_raw_parts(3, compute_limit(999_999), vec![]),
+706                    SdkInstruction::new_from_raw_parts(3, compute_price(999_999), vec![]),
+707                    SdkInstruction::new_from_raw_parts(2, transfer(42), vec![0, 1]),
+708                ],
+709            }),
+710        }
+711    }
+712
+713    #[test]
+714    fn yellowstone_parser_reads_fee_compute_budget_and_known_tip() {
+715        let source = Pubkey::new_unique();
+716        let ordinary_recipient = Pubkey::new_unique();
+717        let keys = [source, COMPUTE_BUDGET_PROGRAM_ID, SYSTEM_PROGRAM_ID, ordinary_recipient];
+718        let transaction = Transaction {
+719            signatures: vec![vec![0; 64]],
+720            message: Some(Message {
+721                account_keys: keys.iter().map(|key| key.to_bytes().to_vec()).collect(),
+722                instructions: vec![
+723                    grpc_instruction(1, vec![], compute_limit(300_000)),
+724                    grpc_instruction(1, vec![], compute_price(12_345)),
+725                    grpc_instruction(1, vec![], loaded_accounts_data_size_limit(2_097_152)),
+726                    grpc_instruction(1, vec![], heap_size(131_072)),
+727                    grpc_instruction(2, vec![0, 3], transfer(99_999)),
+728                    grpc_instruction(2, vec![0, 4], transfer(137_273)),
+729                ],
+730                ..Default::default()
+731            }),
+732        };
+733        let meta = TransactionStatusMeta {
+734            fee: 8_704,
+735            compute_units_consumed: Some(135_026),
+736            loaded_writable_addresses: vec![JITO_TIP_ACCOUNTS[0].to_bytes().to_vec()],
+737            ..Default::default()
+738        };
+739
+740        let cost =
+741            parse_yellowstone_transaction_cost(&transaction, &meta).expect("transaction cost");
+742
+743        assert_eq!(cost.transaction_fee_lamports, Some(8_704));
+744        assert_eq!(cost.compute_units_consumed, Some(135_026));
+745        assert_eq!(cost.compute_unit_limit, Some(300_000));
+746        assert_eq!(cost.compute_unit_price_micro_lamports, Some(12_345));
+747        assert_eq!(cost.loaded_accounts_data_size_limit, Some(2_097_152));
+748        assert_eq!(cost.heap_size, Some(131_072));
+749        assert_eq!(cost.priority_fee_lamports, Some(3_704));
+750        assert!(cost.tip_payments_confirmed);
+751        assert_eq!(cost.tip_lamports, 137_273);
+752        assert_eq!(cost.total_fee_and_tip_lamports, Some(145_977));
+753        assert_eq!(cost.tip_payments.len(), 1);
+754        assert_eq!(cost.tip_payments[0].provider, SwqosProvider::Jito);
+755        assert_eq!(cost.tip_payments[0].recipient, JITO_TIP_ACCOUNTS[0]);
+756        assert_eq!(cost.tip_lamports_for(SwqosProvider::Jito), 137_273);
+757    }
+758
+759    #[test]
+760    fn legacy_priority_fee_uses_runtime_clamp_but_exposes_requested_limit() {
+761        let transaction = Transaction {
+762            signatures: vec![],
+763            message: Some(Message {
+764                account_keys: vec![COMPUTE_BUDGET_PROGRAM_ID.to_bytes().to_vec()],
+765                instructions: vec![
+766                    grpc_instruction(0, vec![], compute_limit(2_000_000)),
+767                    grpc_instruction(0, vec![], compute_price(1_000_000)),
+768                ],
+769                ..Default::default()
+770            }),
+771        };
+772
+773        let cost =
+774            parse_yellowstone_transaction_cost(&transaction, &TransactionStatusMeta::default())
+775                .expect("transaction cost");
+776
+777        assert_eq!(cost.compute_unit_limit, Some(2_000_000));
+778        assert_eq!(cost.priority_fee_lamports, Some(1_400_000));
+779    }
+780
+781    #[test]
+782    fn malformed_duplicate_and_out_of_bounds_instructions_do_not_panic_or_misreport() {
+783        let keys = [COMPUTE_BUDGET_PROGRAM_ID, SYSTEM_PROGRAM_ID];
+784        let transaction = Transaction {
+785            signatures: vec![],
+786            message: Some(Message {
+787                account_keys: keys.iter().map(|key| key.to_bytes().to_vec()).collect(),
+788                instructions: vec![
+789                    grpc_instruction(0, vec![], compute_limit(100_000)),
+790                    grpc_instruction(0, vec![], compute_limit(200_000)),
+791                    grpc_instruction(0, vec![], vec![SET_COMPUTE_UNIT_PRICE_TAG, 1]),
+792                    grpc_instruction(1, vec![254, 253], transfer(1_000)),
+793                    grpc_instruction(250, vec![], vec![]),
+794                ],
+795                ..Default::default()
+796            }),
+797        };
+798
+799        let cost =
+800            parse_yellowstone_transaction_cost(&transaction, &TransactionStatusMeta::default())
+801                .expect("transaction cost");
+802
+803        assert_eq!(cost.compute_unit_limit, None);
+804        assert_eq!(cost.compute_unit_price_micro_lamports, None);
+805        assert_eq!(cost.loaded_accounts_data_size_limit, None);
+806        assert_eq!(cost.heap_size, None);
+807        assert_eq!(cost.priority_fee_lamports, None);
+808        assert_eq!(cost.tip_lamports, 0);
+809    }
+810
+811    #[test]
+812    fn yellowstone_parser_sums_outer_and_inner_tip_payments() {
+813        let source = Pubkey::new_unique();
+814        let keys = [source, SYSTEM_PROGRAM_ID, JITO_TIP_ACCOUNTS[0], GLAIVE_TIP_ACCOUNTS[0]];
+815        let transaction = Transaction {
+816            signatures: vec![],
+817            message: Some(Message {
+818                account_keys: keys.iter().map(|key| key.to_bytes().to_vec()).collect(),
+819                instructions: vec![grpc_instruction(1, vec![0, 2], transfer(10))],
+820                ..Default::default()
+821            }),
+822        };
+823        let meta = TransactionStatusMeta {
+824            inner_instructions: vec![InnerInstructions {
+825                index: 0,
+826                instructions: vec![InnerInstruction {
+827                    program_id_index: 1,
+828                    accounts: vec![0, 3],
+829                    data: transfer(20),
+830                    stack_height: Some(2),
+831                }],
+832            }],
+833            ..Default::default()
+834        };
+835
+836        let cost =
+837            parse_yellowstone_transaction_cost(&transaction, &meta).expect("transaction cost");
+838
+839        assert_eq!(cost.tip_lamports, 30);
+840        assert_eq!(cost.tip_payments.len(), 2);
+841        assert_eq!(cost.tip_lamports_for(SwqosProvider::Jito), 10);
+842        assert_eq!(cost.tip_lamports_for(SwqosProvider::Glaive), 20);
+843    }
+844
+845    #[test]
+846    fn failed_transaction_does_not_report_rolled_back_tips() {
+847        let source = Pubkey::new_unique();
+848        let keys = [source, SYSTEM_PROGRAM_ID, JITO_TIP_ACCOUNTS[0]];
+849        let transaction = Transaction {
+850            signatures: vec![],
+851            message: Some(Message {
+852                account_keys: keys.iter().map(|key| key.to_bytes().to_vec()).collect(),
+853                instructions: vec![grpc_instruction(1, vec![0, 2], transfer(500))],
+854                ..Default::default()
+855            }),
+856        };
+857        let meta = TransactionStatusMeta {
+858            err: Some(TransactionError { err: vec![1] }),
+859            fee: 5_000,
+860            ..Default::default()
+861        };
+862
+863        let cost =
+864            parse_yellowstone_transaction_cost(&transaction, &meta).expect("transaction cost");
+865
+866        assert_eq!(cost.transaction_fee_lamports, Some(5_000));
+867        assert!(!cost.tip_payments_confirmed);
+868        assert_eq!(cost.tip_lamports, 0);
+869        assert!(cost.tip_payments.is_empty());
+870    }
+871
+872    #[test]
+873    fn inner_compute_budget_instruction_does_not_set_transaction_budget() {
+874        let keys = [COMPUTE_BUDGET_PROGRAM_ID];
+875        let transaction = Transaction {
+876            signatures: vec![],
+877            message: Some(Message {
+878                account_keys: keys.iter().map(|key| key.to_bytes().to_vec()).collect(),
+879                ..Default::default()
+880            }),
+881        };
+882        let meta = TransactionStatusMeta {
+883            inner_instructions: vec![InnerInstructions {
+884                index: 0,
+885                instructions: vec![InnerInstruction {
+886                    program_id_index: 0,
+887                    accounts: vec![],
+888                    data: compute_limit(999_999),
+889                    stack_height: Some(2),
+890                }],
+891            }],
+892            ..Default::default()
+893        };
+894
+895        let cost =
+896            parse_yellowstone_transaction_cost(&transaction, &meta).expect("transaction cost");
+897
+898        assert_eq!(cost.compute_unit_limit, None);
+899    }
+900
+901    #[test]
+902    fn shred_parser_exposes_requested_costs_without_status_metadata() {
+903        let source = Pubkey::new_unique();
+904        let keys = vec![source, COMPUTE_BUDGET_PROGRAM_ID, SYSTEM_PROGRAM_ID, JITO_TIP_ACCOUNTS[0]];
+905        let transaction = VersionedTransaction {
+906            signatures: vec![Signature::default()],
+907            message: VersionedMessage::V0(v0::Message {
+908                header: MessageHeader::default(),
+909                account_keys: keys,
+910                recent_blockhash: Hash::default(),
+911                instructions: vec![
+912                    SdkInstruction::new_from_raw_parts(1, compute_limit(200_000), vec![]),
+913                    SdkInstruction::new_from_raw_parts(1, compute_price(5_001), vec![]),
+914                    SdkInstruction::new_from_raw_parts(2, transfer(42), vec![0, 3]),
+915                ],
+916                address_table_lookups: vec![],
+917            }),
+918        };
+919
+920        let cost = parse_shred_transaction_cost(&transaction);
+921
+922        assert_eq!(cost.transaction_fee_lamports, None);
+923        assert_eq!(cost.compute_units_consumed, None);
+924        assert!(!cost.tip_payments_confirmed);
+925        assert_eq!(cost.priority_fee_lamports, Some(1_001));
+926        assert_eq!(cost.tip_lamports, 42);
+927    }
+928
+929    #[test]
+930    fn v1_shred_cost_uses_inline_config_and_ignores_compute_budget_instructions() {
+931        let transaction = v1_transaction();
+932        let bytes = wincode::serialize(&transaction).expect("serialize V1 transaction");
+933        let decoded: VersionedTransaction =
+934            wincode::deserialize(&bytes).expect("deserialize V1 transaction");
+935
+936        assert_eq!(decoded, transaction);
+937        let cost = parse_shred_transaction_cost(&decoded);
+938        assert_eq!(cost.compute_unit_limit, Some(234_567));
+939        assert_eq!(cost.compute_unit_price_micro_lamports, None);
+940        assert_eq!(cost.loaded_accounts_data_size_limit, Some(1_048_576));
+941        assert_eq!(cost.heap_size, Some(65_536));
+942        assert_eq!(cost.priority_fee_lamports, Some(4_321));
+943        assert_eq!(cost.tip_lamports, 42);
+944    }
+945
+946    #[test]
+947    fn yellowstone_v1_cost_uses_inline_config_and_ignores_compute_budget_instructions() {
+948        let transaction = Transaction {
+949            signatures: vec![],
+950            message: Some(Message {
+951                account_keys: vec![COMPUTE_BUDGET_PROGRAM_ID.to_bytes().to_vec()],
+952                instructions: vec![
+953                    grpc_instruction(0, vec![], compute_limit(999_999)),
+954                    grpc_instruction(0, vec![], compute_price(999_999)),
+955                ],
+956                config: Some(yellowstone_grpc_proto::prelude::TransactionConfig {
+957                    priority_fee: Some(4_321),
+958                    compute_unit_limit: Some(234_567),
+959                    loaded_accounts_data_size_limit: Some(1_048_576),
+960                    heap_size: Some(65_536),
+961                }),
+962                ..Default::default()
+963            }),
+964        };
+965
+966        let cost =
+967            parse_yellowstone_transaction_cost(&transaction, &TransactionStatusMeta::default())
+968                .expect("transaction cost");
+969
+970        assert_eq!(cost.compute_unit_limit, Some(234_567));
+971        assert_eq!(cost.compute_unit_price_micro_lamports, None);
+972        assert_eq!(cost.loaded_accounts_data_size_limit, Some(1_048_576));
+973        assert_eq!(cost.heap_size, Some(65_536));
+974        assert_eq!(cost.priority_fee_lamports, Some(4_321));
+975    }
+976
+977    #[test]
+978    fn yellowstone_v1_unset_config_fields_remain_distinguishable() {
+979        let transaction = Transaction {
+980            signatures: vec![],
+981            message: Some(Message {
+982                versioned: true,
+983                config: Some(yellowstone_grpc_proto::prelude::TransactionConfig::default()),
+984                ..Default::default()
+985            }),
+986        };
+987
+988        let cost =
+989            parse_yellowstone_transaction_cost(&transaction, &TransactionStatusMeta::default())
+990                .expect("transaction cost");
+991
+992        assert_eq!(cost.compute_unit_limit, None);
+993        assert_eq!(cost.compute_unit_price_micro_lamports, None);
+994        assert_eq!(cost.loaded_accounts_data_size_limit, None);
+995        assert_eq!(cost.heap_size, None);
+996        assert_eq!(cost.priority_fee_lamports, None);
+997    }
+998
+999    #[test]
+1000    fn transaction_cost_deserializes_json_from_before_v1_resource_fields() {
+1001        let json = r#"{
+1002            "transaction_fee_lamports": 5000,
+1003            "total_fee_and_tip_lamports": 5000,
+1004            "compute_units_consumed": 123456,
+1005            "compute_unit_limit": 200000,
+1006            "compute_unit_price_micro_lamports": 5000,
+1007            "priority_fee_lamports": 1000,
+1008            "tip_payments_confirmed": true,
+1009            "tip_lamports": 0,
+1010            "tip_payments": []
+1011        }"#;
+1012
+1013        let cost: TransactionCost =
+1014            serde_json::from_str(json).expect("legacy TransactionCost JSON");
+1015        assert_eq!(cost.loaded_accounts_data_size_limit, None);
+1016        assert_eq!(cost.heap_size, None);
+1017    }
+1018
+1019    #[test]
+1020    fn rpc_cost_preserves_v1_inline_config_through_base64_conversion() {
+1021        let bytes = wincode::serialize(&v1_transaction()).expect("serialize V1 transaction");
+1022        let transaction = EncodedConfirmedTransactionWithStatusMeta {
+1023            slot: 42,
+1024            transaction: EncodedTransactionWithStatusMeta {
+1025                transaction: EncodedTransaction::Binary(
+1026                    base64::engine::general_purpose::STANDARD.encode(bytes),
+1027                    TransactionBinaryEncoding::Base64,
+1028                ),
+1029                meta: Some(UiTransactionStatusMeta {
+1030                    err: None,
+1031                    status: Ok(()),
+1032                    fee: 9_321,
+1033                    pre_balances: vec![],
+1034                    post_balances: vec![],
+1035                    inner_instructions: OptionSerializer::None,
+1036                    log_messages: OptionSerializer::None,
+1037                    pre_token_balances: OptionSerializer::None,
+1038                    post_token_balances: OptionSerializer::None,
+1039                    rewards: OptionSerializer::None,
+1040                    loaded_addresses: OptionSerializer::None,
+1041                    return_data: OptionSerializer::None,
+1042                    compute_units_consumed: OptionSerializer::Some(123_456),
+1043                    cost_units: OptionSerializer::None,
+1044                }),
+1045                version: None,
+1046            },
+1047            block_time: None,
+1048            transaction_index: None,
+1049        };
+1050
+1051        let cost = parse_rpc_transaction_cost(&transaction).expect("parse V1 RPC cost");
+1052        assert_eq!(cost.transaction_fee_lamports, Some(9_321));
+1053        assert_eq!(cost.compute_units_consumed, Some(123_456));
+1054        assert_eq!(cost.compute_unit_limit, Some(234_567));
+1055        assert_eq!(cost.compute_unit_price_micro_lamports, None);
+1056        assert_eq!(cost.loaded_accounts_data_size_limit, Some(1_048_576));
+1057        assert_eq!(cost.heap_size, Some(65_536));
+1058        assert_eq!(cost.priority_fee_lamports, Some(4_321));
+1059        assert_eq!(cost.tip_lamports, 42);
+1060        assert_eq!(cost.total_fee_and_tip_lamports, Some(9_363));
+1061    }
+1062
+1063    #[test]
+1064    fn failed_rpc_transaction_does_not_confirm_rolled_back_tip() {
+1065        let bytes = wincode::serialize(&v1_transaction()).expect("serialize V1 transaction");
+1066        let ui_error: UiTransactionError =
+1067            solana_sdk::transaction::TransactionError::AccountInUse.into();
+1068        let transaction = EncodedConfirmedTransactionWithStatusMeta {
+1069            slot: 42,
+1070            transaction: EncodedTransactionWithStatusMeta {
+1071                transaction: EncodedTransaction::Binary(
+1072                    base64::engine::general_purpose::STANDARD.encode(bytes),
+1073                    TransactionBinaryEncoding::Base64,
+1074                ),
+1075                meta: Some(UiTransactionStatusMeta {
+1076                    err: Some(ui_error.clone()),
+1077                    status: Err(ui_error),
+1078                    fee: 9_321,
+1079                    pre_balances: vec![],
+1080                    post_balances: vec![],
+1081                    inner_instructions: OptionSerializer::None,
+1082                    log_messages: OptionSerializer::None,
+1083                    pre_token_balances: OptionSerializer::None,
+1084                    post_token_balances: OptionSerializer::None,
+1085                    rewards: OptionSerializer::None,
+1086                    loaded_addresses: OptionSerializer::None,
+1087                    return_data: OptionSerializer::None,
+1088                    compute_units_consumed: OptionSerializer::Some(123_456),
+1089                    cost_units: OptionSerializer::None,
+1090                }),
+1091                version: None,
+1092            },
+1093            block_time: None,
+1094            transaction_index: None,
+1095        };
+1096
+1097        let (meta, _) =
+1098            crate::rpc_parser::convert_rpc_to_grpc(&transaction).expect("convert failed RPC meta");
+1099        let decoded_error: solana_sdk::transaction::TransactionError =
+1100            wincode::deserialize(&meta.err.expect("failed status").err)
+1101                .expect("deserialize transaction error");
+1102        assert_eq!(decoded_error, solana_sdk::transaction::TransactionError::AccountInUse);
+1103
+1104        let cost = parse_rpc_transaction_cost(&transaction).expect("parse failed RPC cost");
+1105        assert!(!cost.tip_payments_confirmed);
+1106        assert_eq!(cost.tip_lamports, 0);
+1107        assert!(cost.tip_payments.is_empty());
+1108        assert_eq!(cost.total_fee_and_tip_lamports, Some(9_321));
+1109    }
+1110
+1111    #[test]
+1112    fn recognizes_every_sol_trade_sdk_provider() {
+1113        assert_eq!(SWQOS_TIP_ACCOUNT_GROUPS.len(), 17);
+1114        for group in SWQOS_TIP_ACCOUNT_GROUPS {
+1115            assert!(!group.accounts.is_empty());
+1116            assert_eq!(find_tip_provider(&group.accounts[0]), Some(group.provider));
+1117        }
+1118    }
+1119
+1120    #[test]
+1121    fn provider_tip_accounts_are_unique() {
+1122        for (group_index, group) in SWQOS_TIP_ACCOUNT_GROUPS.iter().enumerate() {
+1123            for (account_index, account) in group.accounts.iter().enumerate() {
+1124                for candidate_group in &SWQOS_TIP_ACCOUNT_GROUPS[group_index..] {
+1125                    let start = if candidate_group.provider == group.provider {
+1126                        account_index + 1
+1127                    } else {
+1128                        0
+1129                    };
+1130                    assert!(
+1131                        !candidate_group.accounts[start..].contains(account),
+1132                        "duplicate tip account {account}"
+1133                    );
+1134                }
+1135            }
+1136        }
+1137    }
+1138
+1139    #[test]
+1140    fn priority_fee_rounds_up_and_saturates() {
+1141        assert_eq!(priority_fee_lamports(1, 1), 1);
+1142        assert_eq!(priority_fee_lamports(200_000, 5_000), 1_000);
+1143        assert_eq!(priority_fee_lamports(u32::MAX, u64::MAX), u64::MAX);
+1144    }
+1145}
+
+```

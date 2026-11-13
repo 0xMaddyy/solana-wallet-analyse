@@ -1,0 +1,549 @@
+libsam/pkg/consts/swqos_fee_addresses2.go at 5fa6944a37c856413f84edca3aea2d8b8bf95062 - libsam - Gitea: Git with a cup of tea
+
+Files
+
+5fa6944a37c856413f84edca3aea2d8b8bf95062
+
+samlior db9e2b33cb chore: add parse swqos logic
+
+2026-02-05 14:32:24 +08:00
+
+#### 272 lines 18 KiB Go RawBlameHistory
+
+| `package consts
+` |
+| --- |
+| `import (
+` |
+| ` "github.com/gagliardetto/solana-go"
+` |
+| ` "github.com/samlior/libsam/v2/pkg/enum"
+` |
+| `)
+` |
+| `// NOTE:
+` |
+| `// SWQoSFeeAddresses2 专门用于解析交易使用了什么 swqos agent, 不是用来发交易的
+` |
+| `// 和 SWQoSFeeAddresses 主要区别在于, 这里包含一些隐藏地址, 这些隐藏地址是某些平台专属的
+` |
+| `// 我们用这些专属的地址发交易会被拒绝
+` |
+| `var SWQoSFeeAddresses2 = map[string]string{
+` |
+| ` "3Rz8uD83QsU8wKvZbgWAPvCNDU6Fy8TSZTMcPm3RB6zt": enum.SWQoSAgent0slot,
+` |
+| ` "4HiwLEP2Bzqj3hM2ENxJuzhcPCdsafwiet3oGkMkuQY4": enum.SWQoSAgent0slot,
+` |
+| ` "4iUgjMT8q2hNZnLuhpqZ1QtiV8deFPy2ajvvjEpKKgsS": enum.SWQoSAgent0slot,
+` |
+| ` "6SiVU5WEwqfFapRuYCndomztEwDjvS5xgtEof3PLEGm9": enum.SWQoSAgent0slot,
+` |
+| ` "6fQaVhYZA4w3MBSXjJ81Vf6W1EDYeUPXpgVQ6UQyU1Av": enum.SWQoSAgent0slot,
+` |
+| ` "6rYLG55Q9RpsPGvqdPNJs4z5WTxJVatMB8zV3WJhs5EK": enum.SWQoSAgent0slot,
+` |
+| ` "7toBU3inhmrARGngC7z6SjyP85HgGMmCTEwGNRAcYnEK": enum.SWQoSAgent0slot,
+` |
+| ` "7y4whZmw388w1ggjToDLSBLv47drw5SUXcLk6jtmwixd": enum.SWQoSAgent0slot,
+` |
+| ` "8U1JPQh3mVQ4F5jwRdFTBzvNRQaYFQppHQYoH38DJGSQ": enum.SWQoSAgent0slot,
+` |
+| ` "8mR3wB1nh4D6J9RUCugxUpc6ya8w38LPxZ3ZjcBhgzws": enum.SWQoSAgent0slot,
+` |
+| ` "Cix2bHfqPcKcM233mzxbLk14kSggUUiz2A87fJtGivXr": enum.SWQoSAgent0slot,
+` |
+| ` "D8f3WkQu6dCF33cZxuAsrKHrGsqGP2yvAHf8mX6RXnwf": enum.SWQoSAgent0slot,
+` |
+| ` "DiTmWENJsHQdawVUUKnUXkconcpW4Jv52TnMWhkncF6t": enum.SWQoSAgent0slot,
+` |
+| ` "ENxTEjSQ1YabmUpXAdCgevnHQ9MHdLv8tzFiuiYJqa13": enum.SWQoSAgent0slot,
+` |
+| ` "Eb2KpSC8uMt9GmzyAEm5Eb1AAAgTjRaXWFjKyFXHZxF3": enum.SWQoSAgent0slot,
+` |
+| ` "Ey2JEr8hDkgN8qKJGrLf2yFjRhW7rab99HVxwi5rcvJE": enum.SWQoSAgent0slot,
+` |
+| ` "FCjUJZ1qozm1e8romw216qyfQMaaWKxWsuySnumVCCNe": enum.SWQoSAgent0slot,
+` |
+| ` "GQPFicsy3P3NXxB5piJohoxACqTvWE9fKpLgdsMduoHE": enum.SWQoSAgent0slot,
+` |
+| ` "HRyRhQ86t3H4aAtgvHVpUJmw64BDrb61gRiKcdKUXs5c": enum.SWQoSAgent0slot,
+` |
+| ` "J9BMEWFbCBEjtQ1fG5Lo9kouX1HfrKQxeUxetwXrifBw": enum.SWQoSAgent0slot,
+` |
+| ` "TpdxgNJBWZRL8UXF5mrEsyWxDWx9HQexA9P1eTWQ42p": enum.SWQoSAgent0slot,
+` |
+| ` "Gu2UGEfze3Gg5cHuEC4jGbyCufgpev75RkVvBdKKtf12": enum.SWQoSAgent0slot,
+` |
+| ` "E8wD3SMD1trozPrvSN9F6SyuUXD7rrFDuR3WexGziKG5": enum.SWQoSAgent0slot,
+` |
+| ` "18hCV7f9CPmZRAH3QCNZaGHhHeNSfisQKeKuFkQsPLY": enum.SWQoSAgent0slot,
+` |
+| ` "2sYKRWBNVY6UomMBi4juoMrrL98bqizDMn98cJ3cBmye": enum.SWQoSAgent0slot,
+` |
+| ` "CZubxabMM7CPFSDAfMUhxNuvXRDLjDf6yVVq1RoJ66rk": enum.SWQoSAgent0slot,
+` |
+| ` "Dz8rMcdokTLfbnNz2ZdYocZixgaA1TMqbA31xtwPgcxb": enum.SWQoSAgent0slot,
+` |
+| ` "ForLDu55GfA2U1aTUaitmjzjs92vvVn1MSqzY3D9HtAK": enum.SWQoSAgent0slot,
+` |
+| ` "6MgjyQU7G988jgL6EGAgfHYoeesCnwYMyPeh1fpJ71FP": enum.SWQoSAgent0slot,
+` |
+| ` "12pHu2j2DDShyCVFU7vtSLXga74et9y83VD38mw6XYhB": enum.SWQoSAgent0slot,
+` |
+| ` "5QuV4TS5TJFWPu7Yd56VaPvf4nKUicPvTfC3mwnb7dNW": enum.SWQoSAgent0slot,
+` |
+| ` "4gh9m7RV7G4WwRftA6qV7RhDfytdepb3XbxFRfTtneYJ": enum.SWQoSAgent0slot,
+` |
+| ` "AumQWSLrWwDXRq1yDEYPiw8vT5NUBYzrbdWCprJ4ZUa8": enum.SWQoSAgent0slot,
+` |
+| ` "3vGEsQA5jzvN8TBgytuYEdZxW6P2pK1c6pq56JiFuygS": enum.SWQoSAgent0slot,
+` |
+| ` "AsEF2SWSEZ1xpGZ5fdzDKaoka1XEtFSjGo39YUXkpvAh": enum.SWQoSAgent0slot,
+` |
+| ` "2WoQNgmc4SEXrR3rKQypmeWmsxGqHHE6rApnVrP6Pt77": enum.SWQoSAgent0slot,
+` |
+| ` "astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm": enum.SWQoSAgentAstralane,
+` |
+| ` "astra9xWY93QyfG6yM8zwsKsRodscjQ2uU2HKNL5prk": enum.SWQoSAgentAstralane,
+` |
+| ` "astraRVUuTHjpwEVvNBeQEgwYx9w9CFyfxjYoobCZhL": enum.SWQoSAgentAstralane,
+` |
+| ` "astrazznxsGUhWShqgNtAdfrzP2G83DzcWVJDxwV9bF": enum.SWQoSAgentAstralane,
+` |
+| ` "ASde6y8pBCU1aityWHRpqT7pEAcEonjCgFUMeh5egRes": enum.SWQoSAgentAstralane,
+` |
+| ` "ASUv6G8Cj6zt71UAqD1aVtDC3CRn6FFddqF17ZiegrES": enum.SWQoSAgentAstralane,
+` |
+| ` "ASY4mvCtrACKFK8Jiuvqcu8fad9gGTzvfm5zp4megRes": enum.SWQoSAgentAstralane,
+` |
+| ` "astraEJ2fEj8Xmy6KLG7B3VfbKfsHXhHrNdCQx7iGJK": enum.SWQoSAgentAstralane,
+` |
+| ` "B1ooMsWjc4SUVVuLyCu1ig2RdomQnHKgMzBMfmSo3DK": enum.SWQoSAgentAstralane,
+` |
+| ` "B1ooMZfUJmAvppzc5cr7eYG8Cenig4FbQGBytr4DGCh": enum.SWQoSAgentAstralane,
+` |
+| ` "b1ooMDLjzz4QqecNsJ8bBXzJTzfAPDCP3CxijTS2K93": enum.SWQoSAgentAstralane,
+` |
+| ` "b1oomst2baE3FqxFPHaA9JwhXgFG9HdTLmbNKDen1kK": enum.SWQoSAgentAstralane,
+` |
+| ` "b1ooMngj7WbNPMZpWpnYRjxQ96RcDZ9ZFpRfjw1g7tg": enum.SWQoSAgentAstralane,
+` |
+| ` "B1oomgV9SAeiUc7GMEg9WhqkZJGccJuHAnh15DbezcN": enum.SWQoSAgentAstralane,
+` |
+| ` "b1oom3jaRNoyJzvSdSVbvSbth5uB4rRYtbjHXT5c1eW": enum.SWQoSAgentAstralane,
+` |
+| ` "B1ooMauwuJPhHsXqt3uj7B92CAFG8kaD1Q2iGEmGYnx": enum.SWQoSAgentAstralane,
+` |
+| ` "B1ooMdjcY7zemxDWiH8jVZPxEMdHnE5AraWPHdHQoPj": enum.SWQoSAgentAstralane,
+` |
+| ` "B1ooMKzu6siJzQutP6a6oLiY3fpzgQnBZsAjxuAm9qo": enum.SWQoSAgentAstralane,
+` |
+| ` "3UQUKjhMKaY2S6bjcQD6yHB7utcZt5bfarRCmctpRtUd": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "9vTpfGYN2jtjZgXQ7gihyHmN3FseLP7uW1CWMdsgcny": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "7ks326H4LbMVaUC8nW5FpC5EoAf5eK5pf4Dsx4HDQLpq": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "95cfoy472fcQHaw4tPGBTKpn6ZQnfEPfBgDQx6gcRmRg": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "FogxVNs6Mm2w9rnGL1vkARSwJxvLE8mujTv3LK8RnUhF": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "HWEoBxYs7ssKuudEjzjmpfJVX7Dvi7wescFsVx2L5yoY": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "HZTmLyC683y74TW3HtGbNX5orxjm2sPuZBEYwwSgAM8v": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "6GZVKMaoWry4UFiydjeQU9nmAxj3hEARAStQ7Hc2z6TB": enum.SWQoSAgentBlocxRoute,
+` |
+| ` "CyL8mfycXYbWHVoTTsfvnAfF2MvfcqeQAmmsqNQLxF7g": enum.SWQoSAgentBlockRazor,
+` |
+| ` "Eg85QSYLwtZfBBPF4CsNmijJDXUAeCMjoh36L1cwboqg": enum.SWQoSAgentBlockRazor,
+` |
+| ` "9gBzvLKedrs9HxaLPhBdkPaeFTxEDNDGfqJmqvHjfiZp": enum.SWQoSAgentBlockRazor,
+` |
+| ` "7BxoFqM3swL46Lt9EWzL9z2LeXYfmJL7MVzpFrDpLPei": enum.SWQoSAgentBlockRazor,
+` |
+| ` "91Ht2gq1CMPcLySuq8NjHaA1rXysm8zzoiiyfT4uSE7u": enum.SWQoSAgentBlockRazor,
+` |
+| ` "2zCYpNSWcHX9AzFndF1mcT1bMkG1EXMzzjFcBjSnJq9f": enum.SWQoSAgentBlockRazor,
+` |
+| ` "4Kfqkx3c8TxLX74J1nzfzfHCGdoDCuZ8k84sGpnVh1a4": enum.SWQoSAgentBlockRazor,
+` |
+| ` "GeiVfSfUBVxjJA6F2SNSASoK8JaSCiSmsC2hBrPLfpiv": enum.SWQoSAgentBlockRazor,
+` |
+| ` "DggsS83MWeUHZdrV2jyMUh8GDfLrU5P9Es36h7Uf3wRp": enum.SWQoSAgentBlockRazor,
+` |
+| ` "2d5viHZBHKt5DgEpMckXEfndR1CoZ1tHvcbL9fU4xqT7": enum.SWQoSAgentBlockRazor,
+` |
+| ` "73VnqgMJq29j4HMzF6GRdBeVpZgz7ibouyKQvyAKbVZy": enum.SWQoSAgentBlockRazor,
+` |
+| ` "HvgA9hTyrTQCU5869fhZ7My9WkkHK2yBo4Wu6ojHmMio": enum.SWQoSAgentBlockRazor,
+` |
+| ` "68Pwb4jS7eZATjDfhmTXgRJjCiZmw1L7Huy4HNpnxJ3o": enum.SWQoSAgentBlockRazor,
+` |
+| ` "4ABhJh5rZPjv63RBJBuyWzBK3g9gWMUQdTZP2kiW31V9": enum.SWQoSAgentBlockRazor,
+` |
+| ` "5jA59cXMKQqZAVdtopv8q3yyw9SYfiE3vUCbt7p8MfVf": enum.SWQoSAgentBlockRazor,
+` |
+| ` "5YktoWygr1Bp9wiS1xtMtUki1PeYuuzuCF98tqwYxf61": enum.SWQoSAgentBlockRazor,
+` |
+| ` "295Avbam4qGShBYK7E9H5Ldew4B3WyJGmgmXfiWdeeyV": enum.SWQoSAgentBlockRazor,
+` |
+| ` "EDi4rSy2LZgKJX74mbLTFk4mxoTgT6F7HxxzG2HBAFyK": enum.SWQoSAgentBlockRazor,
+` |
+| ` "BnGKHAC386n4Qmv9xtpBVbRaUTKixjBe3oagkPFKtoy6": enum.SWQoSAgentBlockRazor,
+` |
+| ` "Dd7K2Fp7AtoN8xCghKDRmyqr5U169t48Tw5fEd3wT9mq": enum.SWQoSAgentBlockRazor,
+` |
+| ` "A9cWowVAiHe9pJfKAj3TJiN9VpbzMUq6E4kEvf5mUT22": enum.SWQoSAgentBlockRazor,
+` |
+| ` "6No2i3aawzHsjtThw81iq1EXPJN6rh8eSJCLaYZfKDTG": enum.SWQoSAgentBlockRazor,
+` |
+| ` "FjmZZrFvhnqqb9ThCuMVnENaM3JGVuGWNyCAxRJcFpg9": enum.SWQoSAgentBlockRazor,
+` |
+| ` "4xJEQnuMpoUNxhNew4AechRBo1DnpVfLyUe68BXTTF73": enum.SWQoSAgentBlockRazor,
+` |
+| ` "Gywj98ophM7GmkDdaWs4isqZnDdFCW7B46TXmKfvyqSm": enum.SWQoSAgentBlockRazor,
+` |
+| ` "7ZKL8BAPfKKa6FNmds48QKFnckrcj4mkppRnsBAR2xVH": enum.SWQoSAgentBlockRazor,
+` |
+| ` "BYpBPSRkVSvutxHngtxnqeoTBrENZ8iM56Ywnsmy829w": enum.SWQoSAgentBlockRazor,
+` |
+| ` "4LEkLhb2u5qCUXS1Hc3eL2zTxk2kjSzQeFK4ZgWsV3EM": enum.SWQoSAgentBlockRazor,
+` |
+| ` "AP6qExwrbRgBAVaehg4b5xHENX815sMabtBzUzVB4v8S": enum.SWQoSAgentBlockRazor,
+` |
+| ` "B2M4NG5eyZp5SBQrSdtemzk5TqVuaWGQnowGaCBt8GyM": enum.SWQoSAgentBlockRazor,
+` |
+| ` "96Zc2GT7ZmMvF7rXgcwHAyJ7KmK8RaS4Z3VZw2b7GjJx": enum.SWQoSAgentBlockRazor,
+` |
+| ` "9Kaz3Q9KJ3x8SXvui37FK5m1AwcwqkYLvS9Xg1Why9Q1": enum.SWQoSAgentBlockRazor,
+` |
+| ` "muV321VhQ4XgJkVtsZP13zbCqg9HokT222bWS3DBxp3": enum.SWQoSAgentBlockRazor,
+` |
+| ` "Hth7qf5dv683k3ZJffjJvJ8gSU21dfPWy3mBEyRRhCiN": enum.SWQoSAgentBlockRazor,
+` |
+| ` "pD7KfmGkxHqQFNLqYv3zshSzkGaAB99vjNDKz6e7nGC": enum.SWQoSAgentBlockRazor,
+` |
+| ` "AQChXZ1ZWvPH8EjdPxXXsC8VqCaBmPVruJbswhE3xNZ8": enum.SWQoSAgentBlockRazor,
+` |
+| ` "2L2DgQ5ZXRYnv8K97NFDJvsNrA1MsrCGr3CvokPtDy8D": enum.SWQoSAgentBlockRazor,
+` |
+| ` "4BjQeBGZmGNWeHfQC4scHK5d4RtDr79h1hZNPcrLDS8C": enum.SWQoSAgentBlockRazor,
+` |
+| ` "E99TTcqBPAY1F4ZppMRkDX3pTqaSnRC24tUErfd2opNL": enum.SWQoSAgentBlockRazor,
+` |
+| ` "8zi6AG7oSKoswSEMaxNmXrwBYmDwuQ4GLiY4Q1j9Rayu": enum.SWQoSAgentBlockRazor,
+` |
+| ` "8GgU7tKJSA97G97kD9AbxYgsC9Hcjfg7RpAofWuA6oHt": enum.SWQoSAgentBlockRazor,
+` |
+| ` "JDxQoXGFRwEojWzkirDNeHz88SDEPzdDakjsobJ4YHrj": enum.SWQoSAgentBlockRazor,
+` |
+| ` "GQgHdPuDNcss3BoKrMfS6bgGekjitmKQRJxnuhUBu921": enum.SWQoSAgentBlockRazor,
+` |
+| ` "8FoxPbnucCZ3wuzhMofKE5VdYKcHfWmYNrnC2whVBAhS": enum.SWQoSAgentBlockRazor,
+` |
+| ` "3L9UZWLAprLtB2xddEHsCmgXbPc2PidgSjtHGZd2MzB3": enum.SWQoSAgentBlockRazor,
+` |
+| ` "FAST3dMFZvESiEipBvLSiXq3QCV51o3xuoHScqRU6cB6": enum.SWQoSAgentFast,
+` |
+| ` "FASTCKnwwY6iL3CknRgg3Zqir7jeagDDhxSnBQQy5a1C": enum.SWQoSAgentFast,
+` |
+| ` "FASTHPW6akdGh9PFSdhMTbCuGkCSX7LsUjjnaB2RTQ4v": enum.SWQoSAgentFast,
+` |
+| ` "FASTKL1AamNKrwnvbKwo4PU8434BBdqVrTtugM6oDU71": enum.SWQoSAgentFast,
+` |
+| ` "FASTPB76TxKPMZ7Q29m8v4zJn8gUjbWyvTEQaaxhwN7M": enum.SWQoSAgentFast,
+` |
+| ` "FASTYKWXRfAoty7SQCM1mGVrmPUyyNcF4tc3DUkLDAu9": enum.SWQoSAgentFast,
+` |
+| ` "FASTYmSidNfLwdwiQEhCTtzghxEtaipeNSDSwh9xDPs3": enum.SWQoSAgentFast,
+` |
+| ` "FASTs6ctgbsuZegMzUs4DPUYhRSZUPCjgCVnttHbpQAp": enum.SWQoSAgentFast,
+` |
+| ` "FLASHRzANfcAKDuQ3RXv9hbkBy4WVEKDzoAgxJ56DiE4": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLAShWTjcweNT4NSotpjpxAkwxUr2we3eXQGhpTVzRwy": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLAsHZTRcf3Dy1APaz6j74ebdMC6Xx4g6i9YxjyrDybR": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLAshyAyBcKb39KPxSzXcepiS8iDYUhDGwJcJDPX4g2B": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLaSHJNm5dWYzEgnHJWWJP5ccu128Mu61NJLxUf7mUXU": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLaSHR4Vv7sttd6TyDF4yR1bJyAxRwWKbohDytEMu3wL": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLaShB3iXXTWE1vu9wQsChUKq3HFtpMAhb8kAh1pf1wi": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLasHXTqrbNvpWFB6grN47HGZfK6pze9HLNTgbukfPSk": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLasHstqx11M8W56zrSEqkCyhMCCpr6ze6Mjdvqope5s": enum.SWQoSAgentFlashBlock,
+` |
+| ` "FLashhsorBmM9dLpuq6qATawcpqk1Y2aqaZfkd48iT3W": enum.SWQoSAgentFlashBlock,
+` |
+| ` "2nyhqdwKcJZR2vcqCyrYsaPVdAnFoJjiksCXJ7hfEYgD": enum.SWQoSAgentHelius,
+` |
+| ` "2q5pghRs6arqVjRvT5gfgWfWcHWmw1ZuCzphgd5KfWGJ": enum.SWQoSAgentHelius,
+` |
+| ` "3KCKozbAaF75qEU33jtzozcJ29yJuaLJTy2jFdzUY8bT": enum.SWQoSAgentHelius,
+` |
+| ` "4ACfpUFoaSD9bfPdeu6DBt89gB6ENTeHBXCAi87NhDEE": enum.SWQoSAgentHelius,
+` |
+| ` "4TQLFNWK8AovT1gFvda5jfw2oJeRMKEmw7aH6MGBJ3or": enum.SWQoSAgentHelius,
+` |
+| ` "4vieeGHPYPG2MmyPRcYjdiDmmhN3ww7hsFNap8pVN3Ey": enum.SWQoSAgentHelius,
+` |
+| ` "5VY91ws6B2hMmBFRsXkoAAdsPHBJwRfBht4DXox3xkwn": enum.SWQoSAgentHelius,
+` |
+| ` "9bnz4RShgq1hAnLnZbP8kbgBg1kEmcJBYQq3gQbmnSta": enum.SWQoSAgentHelius,
+` |
+| ` "D2L6yPZ2FmmmTKPgzaMKdhu6EWZcTpLy1Vhx8uvZe7NZ": enum.SWQoSAgentHelius,
+` |
+| ` "wyvPkWjVZz1M8fHQnMMCDTQDbkManefNNhweYk5WkcF": enum.SWQoSAgentHelius,
+` |
+| ` "3AVi9Tg9Uo68tJfuvoKvqKNWKkC5wPdSSdeBnizKZ6jT": enum.SWQoSAgentJito,
+` |
+| ` "96gYZGLnJYVFmbjzopPSU6QiEV5fGqZNyN9nmNhvrZU5": enum.SWQoSAgentJito,
+` |
+| ` "ADaUMid9yfUytqMBgopwjb2DTLSokTSzL1zt6iGPaS49": enum.SWQoSAgentJito,
+` |
+| ` "ADuUkR4vqLUMWXxW9gh6D6L8pMSawimctcNZ5pGwDcEt": enum.SWQoSAgentJito,
+` |
+| ` "Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY": enum.SWQoSAgentJito,
+` |
+| ` "DfXygSm4jCyNCybVYYK6DwvWqjKee8pbDmJGcLWNDXjh": enum.SWQoSAgentJito,
+` |
+| ` "DttWaMuVvTiduZRnguLF7jNxTgiMBZ1hyAumKUiL2KRL": enum.SWQoSAgentJito,
+` |
+| ` "HFqU5x63VTqvQss8hp11i4wVV8bD44PvwucfZ2bU7gRe": enum.SWQoSAgentJito,
+` |
+| ` "NEXTbLoCkB51HpLBLojQfpyVAMorm3zzKg7w9NFdqid": enum.SWQoSAgentNextBlock,
+` |
+| ` "NeXTBLoCKs9F1y5PJS9CKrFNNLU1keHW71rfh7KgA1X": enum.SWQoSAgentNextBlock,
+` |
+| ` "NexTBLockJYZ7QD7p2byrUa6df8ndV2WSd8GkbWqfbb": enum.SWQoSAgentNextBlock,
+` |
+| ` "NexTbLoCkWykbLuB1NkjXgFWkX9oAtcoagQegygXXA2": enum.SWQoSAgentNextBlock,
+` |
+| ` "NextbLoCkVtMGcV47JzewQdvBpLqT9TxQFozQkN98pE": enum.SWQoSAgentNextBlock,
+` |
+| ` "nEXTBLockYgngeRmRrjDV31mGSekVPqZoMGhQEZtPVG": enum.SWQoSAgentNextBlock,
+` |
+| ` "neXtBLock1LeC67jYd1QdAa32kbVeubsfPNTJC1V5At": enum.SWQoSAgentNextBlock,
+` |
+| ` "nextBLoCkPMgmG8ZgJtABeScP35qLa2AMCNKntAP7Xc": enum.SWQoSAgentNextBlock,
+` |
+| ` "ste11JV3MLMM7x7EJUM2sXcJC1H7F4jBLnP9a9PG8PH": enum.SWQoSAgentStellium,
+` |
+| ` "ste11MWPjXCRfQryCshzi86SGhuXjF4Lv6xMXD2AoSt": enum.SWQoSAgentStellium,
+` |
+| ` "ste11p5x8tJ53H1NbNQsRBg1YNRd4GcVpxtDw8PBpmb": enum.SWQoSAgentStellium,
+` |
+| ` "ste11p7e2KLYou5bwtt35H7BM6uMdo4pvioGjJXKFcN": enum.SWQoSAgentStellium,
+` |
+| ` "ste11TMV68LMi1BguM4RQujtbNCZvf1sjsASpqgAvSX": enum.SWQoSAgentStellium,
+` |
+| ` "soyas4s6L8KWZ8rsSk1mF3d1mQScoTGGAgjk98bF8nP": enum.SWQoSAgentSoyas,
+` |
+| ` "soyascXFW5wEEYiwfEmHy2pNwomqzvggJosGVD6TJdY": enum.SWQoSAgentSoyas,
+` |
+| ` "soyasDBdKjADwPz3xk82U3TNPRDKEWJj7wWLajNHZ1L": enum.SWQoSAgentSoyas,
+` |
+| ` "soyasE2abjBAynmHbGWgEwk4ctBy7JMTUCNrMbjcnyH": enum.SWQoSAgentSoyas,
+` |
+| ` "node1FdMPnJBN7QTuhzNw3VS823nxFuDTizrrbcEqzp": enum.SWQoSAgentNode1,
+` |
+| ` "node1zrVjcY2XB3Au8qYj5MxjbNfGu3baHaqZMkPM7Z": enum.SWQoSAgentNode1,
+` |
+| ` "node1E3hguapYA18HCpEEkRHQmLNiyv9pdfE9s2zo5X": enum.SWQoSAgentNode1,
+` |
+| ` "node1CVxtFas2Pw5Vcf86Pq89Hqx4jveo1ntY7ARFMK": enum.SWQoSAgentNode1,
+` |
+| ` "node1EoLojAvoUmyDytcvgdXs6GPtY3zpQXPCRVncEA": enum.SWQoSAgentNode1,
+` |
+| ` "node1VwH169UqyJHr5MYCH3EBuwrdvn5KHXAkhEEfav": enum.SWQoSAgentNode1,
+` |
+| ` "node1JkDqyiEg7CDNj3ATPiRmWaAG2gnrAEiMJ4Rzcc": enum.SWQoSAgentNode1,
+` |
+| ` "node1GS8pZnP6MzGSXwhA2MXH6EBfCpFaAE64G2ubpB": enum.SWQoSAgentNode1,
+` |
+| ` "node1AVfbcSi98LAgGyAHUGS4eYkYTbS5vUPZYQnViF": enum.SWQoSAgentNode1,
+` |
+| ` "node1L7Xat2tSkRNNi6TSuUScMYfj64ovhr2aceJm9g": enum.SWQoSAgentNode1,
+` |
+| ` "node1kMY97W3LPXaKKV43yRa2Q3BLg4WZiT27VifUDc": enum.SWQoSAgentNode1,
+` |
+| ` "node1Zi3r7hmGYwF9cJAkfCHh9EKWbkSrYdvcvLukF4": enum.SWQoSAgentNode1,
+` |
+| ` "node1G3fmoCuEJzcPNF4hLbSZ2ypcUuh9CB3k9E7Q8k": enum.SWQoSAgentNode1,
+` |
+| ` "node18nQgpjoKe1fM72GiV6tHXg5dMKbVPFGwRBD9MU": enum.SWQoSAgentNode1,
+` |
+| ` "node1spgxXR8HCbm4LyZNoisFLmBXxy2qnZrv63WxMp": enum.SWQoSAgentNode1,
+` |
+| ` "node1rmmFXeLh94mBGtDHbSwCrBJqDnc16xrURHRYD9": enum.SWQoSAgentNode1,
+` |
+| ` "node1PqAa3BWWzUnTHVbw8NJHC874zn9ngAkXjgWEej": enum.SWQoSAgentNode1,
+` |
+| ` "node1UzzTxAAeBTpfZkQPJXBAqixsbdth11ba1NXLBG": enum.SWQoSAgentNode1,
+` |
+| ` "node1Qm1bV4fwYnCurP8otJ9s5yrkPq7SPZ5uhj3Tsv": enum.SWQoSAgentNode1,
+` |
+| ` "node1PUber6SFmSQgvf2ECmXsHP5o3boRSGhvJyPMX1": enum.SWQoSAgentNode1,
+` |
+| ` "node1AyMbeqiVN6eoQzEAwCA6Pk826hrdqdAHR7cdJ3": enum.SWQoSAgentNode1,
+` |
+| ` "node1YtWCoTwwVYTFLfS19zquRQzYX332hs1HEuRBjC": enum.SWQoSAgentNode1,
+` |
+| ` "TEMPaMeCRFAS9EKF53Jd6KpHxgL47uWLcpFArU1Fanq": enum.SWQoSAgentNozomi,
+` |
+| ` "noz3jAjPiHuBPqiSPkkugaJDkJscPuRhYnSpbi8UvC4": enum.SWQoSAgentNozomi,
+` |
+| ` "noz3str9KXfpKknefHji8L1mPgimezaiUyCHYMDv1GE": enum.SWQoSAgentNozomi,
+` |
+| ` "noz6uoYCDijhu1V7cutCpwxNiSovEwLdRHPwmgCGDNo": enum.SWQoSAgentNozomi,
+` |
+| ` "noz9EPNcT7WH6Sou3sr3GGjHQYVkN3DNirpbvDkv9YJ": enum.SWQoSAgentNozomi,
+` |
+| ` "nozFrhfnNGoyqwVuwPAW4aaGqempx4PU6g6D9CJMv7Z": enum.SWQoSAgentNozomi,
+` |
+| ` "nozNVWs5N8mgzuD3qigrCG2UoKxZttxzZ85pvAQVrbP": enum.SWQoSAgentNozomi,
+` |
+| ` "nozUacTVWub3cL4mJmGCYjKZTnE9RbdY5AP46iQgbPJ": enum.SWQoSAgentNozomi,
+` |
+| ` "nozWCyTPppJjRuw2fpzDhhWbW355fzosWSzrrMYB1Qk": enum.SWQoSAgentNozomi,
+` |
+| ` "nozWNju6dY353eMkMqURqwQEoM3SFgEKC6psLCSfUne": enum.SWQoSAgentNozomi,
+` |
+| ` "nozc5yT15LazbLTFVZzoNZCwjh3yUtW86LoUyqsBu4L": enum.SWQoSAgentNozomi,
+` |
+| ` "nozievPk7HyK1Rqy1MPJwVQ7qQg2QoJGyP71oeDwbsu": enum.SWQoSAgentNozomi,
+` |
+| ` "noznbgwYnBLDHu8wcQVCEw6kDrXkPdKkydGJGNXGvL7": enum.SWQoSAgentNozomi,
+` |
+| ` "nozpEGbwx4BcGp6pvEdAh1JoC2CQGZdU6HbNP1v2p6P": enum.SWQoSAgentNozomi,
+` |
+| ` "nozrhjhkCr3zXT3BiT4WCodYCUFeQvcdUkM7MqhKqge": enum.SWQoSAgentNozomi,
+` |
+| ` "nozrwQtWhEdrA6W8dkbt9gnUaMs52PdAv5byipnadq3": enum.SWQoSAgentNozomi,
+` |
+| ` "nozxNBgWohjR75vdspfxR5H9ceC7XXH99xpxhVGt3Bb": enum.SWQoSAgentNozomi,
+` |
+| ` "EnchantKMZ93cDKwsnyvnD5WCpZLFTLVRWozFjAUzTko": enum.SWQoSAgentNozomi,
+` |
+| ` "CJwbwPfVFZDPGKJKCtLkzDJPFrGyyroEPFjXigmJB6mr": enum.SWQoSAgentNozomi,
+` |
+| ` "3Thhhj3omvVFfbhEHdFe8djwDZT5oS6BQ4k5KrZkYt1r": enum.SWQoSAgentNozomi,
+` |
+| ` "6CQzBpGJn6XYcCkm77xNd944MpbjLHLsP6sCEWSZVUHS": enum.SWQoSAgentNozomi,
+` |
+| ` "DeMZbwKtu9kteFdxL1yh6aTWqDwYfH79DKzYrgfTwAc2": enum.SWQoSAgentNozomi,
+` |
+| ` "3Pn9ZFCsNTf9MvWbpemQccWuyHNMbBjxg1eW53ikHcpH": enum.SWQoSAgentNozomi,
+` |
+| ` "DjfRXWegRn9bWnBvZFxAnpu1jNikcoy8iiu6ZX9AxAd5": enum.SWQoSAgentNozomi,
+` |
+| ` "8mbjzuz8ka3zVGnry6xMEwm96tzk4yKnWgvwAT1LwEGx": enum.SWQoSAgentNozomi,
+` |
+| ` "5KpS5Q3nUtp1cUynUxzH2bA93SWzmx2y3GwU45AeEEP5": enum.SWQoSAgentNozomi,
+` |
+| ` "bgK8f5H4ocVdNrkUrspUFmAaEosGQtbc1JCMqLwvvRe": enum.SWQoSAgentNozomi,
+` |
+| ` "bg7BgfutLpjFdxDNcbwQFGFkLGQT9Kww9wv6EWUHQr3": enum.SWQoSAgentNozomi,
+` |
+| ` "bg9zUQnVkYLgAWJvL9MjP4tFDecCxbvmQRqrAuZpQUA": enum.SWQoSAgentNozomi,
+` |
+| ` "bgu2xgHEJocs4tggHDEwNnmgduftnXfJuWoLiUYfiLW": enum.SWQoSAgentNozomi,
+` |
+| ` "bgd4MvpBH3LaVz6sHvqFphoUex4taUe2E5mKuk4sVXn": enum.SWQoSAgentNozomi,
+` |
+| ` "bgSfpx2Pr3bHYev6ikwTqdBo2aaPGgjEseAWhjxp6F5": enum.SWQoSAgentNozomi,
+` |
+| ` "bgfaB4sngcm7cARjjiEvKfWE87owf2HuDfYDy8EyP45": enum.SWQoSAgentNozomi,
+` |
+| ` "bgzmGhu9qcyLW6qR1HKQuLTY6PWktNSAuzLNmo7aiQY": enum.SWQoSAgentNozomi,
+` |
+| ` "bgMTi1qFtbiFiHsURKW4Bfg4wjXtT8iJL7HC1z3gXsm": enum.SWQoSAgentNozomi,
+` |
+| ` "bgDRbhSLK62ApA2PbZs1W7SecodGhTFf6udU3MWDadu": enum.SWQoSAgentNozomi,
+` |
+| ` "bg67LJN9Ngvfq4hJbSmm7tZ2wqmn2f1pxXbXW5QfxRz": enum.SWQoSAgentNozomi,
+` |
+| ` "bgmnrKWgN5jE8pF3PbFxRWYaho1bjCtmcTZ9VfRbhxf": enum.SWQoSAgentNozomi,
+` |
+| ` "bgTZqxCX4ej98P1UyYJjgGmGDmst7nteSyUWDwzMxNj": enum.SWQoSAgentNozomi,
+` |
+| ` "bgauKkwFcT8w7SHau9NufDfvmq1cy79X52bRbL6yzEB": enum.SWQoSAgentNozomi,
+` |
+| ` "bg8WP8cEtWhdCjDd7rrwzsnz7K9f3oiEm2Qqu7TYmDn": enum.SWQoSAgentNozomi,
+` |
+| ` "DzrVK357ynzkPtdC7jzUbXgsUY8ULUeR2ihoPcX1JB3n": enum.SWQoSAgentNozomi,
+` |
+| ` "pfn2d1g6xkwhykkyjtoccFbC7r19ADf5dGB2YnT1Hgw": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnXi2FdpFUUn6VyoxUohNyWk2Nup3ruguTgK8jaZaF": enum.SWQoSAgentNozomi,
+` |
+| ` "bg1rCzhyASbzib75ohpRfNY3mGJaX1k6v56WCrUkh3a": enum.SWQoSAgentNozomi,
+` |
+| ` "axmMdWvgEnN3NFrxMfTqUURzj9NLhZL2DkHkWCdgiFV": enum.SWQoSAgentNozomi,
+` |
+| ` "axmFmfqQwZGEUZeF3i3MqbRCDiGPfshtbdoBjk41k88": enum.SWQoSAgentNozomi,
+` |
+| ` "bgsouue9XeHUzNwwuAKqBj1Fk1RbJkcBjvs4zkmUhLc": enum.SWQoSAgentNozomi,
+` |
+| ` "mwGELGMgGGrNL1UibNCQeJHDE7qdPptWRYB6noUHmTj": enum.SWQoSAgentNozomi,
+` |
+| ` "pfn9b35be4L7xh7G8P2jUzWsJAigrKDSoBeRMiyg75p": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnSbG36fCGpT8WsB1NEbQ2BH11iog6qjFqMEVCZZgV": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnaxrmMoemfvbhXek6offTNXas11GtepGQMN9UF3gk": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnKWwarhjuKKg3WV3nw3wAE8zuymigT3vuJHwZeL4s": enum.SWQoSAgentNozomi,
+` |
+| ` "axmYVq9b1ABYqtyizMtyfJppPTPxZGXPLctB3hV6W5b": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnaZXdkjJq26auzzFKeQm7YKphuNCdDGcJVqqb6awr": enum.SWQoSAgentNozomi,
+` |
+| ` "axmD4LFJopAcbRKCKsrrmovCZZzmKQCMEfs5qEXj8dG": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnP85qobXv2wETniKjXBhxKvgivpfT8EGAcS8sb3bq": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnSAoQWtJCDKnjmR8oduqbZYXr69Q4cFQ6VhgFkvgT": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnSbziLrSSVNqPBD9tpx3Ud4VtbxwsXjdfYv9SmBDx": enum.SWQoSAgentNozomi,
+` |
+| ` "Vn7tfMvrvrymGYMnxhj1DV16Sz2R9YXmaXF3hiSAHuC": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnTcJ1i4mRYzbqGduF71RsooUCFkPSpk8UE7drCkjh": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnUxCuZcfP6yidkG3EsqyR5DTbyie3R74fGoA5oB3J": enum.SWQoSAgentNozomi,
+` |
+| ` "pfnEJvqLGddJxQTA9DcYLTbVwiFdT3KmLXo6UcnmcgC": enum.SWQoSAgentNozomi,
+` |
+| ` "pfn6dyanKiTTinHs887D7qe2S4727wzK7xi7ERGaizC": enum.SWQoSAgentNozomi,
+` |
+| ` "bgDETv6tnt9mwYqAKebLXY5B5o6akiKJmAdU7Gd9G7H": enum.SWQoSAgentNozomi,
+` |
+| ` "bgH7YhymSykyvMa3nAZpzvrn73owJHU5iB75S1aiLT9": enum.SWQoSAgentNozomi,
+` |
+| ` "pfngGVVQLiVRFbLWw3Ektiv17ef9NiRZbcgdAhh4ZEW": enum.SWQoSAgentNozomi,
+` |
+| ` "nEFs3jph8HJt7honu3k7XtGUufMnwAvSXmXcKSPxryP": enum.SWQoSAgentNozomi,
+` |
+| `}
+` |
+| `var SWQoSFeeAddresses2Pubkeys = make(map[solana.PublicKey]string)
+` |
+| `func init() {
+` |
+| ` for k, v := range SWQoSFeeAddresses2 {
+` |
+| ` SWQoSFeeAddresses2Pubkeys[solana.MustPublicKeyFromBase58(k)] = v
+` |
+| ` }
+` |
+| `}
+` |
+
+Reference in New Issue View Git Blame Copy Permalink

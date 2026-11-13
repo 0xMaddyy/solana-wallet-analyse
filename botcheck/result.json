@@ -1,0 +1,1783 @@
+{
+ "buys": [
+  {
+   "sig": "CqXyymYXv4junoHX617Ar3ChxvZa5fxKTBZ5Li21YqhEveLxLC7jUvXji3uMYRNBoqzSM8wCcTvwyZMMMpv1tmn",
+   "slot": 454981027,
+   "blockTime": 1791575435,
+   "buy": true,
+   "sol_out": 0.942212613,
+   "bundle_id": "05ed443f2f28a16a0203b1b780a0166c47eefcc9e7ecc2fabfb60e96b8466d54",
+   "validator": "HaLanfo94ezLc3JZ55qqxr7W3qbe1PprJyv2uEtriEqN",
+   "bundle_txs": [
+    "3RppKHs4UabJPtJTEdjMdmBwMfiG4YjD9YnWy7bXRuzbGBAQhNwPWyfH95rSSS4mtJdyxcPyZTsDRT7eYo5SahhU",
+    "CqXyymYXv4junoHX617Ar3ChxvZa5fxKTBZ5Li21YqhEveLxLC7jUvXji3uMYRNBoqzSM8wCcTvwyZMMMpv1tmn"
+   ],
+   "tip": 0.000337315,
+   "position": 1,
+   "leader": "HaLanfo94ezLc3JZ55qqxr7W3qbe1PprJyv2uEtriEqN"
+  },
+  {
+   "sig": "18G991qddUs6yeK8wRoWtxvbFR4iHNVdSLMbS4KZmHB76nwXWkb5z8pVoxMk8kxvhB4fwSDoWKc9XhSmKdUatJh",
+   "slot": 454980883,
+   "blockTime": 1791575402,
+   "buy": true,
+   "sol_out": 0.903824047,
+   "bundle_id": "9757c7727b4f5a6c1674ba04f188f00d9a3c6df9bfd1bb376059dd5e2f230d4b",
+   "validator": "BhNnboEZb3mKkVADMH11cYGWCqefAfmhzx5rU4eRTKGY",
+   "bundle_txs": [
+    "kpVLuBgHGXhwbE3ghFRgJcjk8nsmhZD9PPedDQCR1PDCrCm3v7RL9Bc7Xg9Jn2kny2R62x1eff1xworb5GRT9E8",
+    "18G991qddUs6yeK8wRoWtxvbFR4iHNVdSLMbS4KZmHB76nwXWkb5z8pVoxMk8kxvhB4fwSDoWKc9XhSmKdUatJh"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "BhNnboEZb3mKkVADMH11cYGWCqefAfmhzx5rU4eRTKGY"
+  },
+  {
+   "sig": "2UFkTnCyiuEbcNUK4zurnaMUnX5nc1sW8LbhedsxpuqHNiVPDmAACAKMufVLSht4uYXnsdqGbidUdYFBPfjbjzGg",
+   "slot": 454980563,
+   "blockTime": 1791575334,
+   "buy": true,
+   "sol_out": 0.903823978,
+   "bundle_id": "f53d9ce89edd312d02ff3fb6dcff71296788a302992f62a6ce3767c8a071652b",
+   "validator": "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX",
+   "bundle_txs": [
+    "578sgpsZ4qmsUkeEnhNqCw3QrLx5zjL12RJQeTwfNh88e1MeNMeyaCGRY5UFk6zoyTXW2ktRWZfPi4Cks7ubXzhg",
+    "2UFkTnCyiuEbcNUK4zurnaMUnX5nc1sW8LbhedsxpuqHNiVPDmAACAKMufVLSht4uYXnsdqGbidUdYFBPfjbjzGg"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX"
+  },
+  {
+   "sig": "65sZFNbbd4sZYEE4iDt888EfYFosrcakcP3CK8HiciN2d6acYmJHGchn42vjMzJrHnLbXZ4FH7UGsiBHjnwuUXnh",
+   "slot": 454979915,
+   "blockTime": 1791575191,
+   "buy": true,
+   "sol_out": 0.949720051,
+   "bundle_id": null,
+   "leader": "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj"
+  },
+  {
+   "sig": "3aaH6VL12xmFUZM9eBbUHS3Wv799gACcMyMebPpEFZojPpCvF54iagcmjrNzJruxRBZuMoz2VAWxuNq5VxiYdq73",
+   "slot": 454979406,
+   "blockTime": 1791575080,
+   "buy": true,
+   "sol_out": 0.856790711,
+   "bundle_id": null,
+   "leader": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b"
+  },
+  {
+   "sig": "XVHkCd8rWn5Xy1rvGNikuTWF1b2ybQvYYeCLThh4mh6zHRQQBSZ6N5XsHoaZuAYMqFXV7JrQiwCvfm15h6gvZCj",
+   "slot": 454979368,
+   "blockTime": 1791575072,
+   "buy": true,
+   "sol_out": 0.916069903,
+   "bundle_id": "3ee1f5fe23c15003a6a3869362f02acdb30eb387262763427b2ee3dfbf108fa7",
+   "validator": "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL",
+   "bundle_txs": [
+    "3Aut3Yk4SkJqdT1jn5iWLsPMH5m6cfaQiBb9vb9UQyVsX2kkCwibzKcNPStdWVGP1CPxNFnMrAfJEJhDiKB3P9U1",
+    "XVHkCd8rWn5Xy1rvGNikuTWF1b2ybQvYYeCLThh4mh6zHRQQBSZ6N5XsHoaZuAYMqFXV7JrQiwCvfm15h6gvZCj"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL"
+  },
+  {
+   "sig": "5kaCN2KeMEQgo9nVpto7PRzzr4UUQRr7APassKugZdwxtofWX1424FYosPAgmNGMs5i31PBSw9DkczXcAyg86tSZ",
+   "slot": 454979001,
+   "blockTime": 1791574992,
+   "buy": true,
+   "sol_out": 0.903824002,
+   "bundle_id": "ab0984b26d3e848d87b519b7dbdc8af798ba0fc131223e9c7fdde29df8b26c9e",
+   "validator": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm",
+   "bundle_txs": [
+    "2nLKrYRdsMxbUGaukeSErhwD6SBeKdXWTmLNBH1K9Ca2VfJCyJhD65jRyL8UnaX3zD1i2fSCx7uoJv7ZkPUoWbXk",
+    "5kaCN2KeMEQgo9nVpto7PRzzr4UUQRr7APassKugZdwxtofWX1424FYosPAgmNGMs5i31PBSw9DkczXcAyg86tSZ"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm"
+  },
+  {
+   "sig": "2GYrvxKd85cS4AJNaRCDx4bRttJGdtkxz9ngwaPW8fCaenMUKbUgTqCiEx7iN6AAciHDW3QwL4td3TunMi5kTMCv",
+   "slot": 454978808,
+   "blockTime": 1791574948,
+   "buy": true,
+   "sol_out": 1.501289202,
+   "bundle_id": "054f20411c7375042ae7d4b894083c792690e1a4f8688943abd7d570933384e6",
+   "validator": "BeSovDCzhEAfgwDyXBuhmCFKsu5WQ3PaX61GEfteNzXM",
+   "bundle_txs": [
+    "2GYrvxKd85cS4AJNaRCDx4bRttJGdtkxz9ngwaPW8fCaenMUKbUgTqCiEx7iN6AAciHDW3QwL4td3TunMi5kTMCv"
+   ],
+   "tip": 0.001133,
+   "position": 0,
+   "leader": "BeSovDCzhEAfgwDyXBuhmCFKsu5WQ3PaX61GEfteNzXM"
+  },
+  {
+   "sig": "X5DNhLvRnJwCcB1sQSFgAzsYBpSJnLyo9gqhpJ319BMJRBev2B8aTW3Xr5UYy2G5gHJr7x3SbXmmy3saAARG7gc",
+   "slot": 454978796,
+   "blockTime": 1791574946,
+   "buy": true,
+   "sol_out": 1.501214677,
+   "bundle_id": null,
+   "leader": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi"
+  },
+  {
+   "sig": "5hzG8AUhx3mYm4PYB52867WQZUQBdVK8AiD5XtHSK94i4akXH5DPyXA4Yc7iY6fRC8arTU9Zfx6D9SKArFREW93b",
+   "slot": 454978783,
+   "blockTime": 1791574943,
+   "buy": true,
+   "sol_out": 1.501215203,
+   "bundle_id": null,
+   "leader": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM"
+  },
+  {
+   "sig": "5iAyHEfkAXdfuVA5acvHkuRhhSQythHYQMvyqhfgqMS6NfS2LPTSkYhvseFA4nTEcXAbL6GKZaHhJ7iRqEQHrj4f",
+   "slot": 454978760,
+   "blockTime": 1791574938,
+   "buy": true,
+   "sol_out": 1.501670523,
+   "bundle_id": null,
+   "leader": "CMPSSdrTnRQBiBGTyFpdCc3VMNuLWYWaSkE8Zh5z6gbd"
+  },
+  {
+   "sig": "3u8UFR7EfxMfFbTRN3dM7yUdtQguJMLfYQ9bi1KaP9CwkatuvtfoK1zwc2g1jrsG5EKLzcXgrdCrvYGkuQdFgAst",
+   "slot": 454978590,
+   "blockTime": 1791574902,
+   "buy": true,
+   "sol_out": 0.85236377,
+   "bundle_id": "0060c7e6e6e0a6afadc718293e9fa06187f33b1d70e6c415a4bfa58d10f6791c",
+   "validator": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA",
+   "bundle_txs": [
+    "44Z4NRYgyjJr5Fnnsrc3MNVHcqE6BvgGhcRn1s7CbzqBusw8dYGhdBsjyTUjBTTm4rqQwSFRipUW6icNwBm6TWok",
+    "3u8UFR7EfxMfFbTRN3dM7yUdtQguJMLfYQ9bi1KaP9CwkatuvtfoK1zwc2g1jrsG5EKLzcXgrdCrvYGkuQdFgAst"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA"
+  },
+  {
+   "sig": "26ATNk7Lz4YdSStmjuRyGNSEZeaMmFufL36Kv8bFqFqztdraYjwU1J7YATZkfm2kUWaaCHkKQ4tGWoL8KLTwYYim",
+   "slot": 454978549,
+   "blockTime": 1791574893,
+   "buy": true,
+   "sol_out": 0.011876658,
+   "bundle_id": null,
+   "leader": "7qGNnXKW1e3DsqEaSxwxMdBTFsrK73XtWTmkGitRyMQc"
+  },
+  {
+   "sig": "UQN6VcPDS3SMJetQoJ9Gz5gEVtmCmSxb1MfRjXZUXhc2es48wCXZ6c6a9sj19zX7ZAjT4LuSNoRHHrFsmVtUZaX",
+   "slot": 454978421,
+   "blockTime": 1791574865,
+   "buy": true,
+   "sol_out": 0.419444236,
+   "bundle_id": null,
+   "leader": "BSVckjdW2f8kcXPGcrPPtV9kUDBZ8w8PjrrGVnxgEdwq"
+  },
+  {
+   "sig": "5vxjzXuWufojkhe8KSZieLPd1pmtg48LfSkFUvQLAiTUhPcyzK7qqVzdum6KquE9anna6S58SucGHnyD2ToydPYF",
+   "slot": 454978234,
+   "blockTime": 1791574825,
+   "buy": true,
+   "sol_out": 0.951997449,
+   "bundle_id": "9df46d2854cb3fd58693d745d916af942d66df00b4ed0903a0c0ff7f32d72415",
+   "validator": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
+   "bundle_txs": [
+    "2as2Df6tkaUxfVgRKU28GtyXmz5GsBJHRCfJ9EK6gB866ePFLP5pq6iCXjRvYpGwgDTY1yFgSVeBhE1StmoQinah",
+    "5vxjzXuWufojkhe8KSZieLPd1pmtg48LfSkFUvQLAiTUhPcyzK7qqVzdum6KquE9anna6S58SucGHnyD2ToydPYF"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH"
+  },
+  {
+   "sig": "5FDHpaJg7YMtcLEvtnRD369NZ3ffdC6GVkAwdsZqf6QuQ1zosn49GUr9Dxske5LHoyaJaj2u13ibEeRsLYMNFgnM",
+   "slot": 454978118,
+   "blockTime": 1791574800,
+   "buy": true,
+   "sol_out": 0.853090452,
+   "bundle_id": null,
+   "leader": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi"
+  },
+  {
+   "sig": "vNg5wubv6HNeasu6hr3Q4UWKeKbSttGYbiHPY9YP49Whs2m9jKSodpgfqYvMBdnmQE3JoRZ5Ct7iDXaehULzrfH",
+   "slot": 454978057,
+   "blockTime": 1791574787,
+   "buy": true,
+   "sol_out": 0.903823977,
+   "bundle_id": "d28d9b66dc73dc691cf6873d25b6c812160450e2a89e70d1091841b363edf532",
+   "validator": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU",
+   "bundle_txs": [
+    "4FyCQGGus7oukRsS286zduoYAujmj7QDJrK419YdUU9q9SsxSeHkVMD3quh8RzJLuGkMg4L2kCX4e9wmEebXq27n",
+    "vNg5wubv6HNeasu6hr3Q4UWKeKbSttGYbiHPY9YP49Whs2m9jKSodpgfqYvMBdnmQE3JoRZ5Ct7iDXaehULzrfH"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU"
+  },
+  {
+   "sig": "676ZAXn5kBuCCmT2fWGVZCGC9W8iFM1erMYGTEvinrLSC5fU68mdmX5gqAVW2qk2ZuS22X5jTBTg4J8LB9ecRfRv",
+   "slot": 454978022,
+   "blockTime": 1791574779,
+   "buy": true,
+   "sol_out": 0.948543126,
+   "bundle_id": null,
+   "leader": "2DTXh3ruMU2SeWanqr4yeg5GR47V99Jq3wUdStQfda3V"
+  },
+  {
+   "sig": "34kyZbDWAmzQE6wEHqBn49151aXfcxU9bbd6KwqPkvLt5JbzE5pxp4Thk7azYbV4QXdoTd1969ffreJ3C2GTgDx5",
+   "slot": 454977916,
+   "blockTime": 1791574755,
+   "buy": true,
+   "sol_out": 0.944059017,
+   "bundle_id": "92fe45b310855d38df72e80ff9c9a3ab312bea04c277b091528efcd36ad45f02",
+   "validator": "CoG8d9Fp2TFJRkAmrPMiPsGhQWHzdTTVoegEp9svRgmJ",
+   "bundle_txs": [
+    "3E5YWH5dinidDiduuKoY4fqUsKaCBTbDVL42LG497KK3E9w3T7QusS262Lm2oditMFDQLr2a7darhFGFnz8CgStF",
+    "34kyZbDWAmzQE6wEHqBn49151aXfcxU9bbd6KwqPkvLt5JbzE5pxp4Thk7azYbV4QXdoTd1969ffreJ3C2GTgDx5"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "CoG8d9Fp2TFJRkAmrPMiPsGhQWHzdTTVoegEp9svRgmJ"
+  },
+  {
+   "sig": "42dQfNaho4tmYD2G2oPLsi6pw2p4gkZdWhF9D17gdBTJwN9zXLE73cmM1iBqgGHPKMiYKSNi4mRGTYZqpApYqqb1",
+   "slot": 454977815,
+   "blockTime": 1791574734,
+   "buy": true,
+   "sol_out": 0.943204827,
+   "bundle_id": "457d8934e90f2082aed8de541da62cba172942c2391689a352f006c109e22388",
+   "validator": "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW",
+   "bundle_txs": [
+    "2wbZF3Tz4yTnegBCMcEvxGHxKnchdy1XuhWn1cBFGaTSyXSFSJuxYhzgzyP5YWjbuA9Kx5qJj7ycBhpR6mfdzmeH",
+    "42dQfNaho4tmYD2G2oPLsi6pw2p4gkZdWhF9D17gdBTJwN9zXLE73cmM1iBqgGHPKMiYKSNi4mRGTYZqpApYqqb1"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW"
+  },
+  {
+   "sig": "2NyUG8A6puRdGm3N4cjwBuTxyrxUYTqrTDiTG6vH8cgVaY83gpCTmrntbdv5CrJJEUwxjgGcgipCeHUaGejxSUXP",
+   "slot": 454977496,
+   "blockTime": 1791574666,
+   "buy": true,
+   "sol_out": 0.852708827,
+   "bundle_id": null,
+   "leader": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM"
+  },
+  {
+   "sig": "3VuabVnQhrfb2W9voKFqYbcjed125a3bXJyiKGe7pKusmf57RHeUqqCEBrQHv1WtGAFbfQR7aNTX8YaLBJSsxTyH",
+   "slot": 454977432,
+   "blockTime": 1791574652,
+   "buy": true,
+   "sol_out": 0.42376262,
+   "bundle_id": null,
+   "leader": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM"
+  },
+  {
+   "sig": "61okTFn2xAvuXRhh4HtNhsWYLtGJsVMs9LUYvyDCqWpo1FL1zw8QwmmVKAug2WCSffqyRZzM27MM4ojWat85dAhn",
+   "slot": 454977379,
+   "blockTime": 1791574641,
+   "buy": true,
+   "sol_out": 3.322999215,
+   "bundle_id": null,
+   "leader": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i"
+  },
+  {
+   "sig": "4CnTJo164nVyyxVqctaVoAtK4PMsVR6CJT5SU7r6fnxkSDwCp6oX8qaRY4gfJQvspwS8n9UzyKdNqVArqninYAhd",
+   "slot": 454977305,
+   "blockTime": 1791574625,
+   "buy": true,
+   "sol_out": 0.943648352,
+   "bundle_id": null,
+   "leader": "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5"
+  },
+  {
+   "sig": "5oQzuxecKWszuidBD3rDDZKGo7T5AGAQjDXNwXC8YHRk7aHU9JNc2Nginap7BkvupaEi8AwviL3Lbk72QEhKb7P7",
+   "slot": 454976953,
+   "blockTime": 1791574548,
+   "buy": true,
+   "sol_out": 2.841295323,
+   "bundle_id": "3c72dbea72504e4d6a05e4a83b4b98184c26767654f365e42b1fe245ba7bbb2d",
+   "validator": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
+   "bundle_txs": [
+    "41kjo3GmiQJz1r43uYzuM9wg2zgbsQLEkgbf2QnRN3pwYc1RLjk5wdB9TMLZDsgkWHejDfurrQWz1uQD8dKKZwxP",
+    "5oQzuxecKWszuidBD3rDDZKGo7T5AGAQjDXNwXC8YHRk7aHU9JNc2Nginap7BkvupaEi8AwviL3Lbk72QEhKb7P7"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH"
+  },
+  {
+   "sig": "5RdhWpKHYtoZJxahRVDeYWdx7A1SBhKfybXxG2HRV5Qb48sRGnGjquwwzzz7JYN6FJYctZSXvKrmFz161STwtEQh",
+   "slot": 454976573,
+   "blockTime": 1791574466,
+   "buy": true,
+   "sol_out": 0.85441637,
+   "bundle_id": null,
+   "leader": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM"
+  },
+  {
+   "sig": "5vFJSRv1pnBpqU2B4k3LmbDh7mdbczQYf2FsFsE7J1dibeMEfjWSZSFkTH6Z5E2yXsfVXfCHKNxa16hZoHjSPxv5",
+   "slot": 454976484,
+   "blockTime": 1791574447,
+   "buy": true,
+   "sol_out": 1.005060859,
+   "bundle_id": null,
+   "leader": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo"
+  },
+  {
+   "sig": "2qG6CUmggzjT5uAQSVu2HuFNNbcHmrDRgDVjaTux1GuA447qtfXXLjpM9Q73RhAMzi8KaNbVV82pXkTP3B3F5cX9",
+   "slot": 454976393,
+   "blockTime": 1791574427,
+   "buy": true,
+   "sol_out": 0.85270919,
+   "bundle_id": null,
+   "leader": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f"
+  },
+  {
+   "sig": "iPwUhsdVBJkhrzECqupTMukfRXmpnQcAKxTcFwFbD7DFNGSyt1E68okvv7jfh7zKnE3whtKwzobbeShkfbDxzwj",
+   "slot": 454976053,
+   "blockTime": 1791574353,
+   "buy": true,
+   "sol_out": 2.851035858,
+   "bundle_id": "5012f148d5ab9a1f77775f19649d574b4606cc3354d0a6f5b495501a3ac75374",
+   "validator": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "bundle_txs": [
+    "2RPxEpgDYPSkCm6hJMpP4rYvxJbdT1PJ3d6x8t7eiPEe525EqNdLyxZezxhUCTYRVfeJtZi9vu4J939oARvuNqr1",
+    "iPwUhsdVBJkhrzECqupTMukfRXmpnQcAKxTcFwFbD7DFNGSyt1E68okvv7jfh7zKnE3whtKwzobbeShkfbDxzwj"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB"
+  },
+  {
+   "sig": "64twwJk4pZZ2bkr5vmvqo6gTFofToaDc3Sj9UVt8KXNb51Ri18dy6sVNWirU4n9cw2PqG8hvPbMLKcbfjsYV3Q9D",
+   "slot": 454975843,
+   "blockTime": 1791574307,
+   "buy": true,
+   "sol_out": 3.831716716,
+   "bundle_id": "8b6ffc406224150675907776107a04e2e8575a71fbe6ca49395746b00fcda26e",
+   "validator": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9",
+   "bundle_txs": [
+    "3ZN6NzgNFH61M9v7kaQS5DJ3ua6RxuB9wZYtXMyokYrzYJS5SwTMRUKbjG46YnraB72mb1b1do5SvitezPZKTK2V",
+    "64twwJk4pZZ2bkr5vmvqo6gTFofToaDc3Sj9UVt8KXNb51Ri18dy6sVNWirU4n9cw2PqG8hvPbMLKcbfjsYV3Q9D"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9"
+  },
+  {
+   "sig": "4N9gzF6jwBznNyZWGFRUeY8oeFZ4gCfSyM3hry5PvhJ3KDNuEZkrYT8EaYbTGERmbCsFZSySBThbff7Dp3aoufqt",
+   "slot": 454975841,
+   "blockTime": 1791574307,
+   "buy": true,
+   "sol_out": 2.530583942,
+   "bundle_id": "10efe0146b345e77d0f0162b7af82883defbfa1f8942dea8c91a90c97074f715",
+   "validator": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9",
+   "bundle_txs": [
+    "7HkxfHwnCeqT7v6Lzy5PRMWxWVLVPKoPntRzyAXconk9P486qN7cWjQDBXQrKxEEaTWeK1GS5X3AnDyR4hYYZNz",
+    "4N9gzF6jwBznNyZWGFRUeY8oeFZ4gCfSyM3hry5PvhJ3KDNuEZkrYT8EaYbTGERmbCsFZSySBThbff7Dp3aoufqt"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9"
+  },
+  {
+   "sig": "3xRzWch3Fg4wAwvSCGnVjQzd9T8fR6gr5t6D3PeCwVcBpKYeUQ2zmyqDS9EU641tWZK8Vyib3REyMjMJ74TEnXm6",
+   "slot": 454974716,
+   "blockTime": 1791574062,
+   "buy": true,
+   "sol_out": 2.58464516,
+   "bundle_id": "03c7bdc189f6d4084e9996cc540b850e4d12bdd38147d7fca43c4606f069dc95",
+   "validator": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk",
+   "bundle_txs": [
+    "MxrCTG8F1dYnrQjKqf4MRDPk5pjgetd6J8x2Vk8XSB8y1EfedPFWQM5nr6fDJQvBGj3irNtJ5z3WfKs56Xg95bP",
+    "3xRzWch3Fg4wAwvSCGnVjQzd9T8fR6gr5t6D3PeCwVcBpKYeUQ2zmyqDS9EU641tWZK8Vyib3REyMjMJ74TEnXm6"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk"
+  },
+  {
+   "sig": "BWYsB3Rdim2PfSEdo8Fov4LbAEm4PJYFKGju5HAVApoHzWtzQ2NGM7cLRKkcWRknPgF21DFRtajawTddCLiXRfq",
+   "slot": 454973661,
+   "blockTime": 1791573832,
+   "buy": true,
+   "sol_out": 1.501670522,
+   "bundle_id": null,
+   "leader": "87CcUxpyR72ZyfaZirj86mqkbk5uuU2EfnwTegVMLJL5"
+  },
+  {
+   "sig": "4cogY6vUwaVU4fncVVLijCBevJ8m9TRfRZsEt4McudNscXQkrSP6TSTnkZTHH6HgT3QdkPBkViGJoZPKw2BfypyQ",
+   "slot": 454972267,
+   "blockTime": 1791573529,
+   "buy": true,
+   "sol_out": 2.854636788,
+   "bundle_id": "a7fc61581c2796ae3fffcd01e9c40932d49a3ecc576d4dbed09b4b06ca0fba52",
+   "validator": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo",
+   "bundle_txs": [
+    "5VR4g5FF1ea9sjzwb7PgM9ne8EvkjVWi2viKscRU5U1jiQXx7aXYi3CQZgMGPg7kom3A4MYmXBySVKn2ehCTniFA",
+    "4cogY6vUwaVU4fncVVLijCBevJ8m9TRfRZsEt4McudNscXQkrSP6TSTnkZTHH6HgT3QdkPBkViGJoZPKw2BfypyQ"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo"
+  },
+  {
+   "sig": "62PbE5BYHVi4MgLtpEPX1QHh8pm3SMAuGQJzsdyRnJz1fAr1gD7KJMZTNnuBa8xRiLwJoSRkJESyGLSWp7JDjKGb",
+   "slot": 454968863,
+   "blockTime": 1791572787,
+   "buy": true,
+   "sol_out": 1.501670522,
+   "bundle_id": null,
+   "leader": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB"
+  },
+  {
+   "sig": "3p7h6nwYPDiJbK1pDMQZ5NxvopvYGKiHAEGtu68BpuDhhx7mgonJDXnLMh5sbw9sNvtYZxpXwjqnsKf5Qw3Zuq4v",
+   "slot": 454968789,
+   "blockTime": 1791572771,
+   "buy": true,
+   "sol_out": 0.853185322,
+   "bundle_id": "8b79e5c688844aaa796edae4ff60d865086f85be2d52e03bed0366362647065e",
+   "validator": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU",
+   "bundle_txs": [
+    "3KppDc41NzeYi5LeyZbqEPRDK57wYDw49NdRgT3neNAq6Vh3xwKErpe6b13dog6qkawyBRi3vkpkvAF4WwGTusg7",
+    "3p7h6nwYPDiJbK1pDMQZ5NxvopvYGKiHAEGtu68BpuDhhx7mgonJDXnLMh5sbw9sNvtYZxpXwjqnsKf5Qw3Zuq4v"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU"
+  },
+  {
+   "sig": "EZP7zUmiq9zCvmVPNMdeMdVpv126HP9FEmUt9uoymZqSZDvUBkoyVTxXLqi53yJjJCYSYDYFdXjd83WB7PD6jnZ",
+   "slot": 454968540,
+   "blockTime": 1791572717,
+   "buy": true,
+   "sol_out": 0.853062499,
+   "bundle_id": null,
+   "leader": "87CcUxpyR72ZyfaZirj86mqkbk5uuU2EfnwTegVMLJL5"
+  },
+  {
+   "sig": "5Efyek12qhtyi3hfUSQhCSiw7GgDDXTMZ25BpnSnbXiUaqdhNk57Ld6GbhnbwoqAuiiTor4o1NRYF2E1mWoPoLkG",
+   "slot": 454968524,
+   "blockTime": 1791572713,
+   "buy": true,
+   "sol_out": 0.85230222,
+   "bundle_id": "273a4c25b003d1ffc9baac1b02a1660826ae6792bce006efdf1a6f5ec2a976d2",
+   "validator": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL",
+   "bundle_txs": [
+    "5eqzAAKBZwsw9vZAgzoRcx39odWqVQ2NHTFiSnXdehGLP9x72a3y6f24aRPEMq9GZeTqGmhhZjybU9cfNbHz8Y9q",
+    "5Efyek12qhtyi3hfUSQhCSiw7GgDDXTMZ25BpnSnbXiUaqdhNk57Ld6GbhnbwoqAuiiTor4o1NRYF2E1mWoPoLkG"
+   ],
+   "tip": 0.000423505,
+   "position": 1,
+   "leader": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL"
+  },
+  {
+   "sig": "8wFDpm4tAXvLwa4yaSAEyqBHCCmveFvaKp4Ad4EHaRAvYXkf6JNuxGJw1nK4uoUShGiSJDPoyaw7Vk6KLL7f2ud",
+   "slot": 454967314,
+   "blockTime": 1791572450,
+   "buy": true,
+   "sol_out": 0.85305732,
+   "bundle_id": null,
+   "leader": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ"
+  },
+  {
+   "sig": "4s5GYiVvQZaUTjiYHMV6qWYPgn3Cz5GBcDPvhTqYwtGzkac9UkbGsFQAPD8aYx3N29cVcy8gUnQLaTiVzWXs6Bvx",
+   "slot": 454964502,
+   "blockTime": 1791571834,
+   "buy": true,
+   "sol_out": 2.82687048,
+   "bundle_id": "f8bfa23b6da2b4c0f3b8fc7617b92788f36f5d124e687785512590274c1c065f",
+   "validator": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm",
+   "bundle_txs": [
+    "3RGyfp4UzWMQqpWGRJt8w6SEV6XJhUhyxsCdrXVywSon7sGxvtzcVcm7Z5CduccjwSvGytiFu7NjgtjmkRHdGQb7",
+    "4s5GYiVvQZaUTjiYHMV6qWYPgn3Cz5GBcDPvhTqYwtGzkac9UkbGsFQAPD8aYx3N29cVcy8gUnQLaTiVzWXs6Bvx"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm"
+  },
+  {
+   "sig": "5iQk3fbNxVVHC7nh4PMZGhna4Zj4YZd7Yc4cHh1VytiAUFrQKQAxjN8xTTft5CYjBN4rvrJfMK6PK1tuznrDaV4Z",
+   "slot": 454964499,
+   "blockTime": 1791571833,
+   "buy": true,
+   "sol_out": 1.500156682,
+   "bundle_id": null,
+   "leader": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy"
+  },
+  {
+   "sig": "3fugZ8PLwhg9udg4hdP3fzaf3EcJfVbSwRssUxZLDS7CL4tEdAVTjcJd5DwQaEF39HVW7oGnzNWDgKzDxRfidnB6",
+   "slot": 454964495,
+   "blockTime": 1791571832,
+   "buy": true,
+   "sol_out": 1.501289202,
+   "bundle_id": "82d8e9e2fc17c032f578f2c7ee38ebdecb7b610e8df4d6d0d9aa46ea18415ee5",
+   "validator": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy",
+   "bundle_txs": [
+    "3fugZ8PLwhg9udg4hdP3fzaf3EcJfVbSwRssUxZLDS7CL4tEdAVTjcJd5DwQaEF39HVW7oGnzNWDgKzDxRfidnB6"
+   ],
+   "tip": 0.001133,
+   "position": 0,
+   "leader": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy"
+  },
+  {
+   "sig": "5sQyhPwbAFiLnbuHEkWs3rCoRwWNVSpUeV7QiRoYvvLr3JmK5e7CKnHae4g7YHZYy36GGzvZSmbev1tg5DhnZPhK",
+   "slot": 454964489,
+   "blockTime": 1791571831,
+   "buy": true,
+   "sol_out": 1.501670523,
+   "bundle_id": null,
+   "leader": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU"
+  },
+  {
+   "sig": "5CCRB73TbT8XkL6mVZZqAsCEUVcP23rYQz6Sud7btTGi9yXVu8teW5N5BSYQ7fm3eMVQw1sNCBNHVnbAs7raJio6",
+   "slot": 454963846,
+   "blockTime": 1791571692,
+   "buy": true,
+   "sol_out": 0.401538712,
+   "bundle_id": null,
+   "leader": "EXckihF3qmguH5znjhfzLvHsbk2E3nEW2DqNh4MMnDMm"
+  },
+  {
+   "sig": "2WTLLbK3hCDSrvorSaRgL9X9cpxKbnJavVHfG3SnHEJg7hHs6Fk5giy5Wa6FxPSzywgqLaV2614XsSUe9nK3GC3N",
+   "slot": 454963710,
+   "blockTime": 1791571660,
+   "buy": true,
+   "sol_out": 0.101670628,
+   "bundle_id": null,
+   "leader": "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5"
+  },
+  {
+   "sig": "55tghYm4v42KV8LjHFhW22gSZz89XGjrutYfNr1Ss3yrGNAfNKQ9ZDXZLWi4fqKUV8VzXvkeRNgLKX4bNx386yo2",
+   "slot": 454963613,
+   "blockTime": 1791571639,
+   "buy": true,
+   "sol_out": 0.853065184,
+   "bundle_id": null,
+   "leader": "9iFPQbP1jGkj67sXg6YLLGRUBVEDMcapdS6jmCZSnz8R"
+  },
+  {
+   "sig": "5i9ChmLD4yheYR6eyppr1hrhg34FzkYBLsjVojnojdJhdmDYKeBuUBx3Mpfoe9SHRjcwMC1XRJVTAVT9NEVXYrPn",
+   "slot": 454963467,
+   "blockTime": 1791571608,
+   "buy": true,
+   "sol_out": 0.943077815,
+   "bundle_id": null,
+   "leader": "2DTXh3ruMU2SeWanqr4yeg5GR47V99Jq3wUdStQfda3V"
+  },
+  {
+   "sig": "2U4wfChQ5Lsgy5A3uoAVhajGjbe26oDWsPE61rEXp8FmAJMuu1BR4gscBY4Y49Lc9SaW8fam1LeBTr6p4XGvQqmC",
+   "slot": 454962809,
+   "blockTime": 1791571463,
+   "buy": true,
+   "sol_out": 0.951653071,
+   "bundle_id": null,
+   "leader": "FNKgX9dYUhYQFRTM9bkeKoRpsyEtZGNMxbdQLDzfqB8a"
+  },
+  {
+   "sig": "2hfCvfP1ADWN8q9GPvqieYgqH4BojvXatYkEVYSFkwSuca1vyvNYJBgRwEsqjUFRyAU5koanNRhXh82Up4RDKL3N",
+   "slot": 454962056,
+   "blockTime": 1791571296,
+   "buy": true,
+   "sol_out": 0.852212198,
+   "bundle_id": "2f6a620923d8a871550460817cdfaa8e5efda93c013f8e0f15b9b95c64a8c17a",
+   "validator": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "bundle_txs": [
+    "saL5JQVGjQD4Uqtwn8XX7a9GnF66BZvowYMkzywQAgvhu6UwAspwoiyGgcwCFffATDrQyiaYn4Y94fAo7xsFAjA",
+    "2hfCvfP1ADWN8q9GPvqieYgqH4BojvXatYkEVYSFkwSuca1vyvNYJBgRwEsqjUFRyAU5koanNRhXh82Up4RDKL3N"
+   ],
+   "tip": 0.000346328,
+   "position": 1,
+   "leader": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB"
+  },
+  {
+   "sig": "63RD7NFnuDQ5okm6xUhiTxgNcEE6vvi4kwGYaGX1qFGfAeFauvk1igQyUX748wwSn7uwP3cAnrTvGvLuy9NsoKmJ",
+   "slot": 454961331,
+   "blockTime": 1791571140,
+   "buy": true,
+   "sol_out": 2.58464949,
+   "bundle_id": "afaa831425e8d8f20a30ba8f01b3df941e0f5b44243c3c281c889ebf360b1678",
+   "validator": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi",
+   "bundle_txs": [
+    "2zts1whCuLdJYQnfoxqj4bGKM8ZdUV7ZXUTiHPaKvaahfKoxooJ7H3Sqv8SJPUBVw7YDH4Xh2SM4Ka6sctsv77VY",
+    "63RD7NFnuDQ5okm6xUhiTxgNcEE6vvi4kwGYaGX1qFGfAeFauvk1igQyUX748wwSn7uwP3cAnrTvGvLuy9NsoKmJ"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi"
+  },
+  {
+   "sig": "wLXy3rLWLipKuZxfdZP1vjvf33gz3SpYV4J6BpGH9BSw9xLnMfBDSV3DMH1gnERFDRJGkVPdZjjJLYREcsDi4Nu",
+   "slot": 454960601,
+   "blockTime": 1791570980,
+   "buy": true,
+   "sol_out": 0.870225992,
+   "bundle_id": "1228791795a9f928328503ec6be772f35320c91da22d540cbc2fddbf6f186dca",
+   "validator": "22rU5yUmdVThrkoPieVNphqEyAtMQKmZxjwcD8v4bJDU",
+   "bundle_txs": [
+    "63MVUeU2CAZ98cKB6jXJbsxBVv5xFQyjgG5Cwi7qwQtbwTV4g8cDeraRPvyRJ3LBqNnYKexG6e5sUeWNcbjMGdcu",
+    "wLXy3rLWLipKuZxfdZP1vjvf33gz3SpYV4J6BpGH9BSw9xLnMfBDSV3DMH1gnERFDRJGkVPdZjjJLYREcsDi4Nu"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "22rU5yUmdVThrkoPieVNphqEyAtMQKmZxjwcD8v4bJDU"
+  },
+  {
+   "sig": "q7Hqwii2TnC7RBigeyjU26AMmfxuwVKPLDWmVMiRRaoreG8vMUjHGMeBp9xa2gH8UzrNvESTKkj5YiFcmCxLRkX",
+   "slot": 454959984,
+   "blockTime": 1791570847,
+   "buy": true,
+   "sol_out": 1.501670525,
+   "bundle_id": null,
+   "leader": "HnfPZDrbJFooiP9vvgWrjx3baXVNAZCgisT58gyMCgML"
+  },
+  {
+   "sig": "3HU1w2SxVR728M3i5Nkp78ThMSVMD4qMSYJaigJRPkuPmrs2bYzGMW5NfMFGy2ypbGatnC8R4yz9Z8TgCzdRANE2",
+   "slot": 454958931,
+   "blockTime": 1791570615,
+   "buy": true,
+   "sol_out": 4.708228644,
+   "bundle_id": "f208596cc2577e5acedfd119df14ea9277c7e4832e4cdbddad9dabb367cbe369",
+   "validator": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA",
+   "bundle_txs": [
+    "5U97HidbZMwQV6zfQRbtumvRgWYY4WBPFTxTvEXqgp3gFztFGeCgy9x1VUK5CjmRKqb8yjsAKGu5wTsWNQGidYps",
+    "3HU1w2SxVR728M3i5Nkp78ThMSVMD4qMSYJaigJRPkuPmrs2bYzGMW5NfMFGy2ypbGatnC8R4yz9Z8TgCzdRANE2"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA"
+  },
+  {
+   "sig": "uJD6rZRorGsN3Dx32Eux4RiqyrMiqXcVdfwxh6HchoKbUievXaLKVXwchXD9TKPNxatCcY1FqQLKYbGNR7cCxKK",
+   "slot": 454958909,
+   "blockTime": 1791570610,
+   "buy": true,
+   "sol_out": 0.419289236,
+   "bundle_id": null,
+   "leader": "G9vCpJUUSpEm4zPwzSNpDmZ8MGwLEbiSLV59EBzCGvzM"
+  },
+  {
+   "sig": "2r2nfUktjJxG1dRbPMhYKFbsqW6Uzf8DzhZ6rybWU8Mth1E5putXXhAAHrBLG2ivqUsjRGt8RqLsnWF97873kFy9",
+   "slot": 454958858,
+   "blockTime": 1791570600,
+   "buy": true,
+   "sol_out": 0.502206679,
+   "bundle_id": null,
+   "leader": "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz"
+  },
+  {
+   "sig": "5JuQ2oVKP9JrTfMHtiz2twSEMFR8puqPAXCkoySLQAybpHsZL7xr2FdMqECBo77UAkeERPrVy272G5iaWCUkFWXZ",
+   "slot": 454958742,
+   "blockTime": 1791570574,
+   "buy": true,
+   "sol_out": 0.501529939,
+   "bundle_id": null,
+   "leader": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM"
+  },
+  {
+   "sig": "3g8snLDVMrtSY16719CDmhVuXUNEUsm5XdH2MkoTj7NJ82sM6JUN6K9HnabrJEzCySLJYKG9ter4awwNKTWuCMaj",
+   "slot": 454958718,
+   "blockTime": 1791570569,
+   "buy": true,
+   "sol_out": 0.251670634,
+   "bundle_id": null,
+   "leader": "9rkJMARqK6VBkcxGfKBAwnA44gPAfGxPbPsfsggFNDSQ"
+  },
+  {
+   "sig": "j6iXkdieekDE7VZUBoerHLuLUGLbcDhfYpLRF7a329mMeVrVQrTLVQn7cpECRQvsyrxkYFu1DQxb84cwfjSVcVR",
+   "slot": 454958599,
+   "blockTime": 1791570543,
+   "buy": true,
+   "sol_out": 0.50151884,
+   "bundle_id": null,
+   "leader": "GoeW4aFK4dGoekJySgUynWDxBZiQJqm8GDAF4H53tDK9"
+  },
+  {
+   "sig": "5P5BQMcg3A8DBDQsm2szWHSrgqE5a75SPBZfWRMgbdr9weMCWny22XkRYMJBxsAP48y82QfABncJKSywMxB5vakS",
+   "slot": 454958253,
+   "blockTime": 1791570469,
+   "buy": true,
+   "sol_out": 0.854263902,
+   "bundle_id": null,
+   "leader": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f"
+  },
+  {
+   "sig": "5SrxrP8WcbSMt1eTU9UVxgtzXaktye1ksJxz5RtDS6P2X1aZUjWsvPMmyqVvTDqKZ7zh4GXwf8Ey3v3hoLBxbNi3",
+   "slot": 454958216,
+   "blockTime": 1791570461,
+   "buy": true,
+   "sol_out": 0.942363795,
+   "bundle_id": "b2c960dbb249435f5615ca6ede5279c3c685530bc585950ef3086753a5d47821",
+   "validator": "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7",
+   "bundle_txs": [
+    "2Sprxmsg8Vrtzyf1UhBNUdAbLTQUVuThydnp1gzWbFuwTytfjbPFSjTWYYtZtorY8vPeM7RvYuSkTtDBj5M4oAJ5",
+    "5SrxrP8WcbSMt1eTU9UVxgtzXaktye1ksJxz5RtDS6P2X1aZUjWsvPMmyqVvTDqKZ7zh4GXwf8Ey3v3hoLBxbNi3"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7"
+  },
+  {
+   "sig": "67E24zHoNQKzXBRKkRVj1xf1rmHRyR4NRvLyL8aFBzU1fEB8Vvx5pVJqyxiwnw4ccX5oVnbDoXqxKFXkvvSoQJ93",
+   "slot": 454957952,
+   "blockTime": 1791570403,
+   "buy": true,
+   "sol_out": 1.501289203,
+   "bundle_id": "50deec53e389db23fb0cb576eadc8327d41f5e0a3702055ed74f834ee4b39213",
+   "validator": "PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb",
+   "bundle_txs": [
+    "67E24zHoNQKzXBRKkRVj1xf1rmHRyR4NRvLyL8aFBzU1fEB8Vvx5pVJqyxiwnw4ccX5oVnbDoXqxKFXkvvSoQJ93"
+   ],
+   "tip": 0.001133,
+   "position": 0,
+   "leader": "PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb"
+  },
+  {
+   "sig": "pbLqbALEUQFAafZ3K8C5L5BR6kE6bToF6M1kHPTXvv8bkpfvRkCDdWKSLJGfRHyPjZy3frWR9FsAHVQxP4v16AN",
+   "slot": 454957946,
+   "blockTime": 1791570402,
+   "buy": true,
+   "sol_out": 0.10167052,
+   "bundle_id": null,
+   "leader": "CW9C7HBwAMgqNdXkNgFg9Ujr3edR2Ab9ymEuQnVacd1A"
+  },
+  {
+   "sig": "5Am34viL7pSZjNcAsG8XyhbL3QrDVu5NHepSbHsGiyEQCYBpWuLw3DeeMiMfvhrbzh5H43CiFLqLK4K6HYZzNere",
+   "slot": 454957837,
+   "blockTime": 1791570378,
+   "buy": true,
+   "sol_out": 0.942953578,
+   "bundle_id": null,
+   "leader": "AMukCLCr52XxsEjXoDxKKxjNg4FpnsReXNaQx8aR6DJF"
+  },
+  {
+   "sig": "3k5gBtamHtG6ndV8FKHTdPZg7m1eeehyXHbnVhmxA829vMa2u9Wu4FNsiH9o8MACoeDLYhQ7Wzz9GasmMbxdkbo4",
+   "slot": 454957831,
+   "blockTime": 1791570377,
+   "buy": true,
+   "sol_out": 0.943034164,
+   "bundle_id": null,
+   "leader": "87CcUxpyR72ZyfaZirj86mqkbk5uuU2EfnwTegVMLJL5"
+  },
+  {
+   "sig": "4Sv6YU2JazoYerG2XxRHyXZbGkkfqZyMZAyiWPvBAHYeSA6UDEpg9FiEZC11vRkzoc3jc4Qz7uLvpCdAFzzwVEGj",
+   "slot": 454957813,
+   "blockTime": 1791570373,
+   "buy": true,
+   "sol_out": 0.806250342,
+   "bundle_id": null,
+   "leader": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk"
+  },
+  {
+   "sig": "63XCgT2W3vqYanSkZ6kPQFGb8hbBfwERrSoyhE8te72KGTCAG5rmmbcHGiGajesf97nqNFsuPc2WBe1kobL929T3",
+   "slot": 454957615,
+   "blockTime": 1791570328,
+   "buy": true,
+   "sol_out": 2.828209829,
+   "bundle_id": "0156df54bf3e83907d1fd05391a6e8aed42a7c2f609ed155f5775e16f559375e",
+   "validator": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "bundle_txs": [
+    "4FWht2sok3i7EWjkqaqHypVKdr9Lqc2hQCX965EjCdt4L5zPeLLTvspdvkXdeTbPxJdJ7Aj2Xx4V9jYMgLyHL1N8",
+    "63XCgT2W3vqYanSkZ6kPQFGb8hbBfwERrSoyhE8te72KGTCAG5rmmbcHGiGajesf97nqNFsuPc2WBe1kobL929T3"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB"
+  },
+  {
+   "sig": "xBLNJyBVKUKsd9xJqejPh4PFoWYQ8rmeWKd9w1BeqHziHD1m8frR1qYZnpkbWw5UBGXMvNMfWbaBnPLSxeFZU5L",
+   "slot": 454957278,
+   "blockTime": 1791570255,
+   "buy": true,
+   "sol_out": 0.252851082,
+   "bundle_id": null,
+   "leader": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL"
+  },
+  {
+   "sig": "oxAZZ1qg1fg4H94HvYuhWTnNGmEmHSXqH4mTqym3AbYwWMMrxZLUPq6pN5grHCLGi8ngFUhPE4dKKsv6mYMyNAb",
+   "slot": 454956807,
+   "blockTime": 1791570151,
+   "buy": true,
+   "sol_out": 2.85464949,
+   "bundle_id": "46b3664a6e60fa4fe64577f1dde159e3e4d569d9e4a2b8aabeef6d59bda132db",
+   "validator": "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz",
+   "bundle_txs": [
+    "FwfX1615TCwmHyb36xUXULZT9fx224jo8x7Df84iTTJqCFcy6YzHzw5Qm52qr7KxhnWy4s7wD6kek296NKRHE6J",
+    "oxAZZ1qg1fg4H94HvYuhWTnNGmEmHSXqH4mTqym3AbYwWMMrxZLUPq6pN5grHCLGi8ngFUhPE4dKKsv6mYMyNAb"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz"
+  },
+  {
+   "sig": "rLkDY235VN5XSpAweQgeU4iBcxaVPygntrrKUnQzohcRaE8QPmMoVccfGdTYawcdDAcyUL42Up7Au7AFNuqrPxL",
+   "slot": 454956681,
+   "blockTime": 1791570124,
+   "buy": true,
+   "sol_out": 0.94315879,
+   "bundle_id": null,
+   "leader": "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5"
+  },
+  {
+   "sig": "3TCmPbLqxXhRf42unXDKAP3GqAb2n95zB8htTVo7VbGVEDJab1cbsBNQdGg8JN11HfUJi87Bx1mkdy3iYz9bwMJJ",
+   "slot": 454955011,
+   "blockTime": 1791569756,
+   "buy": true,
+   "sol_out": 0.944152925,
+   "bundle_id": null,
+   "leader": "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj"
+  },
+  {
+   "sig": "2mpDC1Arcr95i3ASYK23kv2uetZTfpNS4wfn5nL9mE3uBJWCoSx854tY7jQQvLB7V99q4htZUaGkQo1nHrQEm3wt",
+   "slot": 454954460,
+   "blockTime": 1791569636,
+   "buy": true,
+   "sol_out": 0.883598409,
+   "bundle_id": "afcdec8523f3e68a65a6ae09fe505e99f60ca49bdb47ac2d11147f0716688cfe",
+   "validator": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk",
+   "bundle_txs": [
+    "3H3SoxoB3Vn35XLkf7yBKLAMNT1kJbYbxqeeHyqxtw5TnHqpBndo4zvVZCpQKYsUhKTUJG7KedM3RVn8k2zro2nR",
+    "2mpDC1Arcr95i3ASYK23kv2uetZTfpNS4wfn5nL9mE3uBJWCoSx854tY7jQQvLB7V99q4htZUaGkQo1nHrQEm3wt"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk"
+  },
+  {
+   "sig": "WEEXkjzMBbzQcvSxKVVK4bGrwPyJgp3bSfF953mLVsBSjrj3qCxPYBTWh2JV17qmXoUv4xKqwoDF6HG8kNWWxaK",
+   "slot": 454952689,
+   "blockTime": 1791569243,
+   "buy": true,
+   "sol_out": 0.943308043,
+   "bundle_id": null,
+   "leader": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4"
+  },
+  {
+   "sig": "2uP86UC2i6VALbC44EiFfwAkt9d1aa5pLWzyGhfEwfXDck4kjDCFoFfz5XQZbFV942KDPDcrZ1b4wECpYBUmjNT7",
+   "slot": 454952618,
+   "blockTime": 1791569228,
+   "buy": true,
+   "sol_out": 3.00964516,
+   "bundle_id": "69b88c3675de151e91945cd1997ed1eaf9d8155395cf89e656799372b5e61a55",
+   "validator": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ",
+   "bundle_txs": [
+    "4Zi9LPjKoWPkPGQsQK859bDvwwt4ueowwtogwV3hGC59HEnY5yaqU6eDUR1NFmFZZfRxDePoH2zvnXFbtNqVGXm8",
+    "2uP86UC2i6VALbC44EiFfwAkt9d1aa5pLWzyGhfEwfXDck4kjDCFoFfz5XQZbFV942KDPDcrZ1b4wECpYBUmjNT7"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ"
+  },
+  {
+   "sig": "67mtRgpH1tQ5fQJu6Q3cn9XBDruZzqGZKM3HtxnvBrj4ss8gNS2CzQ9ATWFN1K6HrjMKzLR3UVad44pWFcdMWNgx",
+   "slot": 454952422,
+   "blockTime": 1791569185,
+   "buy": true,
+   "sol_out": 2.983226358,
+   "bundle_id": "3e112852735a298406101323bdb8fc2ab1b7bba19559e6e822ab68fe6269acc9",
+   "validator": "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW",
+   "bundle_txs": [
+    "5whe56Qiixg73mAjmzt9si89vD3NoNQf8bxNn2dAfLDFP7gTVxMmzdCEezLXuymMEWPr8PfnJ7FR9cvaLrKsiUWf",
+    "67mtRgpH1tQ5fQJu6Q3cn9XBDruZzqGZKM3HtxnvBrj4ss8gNS2CzQ9ATWFN1K6HrjMKzLR3UVad44pWFcdMWNgx"
+   ],
+   "tip": 0.0019616,
+   "position": 1,
+   "leader": "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW"
+  },
+  {
+   "sig": "3NYaTFoQu4TyrLVRSAbDPdXzyBUwju7UYh6kWqW6ZwBV4NvbRfVRT95RTyDA9KFsLNzeg2u9sifydFdEGHTsXJh3",
+   "slot": 454952057,
+   "blockTime": 1791569105,
+   "buy": true,
+   "sol_out": 0.94334425,
+   "bundle_id": null,
+   "leader": "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW"
+  },
+  {
+   "sig": "4ZrFRNpZvoB4B2hDMkqXUDdzLioHdeGxK5esQZqDL3pqF84qt8pdEd8X6MRpATikrs872kV5kB13gTbScFrdn2qb",
+   "slot": 454950901,
+   "blockTime": 1791568854,
+   "buy": true,
+   "sol_out": 0.453511722,
+   "bundle_id": "f3ad09d8ec116fd6c75d170bcb99ff646603aec36eac0c49c2fd69a81081fb3b",
+   "validator": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4",
+   "bundle_txs": [
+    "5d9RBLem8wEWsEF6dBoLR15agNFhY5AAvvj98cJe3p3kfFpgo7RG5ovMC7bqwX48GEFkECVaHzhDmAb8oK6ktahE",
+    "4ZrFRNpZvoB4B2hDMkqXUDdzLioHdeGxK5esQZqDL3pqF84qt8pdEd8X6MRpATikrs872kV5kB13gTbScFrdn2qb"
+   ],
+   "tip": 0.001639344,
+   "position": 1,
+   "leader": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4"
+  },
+  {
+   "sig": "5aMCGygPQEWaqtF29AhK2dF7EGm7YmrvG2dxWVUAhmtEgXWo8bK4gqPfJWpwGdr2T2DgSgvHZi261Evnua1yszoF",
+   "slot": 454948490,
+   "blockTime": 1791568326,
+   "buy": true,
+   "sol_out": 0.501529939,
+   "bundle_id": null,
+   "leader": "FNKgX9dYUhYQFRTM9bkeKoRpsyEtZGNMxbdQLDzfqB8a"
+  },
+  {
+   "sig": "63X13NVWiipvX6FkZTfLRzufKPLEMqBPXnkSvow9yf4vNDbuEPUNt8bk1jguW5dPEatBQZHFXvngahftPCsL9QQb",
+   "slot": 454948302,
+   "blockTime": 1791568284,
+   "buy": true,
+   "sol_out": 0.97167392,
+   "bundle_id": null,
+   "leader": "A1vqhA2fS6K7CvHsJKX1ACcHJFEmyRg4KuR5pctHANy4"
+  },
+  {
+   "sig": "5DzE46MXNLEFybdVgVFgkWdTSadbPQuX9GC28oHNN3PY96ndusHCVfYtSQ8YsJxuDEXynFCLxwkWKhSgfLFVxhsw",
+   "slot": 454948228,
+   "blockTime": 1791568268,
+   "buy": true,
+   "sol_out": 0.458703854,
+   "bundle_id": null,
+   "leader": "A1vqhA2fS6K7CvHsJKX1ACcHJFEmyRg4KuR5pctHANy4"
+  },
+  {
+   "sig": "4Q5UMXkXQ2A2QoWWHGkokRAyoMVNTwdu71EbC5rhfhacoa5Bvwvvdwq1Rpwb41bbdUeq2T9dpji3Rt6iEFa3uAgD",
+   "slot": 454948111,
+   "blockTime": 1791568244,
+   "buy": true,
+   "sol_out": 2.58464516,
+   "bundle_id": "475cada3e44b13d843d4cfbde24bafcaab9469432497cabc05689d6d5e63bf3a",
+   "validator": "6ptuwW4rg5A3wP9hNKxeymG3QhSagugPd3grnMTGJwWG",
+   "bundle_txs": [
+    "2iJUkbFpYXdZzD7ZVHeTZqPRsLTwCkoUmsDBcvmDWQ39QxkUui8wLLy6EgKKgwYg8CLsLmNKEYsa1QCcHcdxRV8D",
+    "4Q5UMXkXQ2A2QoWWHGkokRAyoMVNTwdu71EbC5rhfhacoa5Bvwvvdwq1Rpwb41bbdUeq2T9dpji3Rt6iEFa3uAgD"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "6ptuwW4rg5A3wP9hNKxeymG3QhSagugPd3grnMTGJwWG"
+  },
+  {
+   "sig": "2o5U59fMeTaiymsgPYsacinxYtMa7HkDLZpu45zd4hu6E6At9Te9155U3s2yqZUkEvD1znpUz9kcHef9zShWMHqq",
+   "slot": 454948079,
+   "blockTime": 1791568236,
+   "buy": true,
+   "sol_out": 2.569536948,
+   "bundle_id": null,
+   "leader": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM"
+  },
+  {
+   "sig": "5tLhmfU4AUHF1KVFuMXxy6VAxaroUjsY6XHp6ooGudsvbVUPNjYipug1PqQafbZJ4ur3jiuy9JubeZiYPaGbQNtu",
+   "slot": 454947987,
+   "blockTime": 1791568216,
+   "buy": true,
+   "sol_out": 0.943195978,
+   "bundle_id": "0c67ee03fca168ab156849fbfaf36878692cb1116835b873fda69bd58ce7f2ad",
+   "validator": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH",
+   "bundle_txs": [
+    "5ihqVoDkJWwuc5ndCKEYVMQJh7xS7nKAbk9kNn5zzXLAi6C5g4bZrAyTfWmA72tChMeetz5jp5uDph7QfBY1xzGh",
+    "5tLhmfU4AUHF1KVFuMXxy6VAxaroUjsY6XHp6ooGudsvbVUPNjYipug1PqQafbZJ4ur3jiuy9JubeZiYPaGbQNtu"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH"
+  },
+  {
+   "sig": "xthh61x5WcsAfARNri8v39mFTdNFsQkRtwtCf95aBEsiX2Z4WuSGT1mr7etmeViRdv98NPrDJXqzr3x6RhMxR6i",
+   "slot": 454947785,
+   "blockTime": 1791568171,
+   "buy": true,
+   "sol_out": 0.956635963,
+   "bundle_id": null,
+   "leader": "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5"
+  },
+  {
+   "sig": "5qeQvDWeAJNQDk1uhh91rPfbgJmyJghKzDBJYdJtjjNAFLFmLs4MLnteVpqu3SnmaZjRht4S4LfbBacZwdcpYZSu",
+   "slot": 454947493,
+   "blockTime": 1791568108,
+   "buy": true,
+   "sol_out": 0.473205883,
+   "bundle_id": "4a3db03798c2e66e2e3afef690187dc3ad4f01f83dd509fe19f5c4c0d9f82997",
+   "validator": "GQzMeEMwAR44ugoNCifTb5NdRKos1GduDUPeNh6AgV46",
+   "bundle_txs": [
+    "58AxdCSNRZgiMvefAvmgJF9J35WwMUPVj8qPY6DwWptxVGkBEPbUbkqQpmPsprcFcoRTSAbPbczqWAeduvxU6J3X",
+    "5qeQvDWeAJNQDk1uhh91rPfbgJmyJghKzDBJYdJtjjNAFLFmLs4MLnteVpqu3SnmaZjRht4S4LfbBacZwdcpYZSu"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "GQzMeEMwAR44ugoNCifTb5NdRKos1GduDUPeNh6AgV46"
+  },
+  {
+   "sig": "3TBc1EgX7gSLjaZ4baSPAUt1cYEnfNxbFjMXWdyYT3fZBxHhPgWVcj8rRR59XHmCykypkfhKJ79QFT9N8U7tHKX6",
+   "slot": 454946879,
+   "blockTime": 1791567974,
+   "buy": true,
+   "sol_out": 2.851167416,
+   "bundle_id": null,
+   "leader": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi"
+  },
+  {
+   "sig": "3KyMkocA8CYvXYnEZi2qX1iSW4WaRkDVuHWXX5BDhXQKUnK2b1U64bQc8G8yKNLr2UePxG5X6QXnn7hZJ23kxrDf",
+   "slot": 454946644,
+   "blockTime": 1791567921,
+   "buy": true,
+   "sol_out": 0.501529939,
+   "bundle_id": null,
+   "leader": "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj"
+  },
+  {
+   "sig": "4tFvGYx7oUewNrcNzBSe1frt9ufCVnT8ncgc39ctGNiczxosJYPsriKG6jLFZqXUULmuUxfAWTAzPoZvtgehyjLn",
+   "slot": 454945784,
+   "blockTime": 1791567734,
+   "buy": true,
+   "sol_out": 0.901976636,
+   "bundle_id": null,
+   "leader": "Ex1AxFCipXGfSxgvXPPT3nPQUARddCduHwKR6jHiXAaT"
+  },
+  {
+   "sig": "5A2fbhEXbPHKPCGZYAsNohEFZZ4fY3DLQUATW5AawXikcCgJDxTzhw8rVSTMH4Qynvvt5xREv9t2UmUnFeb4ikDp",
+   "slot": 454945562,
+   "blockTime": 1791567687,
+   "buy": true,
+   "sol_out": 0.457406186,
+   "bundle_id": null,
+   "leader": "AMukCLCr52XxsEjXoDxKKxjNg4FpnsReXNaQx8aR6DJF"
+  },
+  {
+   "sig": "53P4pcf93HqG7XW5AQak7eoHbY4bZx6ycq5WaLumxrNvumJFBtdGGDaaehiLw7L4x2gS9LGq1nEoZ1ZmcAKzwMvv",
+   "slot": 454945444,
+   "blockTime": 1791567662,
+   "buy": true,
+   "sol_out": 3.324640886,
+   "bundle_id": "5881c58250a67e0cc4653cd8742f777087f1b9707df35b358631918e77ee07f3",
+   "validator": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i",
+   "bundle_txs": [
+    "3JEEVfiaPgTnWf6TwouaRhfFT2bzmDHj8o1TexgMiUraqqAPLN1VCSnVCpX66CHk9541oesJVbqM9YzGWbLF8cFR",
+    "53P4pcf93HqG7XW5AQak7eoHbY4bZx6ycq5WaLumxrNvumJFBtdGGDaaehiLw7L4x2gS9LGq1nEoZ1ZmcAKzwMvv"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i"
+  },
+  {
+   "sig": "5dFYm4RkBnGeiUAwFRD9dL8HKNjaBrHuZBoXa5pQS6CQkMjAex9aBm7U426QnNmN8imhyoE8vb18vxwqNYZEwapw",
+   "slot": 454945144,
+   "blockTime": 1791567597,
+   "buy": true,
+   "sol_out": 0.419239236,
+   "bundle_id": null,
+   "leader": "A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2"
+  },
+  {
+   "sig": "4ZzcF1gLAsvfqdcGh4KkzgRcKrzb4VA7QURvzk2U5oiUFmqmJCs4dGsFJrkC2mWCfcQJdquJ2DNxc4raVoWwFBR7",
+   "slot": 454945024,
+   "blockTime": 1791567571,
+   "buy": true,
+   "sol_out": 0.852324988,
+   "bundle_id": "ddd18bb085cd2ce47f421e85ccfc7ed636405c9400c2ccc1a840547fcad4f34e",
+   "validator": "AWcCdYG7Dy6GX45c6QMPbgGwgRZPKcBDT4bXGb3QrVRV",
+   "bundle_txs": [
+    "hnavkzkZBYvrMT7f3TJym4X12FTj9B5Lpe3ZLqAAZ3vxvF2fLNHPp8yZN3JyCTX6TbMtqsfWhEugUVte2Jbqtyh",
+    "4ZzcF1gLAsvfqdcGh4KkzgRcKrzb4VA7QURvzk2U5oiUFmqmJCs4dGsFJrkC2mWCfcQJdquJ2DNxc4raVoWwFBR7"
+   ],
+   "tip": 0.000449093,
+   "position": 1,
+   "leader": "AWcCdYG7Dy6GX45c6QMPbgGwgRZPKcBDT4bXGb3QrVRV"
+  },
+  {
+   "sig": "5zphYNNJCPfskf7KHyzuVyEvUP88Qd785rzdMVh9tGEvKvCGuDoc5p8oKgngEvyiDd5ud7JEUqtEsVwboQ3yPsqm",
+   "slot": 454944844,
+   "blockTime": 1791567530,
+   "buy": true,
+   "sol_out": 3.324654035,
+   "bundle_id": "fce7cc52ff8949de3ee78c8914fcbb5db505bbea1ea935431202ded4a034521f",
+   "validator": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f",
+   "bundle_txs": [
+    "s1zhnSMyNYSBZ249BCNpLBjh9ozPd5s7NjvXMd7XztrHmoshjBL9iD956X6caPUBsomkagcL4jC3gWmUCEdaZMx",
+    "5zphYNNJCPfskf7KHyzuVyEvUP88Qd785rzdMVh9tGEvKvCGuDoc5p8oKgngEvyiDd5ud7JEUqtEsVwboQ3yPsqm"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f"
+  },
+  {
+   "sig": "2asLNzCRQnkoLw4WkjqS9AiACnNYPK1eN2YB94MmrsCuG3oRerWHz6ibzgnyeCoEP8BemA6PewVm4BCqY1Rc2Yb",
+   "slot": 454943517,
+   "blockTime": 1791567243,
+   "buy": true,
+   "sol_out": 0.425250043,
+   "bundle_id": null,
+   "leader": "2dxz129YxB1xtf7Mx6HUT5JspexArNNtQt84FYueWZV7"
+  },
+  {
+   "sig": "2WJcPgMA88yfKSgWYyWuntcjVXpDd5cNfBtj3D8if2Y7mUwPZG39ympJRX184wV1vFhmfwZn5YDgnbVLpiKrNmZz",
+   "slot": 454943503,
+   "blockTime": 1791567240,
+   "buy": true,
+   "sol_out": 3.85964949,
+   "bundle_id": "d368c698d57591ab4ec8243099ac046199bd0adc6eb9673b23ad2527cd45bab3",
+   "validator": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk",
+   "bundle_txs": [
+    "5Mwd3QGXBAVeLjj28PpVX8J7xCwcJBRCXFMJeZCQDZwD3hLtFBhkBwqPqFhoRQp8rv2cpvAGUevofMqtBkq8i2dV",
+    "2WJcPgMA88yfKSgWYyWuntcjVXpDd5cNfBtj3D8if2Y7mUwPZG39ympJRX184wV1vFhmfwZn5YDgnbVLpiKrNmZz"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk"
+  },
+  {
+   "sig": "2PQJvxSTW63bYRnckjCL3frx7doBMj4ckHarTvCnYp4vzhxafokaNTKMm2GjRcAADnAGR9V1M7E44LRugRatSued",
+   "slot": 454942701,
+   "blockTime": 1791567066,
+   "buy": true,
+   "sol_out": 0.942993813,
+   "bundle_id": null,
+   "leader": "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz"
+  },
+  {
+   "sig": "in3X98NcFvt5SMzDjHmykKqKyXsU9t6fnuoYPpGHHfw9ifxjq5bdfHfTiCRsyaPcHTx6RQRxcL889Y4xSbveNuv",
+   "slot": 454942100,
+   "blockTime": 1791566935,
+   "buy": true,
+   "sol_out": 0.941879197,
+   "bundle_id": null,
+   "leader": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM"
+  },
+  {
+   "sig": "4ikoDmMhbL8jH21DLGncYdQa4Hkks9wuG5RJ7A4bquxkU3Wy19fKArEDV1u89ZMXp7UfLrkKWpdYv1nr6B74rHrK",
+   "slot": 454942005,
+   "blockTime": 1791566914,
+   "buy": true,
+   "sol_out": 2.627697214,
+   "bundle_id": "7ae7b75a234a47d8607d9ed16557312ae191b7c0bab48c634c9ed54970ec6374",
+   "validator": "3iSQtPgkZBqKVK1CNxcxZoKggAkWiDrE22cXeT38bKsE",
+   "bundle_txs": [
+    "2kuDPsbhtUVzUp1BcSmqKtnWcM1UqnRPRqfDKCKUNbeGNSkut4FFuMW2y7MAgLbvqgz6fzgeaNh9V5vSPJzagqAr",
+    "4ikoDmMhbL8jH21DLGncYdQa4Hkks9wuG5RJ7A4bquxkU3Wy19fKArEDV1u89ZMXp7UfLrkKWpdYv1nr6B74rHrK"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "3iSQtPgkZBqKVK1CNxcxZoKggAkWiDrE22cXeT38bKsE"
+  },
+  {
+   "sig": "38T7kkQe3mDzPiHsw2G2NsKBFdgEx4RxbLkgmxsm8oFMPZgDrScmXA47JYdJ1GKSGfAQLu6J6Z7dEsN5MTJChFqR",
+   "slot": 454941612,
+   "blockTime": 1791566827,
+   "buy": true,
+   "sol_out": 3.274535034,
+   "bundle_id": "5eb05bc68c5561e9c5bc6a855d0dc1260258f9033774168f0840140d7e314bd4",
+   "validator": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4",
+   "bundle_txs": [
+    "feU2bKfFkqNXrYD6xkwUfFdkS6m4XZkVq63uqqeDg8UtZLvp58uJmeVTqSBQpDAMm9h3YuLyPSQzSuMQbSofW7d",
+    "38T7kkQe3mDzPiHsw2G2NsKBFdgEx4RxbLkgmxsm8oFMPZgDrScmXA47JYdJ1GKSGfAQLu6J6Z7dEsN5MTJChFqR"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4"
+  },
+  {
+   "sig": "4sRCaZTtufvQ2gho2KNBZiRykPrsaBLv2TVHztDkRSymoueGhjgxpePgGu1jJBsgFDVFzpnrXja25b5LqDFToLyX",
+   "slot": 454941606,
+   "blockTime": 1791566826,
+   "buy": true,
+   "sol_out": 0.418817647,
+   "bundle_id": null,
+   "leader": "GnC339vkyXRm1jRX69dt9mapPPu2LbzXfSDoxc91qta6"
+  },
+  {
+   "sig": "xEYGCtC2x2WU5G7ELYrpQkQR2cEPdkeBdqRRqToxp85RMQuaEAUgSzAtB2g1JrwQyVKUVzMLukQ4D73CvpeXLw7",
+   "slot": 454940210,
+   "blockTime": 1791566521,
+   "buy": true,
+   "sol_out": 0.853069647,
+   "bundle_id": null,
+   "leader": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH"
+  },
+  {
+   "sig": "4oyiQMyp4KqTpx7kxhrs62X8JKJhJaNaPg5zf6Boz6e3ZtJCedVtbR2AtSCkjcoC1x3sEzjnRHtZn3kVs1MJNHTD",
+   "slot": 454939437,
+   "blockTime": 1791566351,
+   "buy": true,
+   "sol_out": 0.904611258,
+   "bundle_id": null,
+   "leader": "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW"
+  },
+  {
+   "sig": "4k8SXuL9qotEtfMsBPKDeLQUv2tgpvVrhY3Rf2FKiRTojLL9kzXJTGdu2fptjtP8kEkixRkuMUVN8Hm1UTRb7s5C",
+   "slot": 454938461,
+   "blockTime": 1791566137,
+   "buy": true,
+   "sol_out": 0.251876578,
+   "bundle_id": null,
+   "leader": "87CcUxpyR72ZyfaZirj86mqkbk5uuU2EfnwTegVMLJL5"
+  },
+  {
+   "sig": "5kG79KX15n95zD8x1V8WMr2gYSjKKx1yPkFpLAbUb69tQCngG7NTn21mWeDMRLg6nwvAREZr557KTGowoKCMGdEK",
+   "slot": 454937659,
+   "blockTime": 1791565962,
+   "buy": true,
+   "sol_out": 0.943106524,
+   "bundle_id": "c43c6cecdfa31629f757e9fe8b63ce5c4d10ec651c6ab01b3ec3b4ae601ff7bb",
+   "validator": "HH5dA42XF1HxNk1TRpG6LuKfLViMYNdAz5iWrFM4hWFi",
+   "bundle_txs": [
+    "2C1ZnVe81n5hdrAxxuAPXGxRr43zHqW9dtVbqEBDQbBKhLmdxvgfXTRyw1gPtCwvuFEfrTWYYhueSsShFozWFWX7",
+    "5kG79KX15n95zD8x1V8WMr2gYSjKKx1yPkFpLAbUb69tQCngG7NTn21mWeDMRLg6nwvAREZr557KTGowoKCMGdEK"
+   ],
+   "tip": 0.00039751,
+   "position": 1,
+   "leader": "HH5dA42XF1HxNk1TRpG6LuKfLViMYNdAz5iWrFM4hWFi"
+  },
+  {
+   "sig": "3yDFVYZHprgggtxB81bjATkZhKbULtmqbp8cWSigNJGFXebkxv9EDj3KUr7Q4iit6rVwhpQoCmmg1tasv6i2PTLq",
+   "slot": 454937627,
+   "blockTime": 1791565955,
+   "buy": true,
+   "sol_out": 0.25015668,
+   "bundle_id": null,
+   "leader": "22rU5yUmdVThrkoPieVNphqEyAtMQKmZxjwcD8v4bJDU"
+  },
+  {
+   "sig": "5SC8t3Jrd9M1QDGzLVYSZdt9tJSxgaTGZxSYH5VFzHpjmAn32FcwmBb4x15CsBzAmicNmWn9MaLeu1xkdigWzcWz",
+   "slot": 454937563,
+   "blockTime": 1791565941,
+   "buy": true,
+   "sol_out": 0.25167052,
+   "bundle_id": null,
+   "leader": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy"
+  },
+  {
+   "sig": "2yvh3Gus57dHAVerjoYSy7GdBAVKUnFgFUAYh4QsC84wJHaKaKgiP88HU89R3jpq6KLosHf9PAXyd38dmDptbQz2",
+   "slot": 454937056,
+   "blockTime": 1791565829,
+   "buy": true,
+   "sol_out": 0.416999165,
+   "bundle_id": null,
+   "leader": "CQdLgwkmmHF8DE6t4sguXMTXWDxq3oLh3xfekDTmow12"
+  },
+  {
+   "sig": "2Y3sz8S5A2epVKxpBcY3NBHbMgfU8XpHYKjeHSkca2GsJjmRt8ZwhbY1zhszkBriVA1Pu7iN5TceYMxxaDfPhWJx",
+   "slot": 454937035,
+   "blockTime": 1791565824,
+   "buy": true,
+   "sol_out": 0.852363795,
+   "bundle_id": "068f01098d4bb4725dd76f507868ef9aa92b08fa53f8f97c1dac789df8ca3743",
+   "validator": "GEM1N1UE3C8BB8EaaEPrcFvT3iLMVrurknjW5AYjUReR",
+   "bundle_txs": [
+    "35uMkFwVww5Sa63JBTwzBkktkFRZXk4D8GY7ASKWffULpBo7UgED3j3gwkPKkmNZXe122RpP2JwxJhaQcGxk5s5m",
+    "2Y3sz8S5A2epVKxpBcY3NBHbMgfU8XpHYKjeHSkca2GsJjmRt8ZwhbY1zhszkBriVA1Pu7iN5TceYMxxaDfPhWJx"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "GEM1N1UE3C8BB8EaaEPrcFvT3iLMVrurknjW5AYjUReR"
+  },
+  {
+   "sig": "7JTNKp8tHYveNfKSicRnvvM9QbcRwQfxRywyUuupxkbyLEZB5rs96JHDq2ZGaRLZYqy87i1XjpNztHTZLsggCJX",
+   "slot": 454935852,
+   "blockTime": 1791565561,
+   "buy": true,
+   "sol_out": 0.905401707,
+   "bundle_id": "a1dbcbb6a2b4d56aa88495fa9e80c8826a45a9b3f36336fedaf24f194008eb82",
+   "validator": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk",
+   "bundle_txs": [
+    "23NfLn4jpLagk2vQW9uuVdbHyHJubeKqRCccnDnVmsfq4Atm5UYrAHQseKvaCHjm3TeNN89YvHA31943KmgsxxF1",
+    "7JTNKp8tHYveNfKSicRnvvM9QbcRwQfxRywyUuupxkbyLEZB5rs96JHDq2ZGaRLZYqy87i1XjpNztHTZLsggCJX"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk"
+  },
+  {
+   "sig": "3kNAJrAd67TQNZnUURhxExoxcjTJjmMxsc5wqxauGBnsJjWsvnnxwm4ZhtNk2QKitaDcFgDLeku7JCEqonNfXZYJ",
+   "slot": 454935149,
+   "blockTime": 1791565407,
+   "buy": true,
+   "sol_out": 0.011876646,
+   "bundle_id": null,
+   "leader": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm"
+  },
+  {
+   "sig": "STa1EmvpJSq7tWrtufCCXoNGv42J77ikJsL2PAqQRfakkmner1QRti8Xeana2vzftnKkhX8ekj2rfYnPrFNupgi",
+   "slot": 454933908,
+   "blockTime": 1791565137,
+   "buy": true,
+   "sol_out": 0.853196412,
+   "bundle_id": "332d59dabf36c0f9cca6fa075266f730d0f32a7ccb6260763bbc201205f5738a",
+   "validator": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU",
+   "bundle_txs": [
+    "1tNcmnrbfjowaGrvk6srxtMbvcrPjVbgUCFuKTykjB7uJF8bGifeowHArFReJnKyaq6XypRu6jNLzGVgRmew5WZ",
+    "STa1EmvpJSq7tWrtufCCXoNGv42J77ikJsL2PAqQRfakkmner1QRti8Xeana2vzftnKkhX8ekj2rfYnPrFNupgi"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU"
+  },
+  {
+   "sig": "fTSeSuZYxWYKfczoDW2P3qNsvmw6DLfPf6qYvhdJhoBR6WJ6PCqYZUK6vt56pt365MRmMdbU4WPcL1M1XThjmES",
+   "slot": 454932478,
+   "blockTime": 1791564825,
+   "buy": true,
+   "sol_out": 0.852363414,
+   "bundle_id": "24110bef2d322efc55ea7003866d66e5c5ec27b82c6b022d55672c030fcd985c",
+   "validator": "6TkKqq15wXjqEjNg9zqTKADwuVATR9dW3rkNnsYme1ea",
+   "bundle_txs": [
+    "4WfL2ePZKdrr9JYmA22qjg45fMjhrhg7T22RRtcamHrDPDXXn1hbCDp6Y7UDtn9ijmzQiRx3KWG1bUGhxh5Pz2CQ",
+    "fTSeSuZYxWYKfczoDW2P3qNsvmw6DLfPf6qYvhdJhoBR6WJ6PCqYZUK6vt56pt365MRmMdbU4WPcL1M1XThjmES"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "6TkKqq15wXjqEjNg9zqTKADwuVATR9dW3rkNnsYme1ea"
+  },
+  {
+   "sig": "5cpPt1L86opvk6b2Yb4HM4No8YuLopAHz8Bvg2d1mb4Dzz9K6v2M2vWvmhkoMGa8H1mCSuxmdheYFAQUau27GxeL",
+   "slot": 454931261,
+   "blockTime": 1791564560,
+   "buy": true,
+   "sol_out": 0.503119282,
+   "bundle_id": null,
+   "leader": "8uJiHDJ1b7UDQ4KFsQGJXK9nUCkokdKRJymg1Wy9nxvM"
+  },
+  {
+   "sig": "463q67nMxQbCEuqmGUjPBZ5T9tLwz9AewJuCHpsuK54bVwcP3R3YJ2rwcN5ZQae91Ddg8UBB8FGDbyrKe1MgKsHf",
+   "slot": 454928739,
+   "blockTime": 1791564008,
+   "buy": true,
+   "sol_out": 0.24557828,
+   "bundle_id": null,
+   "leader": "6xWLi1TDSh65fWsSqE1zdvANTSuVDRMx4ghsGJwgunS8"
+  },
+  {
+   "sig": "394rg19TCGgEyE7AD8mnbUYXR8a9YZ7nDSRK7GWKSdaCPmE4FL9sC3jHVroVExJA9fWYtjvQhpgVNZzwisSyxcBR",
+   "slot": 454927365,
+   "blockTime": 1791563704,
+   "buy": true,
+   "sol_out": 1.353943029,
+   "bundle_id": null,
+   "leader": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi"
+  },
+  {
+   "sig": "4VuZ84MYRWivfaduvNkHVUqcDEymCkjQkFk1GCrytXfe6uoWkr5s2bq7P4WQSNTA7SYU19zJfHp6c55LBZQ54ZG5",
+   "slot": 454927111,
+   "blockTime": 1791563649,
+   "buy": true,
+   "sol_out": 4.267838237,
+   "bundle_id": null,
+   "leader": "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz"
+  },
+  {
+   "sig": "5PuUNCV8ALeV69GCEyWXdHkLT2CyUyyMnnjqB9aVSZXj7ovoW3Eh7yDfihdBa2jDGbuLfHLVxidbe3L3MFAUp4R9",
+   "slot": 454926646,
+   "blockTime": 1791563547,
+   "buy": true,
+   "sol_out": 0.852988749,
+   "bundle_id": "a76cbd4f4b238446ec167f6ee4356ca3208585a4ecff826a0785cf5485665ff9",
+   "validator": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA",
+   "bundle_txs": [
+    "2qBcsccWyTsGVvRwGN7ci4nZDcucZUViUuGkQDiSFmJBg4y9b7AGQsmeHYBZzpZmLHvBBRecCoQ9MQ4EVct46pbe",
+    "5PuUNCV8ALeV69GCEyWXdHkLT2CyUyyMnnjqB9aVSZXj7ovoW3Eh7yDfihdBa2jDGbuLfHLVxidbe3L3MFAUp4R9"
+   ],
+   "tip": 0.000269303,
+   "position": 1,
+   "leader": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA"
+  },
+  {
+   "sig": "CAA747mMW4zFUzq5ShED5mouFvhVB2dc9PqFPRsDKM3GckvqsJNyqcGufCQE9EvWHkuzQDphiF4pDYdS9gSkNkv",
+   "slot": 454926310,
+   "blockTime": 1791563475,
+   "buy": true,
+   "sol_out": 0.944102401,
+   "bundle_id": null,
+   "leader": "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj"
+  },
+  {
+   "sig": "4m9yUQ2PsMdm6BcaSTzKChCMVafhphr36BAmg5XWU87NQghjBn2THtfuDwS1cF59oyiWoWRfodnB1PRQhRArphiG",
+   "slot": 454924406,
+   "blockTime": 1791563059,
+   "buy": true,
+   "sol_out": 0.904808779,
+   "bundle_id": "745a466b498af546dc4eef74787dd6e04ac7b0db75c998fd6123f04648424a46",
+   "validator": "CVRr5oHCAAooVbYze7CvXtRp4FUtkMCSqBZU7MVu8v8e",
+   "bundle_txs": [
+    "5sd4ZGGeBm5FVRsLUvfSpZgGTAydz6izt4qm6GE23A3HG4M1UnbgKNm2BFwns69tP7aiAJ8botoqB9tD47J7i78o",
+    "4m9yUQ2PsMdm6BcaSTzKChCMVafhphr36BAmg5XWU87NQghjBn2THtfuDwS1cF59oyiWoWRfodnB1PRQhRArphiG"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "CVRr5oHCAAooVbYze7CvXtRp4FUtkMCSqBZU7MVu8v8e"
+  },
+  {
+   "sig": "5ceLsbbH8kqtjEg7LgGBwr6e2ndkSG5sRQFm1o9FdFqUq6L4Ts1q5tprYkmo33VdqkxgbypZPFQrSybHpCtnfzYX",
+   "slot": 454919651,
+   "blockTime": 1791562017,
+   "buy": true,
+   "sol_out": 1.444617949,
+   "bundle_id": "0f2a83af089b5b7a2d9867704b7c180c9d2dd97a254cb1cfec50a45794bd0c53",
+   "validator": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ",
+   "bundle_txs": [
+    "5CeL53RjpdpyYrMTobnAVUg1Ai2SAVq7JF2bXpL1edJVKvaV419AUfpRpvF9RZep9T6mLhSRdi8jAmQHZmm1URzD",
+    "5ceLsbbH8kqtjEg7LgGBwr6e2ndkSG5sRQFm1o9FdFqUq6L4Ts1q5tprYkmo33VdqkxgbypZPFQrSybHpCtnfzYX"
+   ],
+   "tip": 0.0024516,
+   "position": 1,
+   "leader": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ"
+  },
+  {
+   "sig": "4zfD7Jv4jQAYMg9HR1PrKTy5JPQVvUSoNDdj9iVY5zxwS81jYYxqLuhWmV5Pny3AGfcrnhHEMgbf86fyRZxfRZmJ",
+   "slot": 454918686,
+   "blockTime": 1791561807,
+   "buy": true,
+   "sol_out": 0.943195978,
+   "bundle_id": "9affa1397d8d86b2d0bad80a334aa048c9586cbbaeac7345c602c8091084c87e",
+   "validator": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "bundle_txs": [
+    "SrMgts1Y4KkeEzzGna8yBfSs5uxkuLTsZRjZmwDXAGsxxRJCC2FWCXQBcUaxH5jdcymqv5Nec3oR3tUAQjFF92d",
+    "4zfD7Jv4jQAYMg9HR1PrKTy5JPQVvUSoNDdj9iVY5zxwS81jYYxqLuhWmV5Pny3AGfcrnhHEMgbf86fyRZxfRZmJ"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB"
+  },
+  {
+   "sig": "5zsCs9zJvfy8v8ymvkbynTZUZsdbXhwXVVVFGFTT8PZP6wfYy2y5gHTjwRcSFEZvRgbYTZNDde53Pu3DUcST2cBp",
+   "slot": 454918248,
+   "blockTime": 1791561711,
+   "buy": true,
+   "sol_out": 0.943012707,
+   "bundle_id": null,
+   "leader": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i"
+  },
+  {
+   "sig": "3CVBFdv431R3iartWuJZeQitd5UWpDXogfrd62trjHf6WQzXQw2NheZWZXhHQgymXHeFokbXW2xsoyCDrmd2ahUQ",
+   "slot": 454916646,
+   "blockTime": 1791561362,
+   "buy": true,
+   "sol_out": 0.973186577,
+   "bundle_id": null,
+   "leader": "AqyRvpjjSN6jWYPxijoJwhmKwJFk6fRYDh9fQZHcJ2o7"
+  },
+  {
+   "sig": "3dnZW3EpPWmM1PwmvUPTTUy3DWAp92Res26QmLCJEjzDSAoesDeA7CaTof8CCQoyS8mNoPoxmeTPvRJEt66KCWrX",
+   "slot": 454916125,
+   "blockTime": 1791561250,
+   "buy": true,
+   "sol_out": 0.870420258,
+   "bundle_id": null,
+   "leader": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM"
+  },
+  {
+   "sig": "2G8LrFtHm8HCxYuwK9JFm1MH3Dc55Pt24xtp23MxKtuaPosG9wk6fPtYbofTTHRiNJTzqQ8u3uKJrtEE9rHWwPiZ",
+   "slot": 454915996,
+   "blockTime": 1791561221,
+   "buy": true,
+   "sol_out": 0.40152982,
+   "bundle_id": null,
+   "leader": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL"
+  },
+  {
+   "sig": "5Td5Ei6VdGexBspzdaY9VAqFVjQMx7zkpETPRaWJjQyxJjbhvpFhLuHd4Fn9gL5MgShMQ5GLqz7Kr5JrgFxE4EMC",
+   "slot": 454915738,
+   "blockTime": 1791561164,
+   "buy": true,
+   "sol_out": 0.855213879,
+   "bundle_id": null,
+   "leader": "mint13XHZSSxtgHuTSM9qPDEJSbWktpmpM4CZxeLB8f"
+  },
+  {
+   "sig": "3FwAp3oyc4GRaj6De7qPbXeUMnSWVyDmqk4EGuvHAdMYJR3Ud8e9yPC5Nw3sTu6itMbhfDa7dRgzmPUuzQiusXNR",
+   "slot": 454914319,
+   "blockTime": 1791560854,
+   "buy": true,
+   "sol_out": 0.852363235,
+   "bundle_id": "04c7226391ff20e0b837e38ca5e0f58d9c23c5b0be4a416fea1208b0c4fa3a87",
+   "validator": "HpcB5Qg8Y9E73dUkot5e8HkgAJbExsYeUzniY4bCuKac",
+   "bundle_txs": [
+    "4AnsNr9bGETEdoN69QtL9AhnvTbTbNV2F6ei5M8baQ9y11hqUWApnxEW5xBWTvNxpYifeH16oi6YrmSPdeu63Z66",
+    "3FwAp3oyc4GRaj6De7qPbXeUMnSWVyDmqk4EGuvHAdMYJR3Ud8e9yPC5Nw3sTu6itMbhfDa7dRgzmPUuzQiusXNR"
+   ],
+   "tip": 0.0004879,
+   "position": 1,
+   "leader": "HpcB5Qg8Y9E73dUkot5e8HkgAJbExsYeUzniY4bCuKac"
+  },
+  {
+   "sig": "23KBUHVLd6MV3kJWpNK8LJh3xCxZndc4d2H5xybi9FkeGF6UGii4mFMnVp5mZ5Pf4pRZeHyDE4R2hMDoowJLToF9",
+   "slot": 454913772,
+   "blockTime": 1791560736,
+   "buy": true,
+   "sol_out": 3.311271914,
+   "bundle_id": "744f4ef59c9b4cbd6ddd99239d45526966f7cb167caae2779d95fd78767ff4eb",
+   "validator": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
+   "bundle_txs": [
+    "e9HHHrksxSwT1RSQBMZtgBQo6N1Uqwo6w3bG7YYtWyAbh5smPBTmgfdo32qyNPduCTmXdn2VaH16sB3AJu3iS4B",
+    "23KBUHVLd6MV3kJWpNK8LJh3xCxZndc4d2H5xybi9FkeGF6UGii4mFMnVp5mZ5Pf4pRZeHyDE4R2hMDoowJLToF9"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH"
+  },
+  {
+   "sig": "4GQKcuc7U8aihwE9E6d8hrw2DncB7Ag2DqPK6C3taPzdLJoFRDnqUVgedj7gfriNtRLCCgP6LLz3x6HMSZsP558W",
+   "slot": 454913453,
+   "blockTime": 1791560667,
+   "buy": true,
+   "sol_out": 0.501532765,
+   "bundle_id": null,
+   "leader": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm"
+  },
+  {
+   "sig": "7oaDSU9haL3rPg8S6GSv9e1fxtLSFGYUP7HKKHdD5ovQQA6ohv1Fek4VGsGLXyR7YKVA7nbZdzuzePt4XUQbTtu",
+   "slot": 454913276,
+   "blockTime": 1791560627,
+   "buy": true,
+   "sol_out": 0.90187241,
+   "bundle_id": null,
+   "leader": "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW"
+  },
+  {
+   "sig": "5K9eGFqdYX5hU5vjZeP679Q8UrWGg4MFckw65Fm1aPs2oMRZkpbG4wjtQRcwp1CK9mKurY3XqMXCqwgUwxw1Zgzd",
+   "slot": 454913141,
+   "blockTime": 1791560598,
+   "buy": true,
+   "sol_out": 0.853165032,
+   "bundle_id": null,
+   "leader": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH"
+  },
+  {
+   "sig": "VLgvb1LNvqcNyRE22ajeKya7YKTzyXLui2HpEXHUJGPAYgfc5VhbvEjoA62tSnMfkRZ6cK5qtftmJgPeSqam8dr",
+   "slot": 454912146,
+   "blockTime": 1791560379,
+   "buy": true,
+   "sol_out": 0.90382398,
+   "bundle_id": "c06ca865be250a7471d5ad655183cca009774534ca51029433c9a77359542554",
+   "validator": "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY",
+   "bundle_txs": [
+    "37WbXKdLBz1Y4Gojbrin3ZM2xhJC6Jv6qYYLemESArwMWwQqburigW7KxBoSZEZ5WrTcC9mbWD8WKsfxGcWhVjkV",
+    "VLgvb1LNvqcNyRE22ajeKya7YKTzyXLui2HpEXHUJGPAYgfc5VhbvEjoA62tSnMfkRZ6cK5qtftmJgPeSqam8dr"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY"
+  },
+  {
+   "sig": "21BBfM4HPdiQ93fRaDu3XbUDJnu5oqe9WmCEv4mchEK4fB6PsCnTHLFS2ovB7EAav24yg1cdQf44PXs9CpgUW39Q",
+   "slot": 454911166,
+   "blockTime": 1791560164,
+   "buy": true,
+   "sol_out": 2.707197422,
+   "bundle_id": "b528ec51ba702f9433ed4dcfd987a1f6127da2dcbe46b50852bc08383cfb90a3",
+   "validator": "HM19KBHDJy93DYEJv4iFayMmCbJ1QVAk2EDG6XDgmnJS",
+   "bundle_txs": [
+    "5GvGVyLjxCH9nTLXpNyBvWbHUsrarguhfG1piMqfFWYG7opyPRgrfUJX88KYHrtQNhubBLL9KXyCRD4ogzPReYDj",
+    "21BBfM4HPdiQ93fRaDu3XbUDJnu5oqe9WmCEv4mchEK4fB6PsCnTHLFS2ovB7EAav24yg1cdQf44PXs9CpgUW39Q"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "HM19KBHDJy93DYEJv4iFayMmCbJ1QVAk2EDG6XDgmnJS"
+  },
+  {
+   "sig": "5wrVA7gTNk77imoeAv46zTQ4wzBi98SPSSiiRGfFpevcFvuiQS124bBor5SXbMY5eJ7XCuw8p7NidhbLPDgGMVxk",
+   "slot": 454910725,
+   "blockTime": 1791560069,
+   "buy": true,
+   "sol_out": 0.901875708,
+   "bundle_id": null,
+   "leader": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk"
+  },
+  {
+   "sig": "4qsaApnWLW12dDLhBHuPMVUYDPrnV36tSNBrb9vxPfH6ozxDg5T4to2aGxiJBLiAqvdPqxukCzaX5gxmybA3zVJS",
+   "slot": 454910380,
+   "blockTime": 1791559994,
+   "buy": true,
+   "sol_out": 0.502206679,
+   "bundle_id": null,
+   "leader": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi"
+  },
+  {
+   "sig": "u9B5eKoocTdgiNyR8VofC2hgYQ1H6zzNttdeoUhZo666GUeuNEbmR5nz1vtu4xmK4TUx2fK3ZA1Ej1nKNrJprg3",
+   "slot": 454909859,
+   "blockTime": 1791559879,
+   "buy": true,
+   "sol_out": 1.00266775,
+   "bundle_id": null,
+   "leader": "EN5F2BU5juUEWr9zRNNqKuQMi9zBUY1YLPHV5EyMrvnW"
+  },
+  {
+   "sig": "2e2StQATMscM3Kwrjfxf7aQNXW1caeVNSNd1AL5Ljt1gZpkgj1odypQPr3JtmtSGfmBmZ5mrB4LT8KkGGMS49836",
+   "slot": 454909732,
+   "blockTime": 1791559851,
+   "buy": true,
+   "sol_out": 0.251876507,
+   "bundle_id": null,
+   "leader": "chrtyETASKQhsndRM9pr6qC3gAHG5MuRwCgXSNVqnJL"
+  },
+  {
+   "sig": "3ecKJKebmGHaK11srrcpL77m2FyQgU4GBDE4WJ47dqk6ggi4Lay1DxaHCAN28MbuLBVEgXqbBY84wM9kQWNbpTcM",
+   "slot": 454909327,
+   "blockTime": 1791559763,
+   "buy": true,
+   "sol_out": 0.251876658,
+   "bundle_id": null,
+   "leader": "97jbhVBYcSmwGXjrx5PPWXucDsVBqwyoQ6rzP3B6eeMt"
+  },
+  {
+   "sig": "2XNEp8jDwo9t88xELrbfByk4JSTJs9gFwjqL9VcyVHUYCSxiCAYEWE1NKC8yDusA1eogDvAJeD741DsRytb5ctU4",
+   "slot": 454908285,
+   "blockTime": 1791559535,
+   "buy": true,
+   "sol_out": 0.943014121,
+   "bundle_id": null,
+   "leader": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b"
+  },
+  {
+   "sig": "35xrApD326YzQt2WCLizJjzom9XYGn19ePZracvMcMKVQ5q1LRVy4Ur4sMGAvqdvSY7ga8GbBmQM4CcE7yVxhYeM",
+   "slot": 454908167,
+   "blockTime": 1791559509,
+   "buy": true,
+   "sol_out": 1.502301719,
+   "bundle_id": null,
+   "leader": "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS"
+  },
+  {
+   "sig": "23Ainx8z9BCvmeonmb1H7sTvktyksMbahxsNe8epiPfFEmaLttEeD3VpbHbWzdZp8H24hXusM43uYi1wfL86QBGs",
+   "slot": 454908042,
+   "blockTime": 1791559482,
+   "buy": true,
+   "sol_out": 2.5582293,
+   "bundle_id": "b704a21928c7dcc10b569bb943712c640bc8c007e92359937418e56697eebbfa",
+   "validator": "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k",
+   "bundle_txs": [
+    "3a5Yp8rpyUPnAU2yaDTchxppcPuZeNUWimT3GGrz7Gb38MFLcrYKAWqk6gCigL5i1icCQeGvZ2RpKBT4NB25JgEH",
+    "23Ainx8z9BCvmeonmb1H7sTvktyksMbahxsNe8epiPfFEmaLttEeD3VpbHbWzdZp8H24hXusM43uYi1wfL86QBGs"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k"
+  },
+  {
+   "sig": "yBvdhNiWrX1AZcBXgvumRceGTasLmwMLNajv2aBE9SSG92iknK73VPtLfYybEC2KwTAMconza9QD88You3qaaJc",
+   "slot": 454907988,
+   "blockTime": 1791559471,
+   "buy": true,
+   "sol_out": 2.584607688,
+   "bundle_id": "3b80235668d6bdf899d0024ec36a0a3736e648b5dce5298ace7b035189963e92",
+   "validator": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
+   "bundle_txs": [
+    "415XQD2bvBwt2nqKWHUdEetoFkAiJ1iV7RDivSeLv6Njk5hqo9XH7wkCj5BCBaRmxcdRKT5JTyTN4Gcp1gLps3s5",
+    "yBvdhNiWrX1AZcBXgvumRceGTasLmwMLNajv2aBE9SSG92iknK73VPtLfYybEC2KwTAMconza9QD88You3qaaJc"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH"
+  },
+  {
+   "sig": "2N3bcC1rFCeDJHGqKYMBYL9EKDqYynYXemMVPCV8psagh7WWmfAdngQA9XPzZ8sdy4C44zZ25z84eNkEhhpgQWxT",
+   "slot": 454907944,
+   "blockTime": 1791559462,
+   "buy": true,
+   "sol_out": 0.943177574,
+   "bundle_id": null,
+   "leader": "FNKgX9dYUhYQFRTM9bkeKoRpsyEtZGNMxbdQLDzfqB8a"
+  },
+  {
+   "sig": "48M4EmSQNTRNFqx17FLgYGaUaDRdPySWTrLdXymWGQSa4pof1Er1KkFMKV6zj5fn7wKumwFUUC4V4eKyJHVgrzgL",
+   "slot": 454907858,
+   "blockTime": 1791559443,
+   "buy": true,
+   "sol_out": 3.135267927,
+   "bundle_id": "e9c365cb4d6ea5784270552a192d97f55b2b1c89326239f943eddca4ff1a14d5",
+   "validator": "CTwsruptUccEtZGNxBDbuusHYxkBX3P6ndrxVjSG213y",
+   "bundle_txs": [
+    "2kbKiHBfWyyT1VZnY5PCJNgo9KB1MuSdiabEp68K728ENhfqL1eYVGiVFH7vYBQJyNKKY5vsAAQhe4fd8XihwScC",
+    "48M4EmSQNTRNFqx17FLgYGaUaDRdPySWTrLdXymWGQSa4pof1Er1KkFMKV6zj5fn7wKumwFUUC4V4eKyJHVgrzgL"
+   ],
+   "tip": 0.0019516,
+   "position": 1,
+   "leader": "CTwsruptUccEtZGNxBDbuusHYxkBX3P6ndrxVjSG213y"
+  },
+  {
+   "sig": "3HSko8WEJ8XBgXDEAAEK78866pGbjSDi2ELai6bNi7aths6XygN9iAtqMy6LW1tHJxifzczs7fgKwY5pxTgoEne8",
+   "slot": 454907791,
+   "blockTime": 1791559429,
+   "buy": true,
+   "sol_out": 0.253119283,
+   "bundle_id": null,
+   "leader": "anza1rXDVhy1NfVNtsbT3kSBh2jgB1BGZUKuUibSAJd"
+  }
+ ],
+ "stake_total": 437867726506137430,
+ "stake": {
+  "9rkJMARqK6VBkcxGfKBAwnA44gPAfGxPbPsfsggFNDSQ": 4707306245668095,
+  "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL": 1354380517415951,
+  "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i": 3750526707580819,
+  "Ex1AxFCipXGfSxgvXPPT3nPQUARddCduHwKR6jHiXAaT": 892901332441175,
+  "AWcCdYG7Dy6GX45c6QMPbgGwgRZPKcBDT4bXGb3QrVRV": 2013800997122051,
+  "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz": 2815113664925031,
+  "BhNnboEZb3mKkVADMH11cYGWCqefAfmhzx5rU4eRTKGY": 104499266743150,
+  "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f": 4121947246074322,
+  "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm": 5955842206981178,
+  "HM19KBHDJy93DYEJv4iFayMmCbJ1QVAk2EDG6XDgmnJS": 646768033449953,
+  "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5": 3946763102657362,
+  "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9": 1239810916305524,
+  "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL": 11178786736984123,
+  "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk": 17788627202885505,
+  "87CcUxpyR72ZyfaZirj86mqkbk5uuU2EfnwTegVMLJL5": 3851021659809348,
+  "CTwsruptUccEtZGNxBDbuusHYxkBX3P6ndrxVjSG213y": 137056770319673,
+  "97jbhVBYcSmwGXjrx5PPWXucDsVBqwyoQ6rzP3B6eeMt": 197883848958932,
+  "2DTXh3ruMU2SeWanqr4yeg5GR47V99Jq3wUdStQfda3V": 1005995710239808,
+  "CW9C7HBwAMgqNdXkNgFg9Ujr3edR2Ab9ymEuQnVacd1A": 1586315862921537,
+  "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM": 6406987835603817,
+  "BSVckjdW2f8kcXPGcrPPtV9kUDBZ8w8PjrrGVnxgEdwq": 2502391141874190,
+  "A1vqhA2fS6K7CvHsJKX1ACcHJFEmyRg4KuR5pctHANy4": 3930881438558421,
+  "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj": 3650140052856762,
+  "PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb": 1002656084520983,
+  "6TkKqq15wXjqEjNg9zqTKADwuVATR9dW3rkNnsYme1ea": 1329564653566789,
+  "6xWLi1TDSh65fWsSqE1zdvANTSuVDRMx4ghsGJwgunS8": 1179013179867597,
+  "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7": 1490495558699739,
+  "CoG8d9Fp2TFJRkAmrPMiPsGhQWHzdTTVoegEp9svRgmJ": 2183515499080046,
+  "AMukCLCr52XxsEjXoDxKKxjNg4FpnsReXNaQx8aR6DJF": 1425370944741812,
+  "EXckihF3qmguH5znjhfzLvHsbk2E3nEW2DqNh4MMnDMm": 1249226547527712,
+  "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA": 3004907982687297,
+  "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB": 6692115383183334,
+  "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk": 4014801299448938,
+  "CMPSSdrTnRQBiBGTyFpdCc3VMNuLWYWaSkE8Zh5z6gbd": 1406676902807244,
+  "GQzMeEMwAR44ugoNCifTb5NdRKos1GduDUPeNh6AgV46": 2502395555572177,
+  "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX": 308188434009372,
+  "mint13XHZSSxtgHuTSM9qPDEJSbWktpmpM4CZxeLB8f": 335780489758771,
+  "3iSQtPgkZBqKVK1CNxcxZoKggAkWiDrE22cXeT38bKsE": 799530359814174,
+  "anza1rXDVhy1NfVNtsbT3kSBh2jgB1BGZUKuUibSAJd": 550565189453039,
+  "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo": 1777074155185644,
+  "GoeW4aFK4dGoekJySgUynWDxBZiQJqm8GDAF4H53tDK9": 2685783366686776,
+  "AqyRvpjjSN6jWYPxijoJwhmKwJFk6fRYDh9fQZHcJ2o7": 26922976666,
+  "G9vCpJUUSpEm4zPwzSNpDmZ8MGwLEbiSLV59EBzCGvzM": 532207613601287,
+  "HaLanfo94ezLc3JZ55qqxr7W3qbe1PprJyv2uEtriEqN": 1136805281204245,
+  "7qGNnXKW1e3DsqEaSxwxMdBTFsrK73XtWTmkGitRyMQc": 2237437576606442,
+  "HH5dA42XF1HxNk1TRpG6LuKfLViMYNdAz5iWrFM4hWFi": 850346597724623,
+  "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ": 1231838790872907,
+  "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4": 7589921711188629,
+  "HnfPZDrbJFooiP9vvgWrjx3baXVNAZCgisT58gyMCgML": 2182665921629860,
+  "2dxz129YxB1xtf7Mx6HUT5JspexArNNtQt84FYueWZV7": 82751539711897,
+  "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU": 15954194788751115,
+  "6ptuwW4rg5A3wP9hNKxeymG3QhSagugPd3grnMTGJwWG": 2140524226937722,
+  "FNKgX9dYUhYQFRTM9bkeKoRpsyEtZGNMxbdQLDzfqB8a": 3546850858772358,
+  "GnC339vkyXRm1jRX69dt9mapPPu2LbzXfSDoxc91qta6": 4853580990593167,
+  "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH": 187851506440397,
+  "22rU5yUmdVThrkoPieVNphqEyAtMQKmZxjwcD8v4bJDU": 2322629005990086,
+  "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b": 10972769537427382,
+  "EN5F2BU5juUEWr9zRNNqKuQMi9zBUY1YLPHV5EyMrvnW": 113822801387559,
+  "BeSovDCzhEAfgwDyXBuhmCFKsu5WQ3PaX61GEfteNzXM": 226171648018032,
+  "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY": 2492397130397330,
+  "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4": 9315835374593561,
+  "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS": 117110047274819,
+  "9iFPQbP1jGkj67sXg6YLLGRUBVEDMcapdS6jmCZSnz8R": 395315482327736,
+  "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW": 1394035069386302,
+  "8uJiHDJ1b7UDQ4KFsQGJXK9nUCkokdKRJymg1Wy9nxvM": 1000075132402252,
+  "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM": 812428452739554,
+  "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH": 4044767272611166,
+  "HpcB5Qg8Y9E73dUkot5e8HkgAJbExsYeUzniY4bCuKac": 2500000937382560,
+  "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW": 2613747660793643,
+  "CVRr5oHCAAooVbYze7CvXtRp4FUtkMCSqBZU7MVu8v8e": 174221582520981,
+  "A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2": 383581189864783,
+  "CQdLgwkmmHF8DE6t4sguXMTXWDxq3oLh3xfekDTmow12": 1837221392200296,
+  "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy": 12299759249928702,
+  "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k": 9251552150850325,
+  "GEM1N1UE3C8BB8EaaEPrcFvT3iLMVrurknjW5AYjUReR": 764626340916904,
+  "chrtyETASKQhsndRM9pr6qC3gAHG5MuRwCgXSNVqnJL": 115283116556278,
+  "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi": 4041786216901120
+ }
+}

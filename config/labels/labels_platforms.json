@@ -1,0 +1,103 @@
+{
+ "programs": {
+  "FLASHX8DrLbgeR8FcfNV1F5krxYcYMUdBkrP1EPBtxB9": "Axiom",
+  "BSfD6SHZigAfDWSjzD5Q41jw8LmKwtmjskPH9XW1mrRW": "Photon",
+  "GMgnVFR8Jb39LoXsEVzb3DvBy3ywCmdmJquHUy1Lrkqb": "GMGN",
+  "GMGNreQcJFufBiCTLDBgKhYEfEe9B454UjpDr5CaSLA1": "GMGN",
+  "MaestroAAe9ge5HTc64VbBQZ6fP77pwvrhM8i1XWSAx": "Maestro",
+  "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4": "Jupiter aggregator"
+ },
+ "program_prefixes": {
+  "troy": "Trojan",
+  "BANANA": "Banana Gun",
+  "term": "Terminal (pump.fun)",
+  "GMgn": "GMGN"
+ },
+ "fee_wallets": {
+  "7LCZckF6XXGQ1hDY6HFXBKWAtiUgL9QY5vj1C4Bn1Qjj": "Axiom",
+  "4V65jvcDG9DSQioUVqVPiUcUY9v6sb6HKtMnsxSKEz5S": "Axiom",
+  "CeA3sPZfWWToFEBmw5n1Y93tnV66Vmp8LacLzsVprgxZ": "Axiom",
+  "AaG6of1gbj1pbDumvbSiTuJhRCRkkUNaWVxijSbWvTJW": "Axiom",
+  "7oi1L8U9MRu5zDz5syFahsiLUric47LzvJBQX6r827ws": "Axiom",
+  "9kPrgLggBJ69tx1czYAbp7fezuUmL337BsqQTKETUEhP": "Axiom",
+  "DKyUs1xXMDy8Z11zNsLnUg3dy9HZf6hYZidB6WodcaGy": "Axiom",
+  "4FobGn5ZWYquoJkxMzh2VUAWvV36xMgxQ3M7uG1pGGhd": "Axiom",
+  "76sxKrPtgoJHDJvxwFHqb3cAXWfRHFLe3VpKcLCAHSEf": "Axiom",
+  "H2cDR3EkJjtTKDQKk8SJS48du9mhsdzQhy8xJx5UMqQK": "Axiom",
+  "8m5GkL7nVy95G4YVUbs79z873oVKqg2afgKRmqxsiiRm": "Axiom",
+  "4kuG6NsAFJNwqEkac8GFDMMheCGKUPEbaRVHHyFHSwWz": "Axiom",
+  "8vFGAKdwpn4hk7kc1cBgfWZzpyW3MEMDATDzVZhddeQb": "Axiom",
+  "86Vh4XGLW2b6nvWbRyDs4ScgMXbuvRCHT7WbUT3RFxKG": "Axiom",
+  "DZfEurFKFtSbdWZsKSDTqpqsQgvXxmESpvRtXkAdgLwM": "Axiom",
+  "5L2QKqDn5ukJSWGyqR4RPvFvwnBabKWqAqMzH4heaQNB": "Axiom",
+  "DYVeNgXGLAhZdeLMMYnCw1nPnMxkBN7fJnNpHmizTrrF": "Axiom",
+  "Hbj6XdxX6eV4nfbYTseysibp4zZJtVRRPn2J3BhGRuK9": "Axiom",
+  "846ah7iBSu9ApuCyEhA5xpnjHHX7d4QJKetWLbwzmJZ8": "Axiom",
+  "5BqYhuD4q1YD3DMAYkc1FeTu9vqQVYYdfBAmkZjamyZg": "Axiom",
+  "AVUCZyuT35YSuj4RH7fwiyPu82Djn2Hfg7y2ND2XcnZH": "Photon",
+  "9yMwSPk9mrXSN7yDHUuZurAh1sjbJsfpUqjZ7SvVtdco": "Trojan",
+  "92Med3qeK7duC5iiYsHX38H2f2twJfRsSx93oNrza2VH": "Trojan Terminal",
+  "2jwHNxavSoMZMEDbT1eV9PcPt5dDcayCqM6MkgaPpmWQ": "Trojan Terminal",
+  "65gDv7pZQCZELsNpNYSFEBtNFpWZAbxmRFB6BGMqFkHH": "Trojan Terminal",
+  "BWgb8wR1FEGiu1jCDSKuHKf752W27b4iN6SvoNCiK4qp": "Trojan Terminal",
+  "8jgg7moFJkHyTtAv9M6RBSPMp2oXeXhuiUMKW8YbYCWn": "Trojan Terminal",
+  "3Tu1Y9aNveLFN4WTAwnAwXL6tbUp5MMe3RxyybG4jTAS": "Axiom",
+  "3PvqoztjnRxaAiFmLuEfqZkU4GSbjUareks8S2xCZaTa": "Axiom",
+  "HkJYryz2BNeMQfuuSWDYktWt5fZLV26eK6nqu7EJycoG": "Axiom",
+  "ECDrSz47nXihe5kyK4oWEePPsPi9qz6u5d6Fa2sDj3uM": "Axiom",
+  "2ApLdwLrGayEmxgpLX9BTR47Q2QprfMg5SpjrLeaK8s7": "Axiom",
+  "5vPNE6VFyXmCmzmWotdxmRk57LEWiXxuAfZL3hKbi2LH": "Axiom",
+  "EqGzowSp6cKAsMSRyyrFTaBxnZEVeNY81LC18YFy8Cx9": "Axiom",
+  "uxtoRPdPjRekYmxs1uUqVRZWh38iqonc9KgPuZXPeSY": "Uxento",
+  "HR6xhpJYYiTvmAtUZvpLMN7qbr6TxCw1Sgq3fab8vCoa": "BasedBot",
+  "HeZVpHj9jLwTVtMMbzQRf6mLtFPkWNSg11o68qrbUBa3": "GMGN",
+  "3t9EKmRiAUcQUYzTZpNojzeGP1KBAVEEbDNmy6wECQpK": "GMGN",
+  "7HeD6sLLqAnKVRuSfc1Ko3BSPMNKWgGTiWLKXJF31vKM": "Bloom",
+  "DymeoWc5WLNiQBaoLuxrxDnDRvLgGZ1QGsEoCAM7Jsrx": "GMGN",
+  "BJgbYMZgqm79gNrmm31tV3L8GQorw91XFm4m7evyfPjr": "Trojan",
+  "F34kcgMgCF7mYWkwLN3WN7KrFprr2NbwxuLvXx4fbztj": "Sol Trading Bot",
+  "devAAvkxwyogNgy4z7R3n1ADUvJkmzy4qszDF6UiAcM": "j7tracker",
+  "6TxjC5wJzuuZgTtnTMipwwULEbMPx5JPW3QwWkdTGnrn": "GMGN",
+  "DXfkEGoo6WFsdL7x6gLZ7r6Hw2S6HrtrAQVPWYx2A1s9": "GMGN",
+  "66N1M2aaDSdJFZ1d7YoVN4EU45ju6XiscapLVHn5FLms": "Trojan",
+  "GV4Bt6ehW5x5dqtaWAJBSnz8uum5Z2Rp9P2Tr5iVuQn5": "Trojan",
+  "dBhdrmwBkRa66XxBuAK4WZeZnsZ6bHeHCCLXa3a8bTJ": "GMGN",
+  "MaestroUL88UBnZr3wfoN7hqmNWFi3ZYCGqZoJJHE36": "Maestro",
+  "rapidXMVLw5uBieKHDGvF9k4xSSDXyD2FC5wLTAajaJ": "Rapid Launch",
+  "7sHXjs1j7sDJGVSMSPjD1b4v3FD6uRSvRWfhRdfv5BiA": "GMGN",
+  "9RYJ3qr5eU5xAooqVcbmdeusjcViL5Nkiq7Gske3tiKq": "BullX",
+  "AVahywMVNRYzdgWrufSWrtdGXAeNEvfpJFxhVFK516mT": "Dexscreener",
+  "BB5dnY55FXS1e1NXqZDwCzgdYJdMCj3B92PU6Q5Fb6DT": "GMGN",
+  "ZG98FUCjb8mJ824Gbs6RsgVmr1FhXb2oNiJHa2dwmPd": "Bonkbot"
+ },
+ "fee_wallet_prefix_suffix": [
+  [
+   "BfFX9r",
+   "CKJike",
+   "Axiom"
+  ],
+  [
+   "ByRRgn",
+   "pGBxRy",
+   "GMGN"
+  ],
+  [
+   "J5XGHm",
+   "XPvFB5",
+   "Terminal (pump.fun)"
+  ],
+  [
+   "9yj3zv",
+   "t7djXf",
+   "Phantom"
+  ],
+  [
+   "8ckLnP",
+   "mFfigk",
+   "OKX router"
+  ]
+ ],
+ "tip_prefixes": {
+  "axm": "Axiom private tip (Nozomi)"
+ }
+}

@@ -1,0 +1,23 @@
+---
+description: Context carried over from the earlier research chat on the six pump.fun backrun wallet pairs
+alwaysApply: true
+---
+
+# Project context
+
+This project continues an earlier Cursor chat that researched Solana pump.fun copy/backrun bots (six buyer/seller wallet pairs) in order to build a similar bot.
+
+Before answering a question about the bots, wallets, results or scripts:
+
+1. Read `CONTEXT.md` for the summary: wallet pairs, Oct 8 results, Lighthouse findings, order-flow conclusion, script map.
+2. For details not in the summary (exact earlier answers, tx signatures, reasoning), search `chat_context/previous_chat.jsonl` with Grep for keywords and read only the matching lines. It is one JSON event per line; do not read it end to end.
+
+Conventions:
+
+- Layout: `sno/` library, `scripts/{pipeline,pnl,probes,tools}/` entrypoints, `config/` inputs, `results/` outputs (gitignored).
+- RPC: set `SNO_RPC_URL` (or `HELIUS_RPC_URL` / `HELIUS_API_KEY`). Helpers live in `sno/analyze.py` (`rpc`, `get_tx`, `summarize`).
+- Paths: use `sno.paths` (`RESULTS`, `WALLETS`, `LABELS`, `SOURCES`). Run scripts from repo root, e.g. `python scripts/pnl/wallet_profit.py`.
+- Fetch transactions with `maxSupportedTransactionVersion: 1`.
+- On Windows PowerShell, write scripts to files instead of long `python -c` one-liners (quoting breaks).
+- Update `CONTEXT.md` when a new finding changes the conclusions.
+- Chat details: `chat_context/previous_chat.jsonl` (often gitignored if large).
